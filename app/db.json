@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "location": "solar",
+      "location": "sacral",
       "name":"s1",
       "question": "你經常隱藏自己的情緒，不願意表露出來?",
       "options": [
@@ -98,7 +98,7 @@
     },
     {
       "id": 9,
-      "location": "solar",
+      "location": "sacral",
       "name":"s2",
       "question": "你對於兩性關係和肉體慾望都感覺很自然?",
       "options": [
@@ -182,7 +182,7 @@
     },
     {
       "id": 16,
-      "location": "solar",
+      "location": "sacral",
       "name":"s3",
       "question": "真正好朋友升職加薪，你內心感覺是?",
       "options": [
@@ -266,7 +266,7 @@
     },
     {
       "id": 23,
-      "location": "solar",
+      "location": "sacral",
       "name":"s4",
       "question": "你是一個情緒化和熱情的人?",
       "options": [
@@ -350,7 +350,7 @@
     },
     {
       "id": 30,
-      "location": "solar",
+      "location": "sacral",
       "name":"s5",
       "question": "你每晚睡覺時需要起夜多少次?",
       "options": [
@@ -434,7 +434,7 @@
     },
     {
       "id": 37,
-      "location": "solar",
+      "location": "sacral",
       "name":"s6",
       "question": "你是否極力想避免與人發生衝突?",
       "options": [
@@ -518,7 +518,7 @@
     },
     {
       "id": 44,
-      "location": "solar",
+      "location": "sacral",
       "name":"s7",
       "question": "你對於自己的本能衝動感到羞恥?",
       "options": [
@@ -782,7 +782,7 @@
       "test_result": {
         "root": 9,
         "sacral": 24,
-        "solar": 25,
+        "plexus": 25,
         "heart": 20,
         "throat": 14,
         "eye": 28,
