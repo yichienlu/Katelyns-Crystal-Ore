@@ -1,0 +1,109 @@
+---
+title: 訂製
+layout: ./app/layout.ejs
+engine: ejs
+current: design
+---
+
+            
+<section class="px-3 py-10 lg:py-20">
+  <div class="container mx-auto lg:flex p-4 bg-neutral-200">
+    
+<!--     filter -->
+    <div class="bg-white p-3">
+      <select name="" id="" class="lg:hidden">
+        <option value="">全部</option>
+        <option value="">頂輪</option>
+        <option value="">眉心輪</option>
+        <option value="">喉輪</option>
+        <option value="">心輪</option>
+        <option value="">臍輪</option>
+        <option value="">腹輪</option>
+        <option value="">海底輪</option>
+        <option value="">隔珠</option>
+      </select>
+      
+      <ul class="hidden lg:block">
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">全部</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">頂輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">眉心輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">喉輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">心輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">臍輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">腹輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">海底輪</a></li>
+        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">隔珠</a></li>
+      </ul>
+      
+    </div>
+    
+<!--     buttons -->
+    <div class="ore-list bg-white mr-3">
+      <ul class="beads-list h-full overflow-y-auto overflow-x-scroll lg:overflow-y-scroll lg:overflow-x-auto flex lg:block p-2">
+        <li class="h-32 flex p-3 flex rounded border-2 shadow bg-red-200">
+          <div class="flex flex-col w-full">
+            <h3 class="text-bold text-lg">粉晶</h3>
+            <p>愛情、人際</p>
+            <div class="flex mt-auto">
+              <button type="button" class="px-2 py-1 rounded mr-1 btn-primary bg-slate-700 text-sm" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6,30)">6mm</button>
+              <button type="button" class="px-2 py-1 rounded mr-1 btn-primary bg-slate-700 text-sm" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8,40)">8mm</button>
+            </div>            
+          </div>
+<!--           <div class="w-40 bg-red-200 bg-cover bg-center"></div> -->
+        </li>
+        <li class="h-32 flex p-3 flex">
+          <div class="flex flex-col">
+            <h3>粉晶</h3>
+            <p>愛情、人際</p>
+            <div class="flex mt-auto">
+              <button type="button" class="p-2" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6, 30)">6mm</button>
+              <button type="button" class="p-2" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8, 40)">8mm</button>
+            </div>            
+          </div>
+          <div class="w-40 ">
+            image
+          </div>
+        </li>
+        <li class="h-32 flex p-3 flex">
+          <div class="flex flex-col">
+            <h3>粉晶</h3>
+            <p>愛情、人際</p>
+            <div class="flex mt-auto">
+              <button type="button" class="p-2" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6,30)">6mm</button>
+              <button type="button" class="p-2" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8,40)">8mm</button>
+            </div>            
+          </div>
+          <div class="w-40 ">
+            image
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+     <div class="relative grow ">
+<!--     canvas -->
+    <div class=" bg-neutral-50 relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
+      <div class="totalLength absolute top-3 left-3 text-2xl"></div>  
+      <a href="#" ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 hover:text-red-700 border-4 border-red-900 rounded-lg">
+        <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3" id="trash"></iconify-icon>
+      </a>
+      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover:text-white hover:bg-slate-700 active:bg-slate-700 active:border-slate-400 border-4 border-slate-700 rounded-lg">
+        <iconify-icon icon="ci:undo" width="24" height="24" class="p-3"></iconify-icon>
+      </button>
+
+      <ul class="list"></ul>
+      
+      <div class="currentBead"></div>
+      
+
+      
+
+    </div>
+    <div class="flex items-center mt-3">
+      <button onclick="deleteDesign()" class="btn-primary">清除設計</button>
+      <p class="totalPrice ml-auto mr-8 text-2xl"></p>
+      <button onclick="finishDesign()" class="btn-primary">送出設計</button>
+    </div>
+    </div>
+  </div>
+</section>
