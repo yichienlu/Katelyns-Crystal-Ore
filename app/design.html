@@ -38,26 +38,27 @@ current: design
     </div>
     
 <!--     buttons -->
-    <div class="ore-list bg-white mr-3">
+    <div class="ore-list bg-white w-full lg:w-1/3 mr-3 ">
       <ul class="beads-list h-full overflow-y-auto overflow-x-scroll lg:overflow-y-scroll lg:overflow-x-auto flex lg:block p-2">
-        <li class="h-32 flex p-3 flex rounded border-2 shadow bg-red-200">
+        <li class=" flex p-3 flex rounded border-2 shadow bg-neutral-50 ">
           <div class="flex flex-col w-full">
-            <h3 class="text-bold text-lg">粉晶</h3>
-            <p>愛情、人際</p>
-            <div class="flex mt-auto">
-              <button type="button" class="px-2 py-1 rounded mr-1 btn-primary bg-slate-700 text-sm" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6,30)">6mm</button>
-              <button type="button" class="px-2 py-1 rounded mr-1 btn-primary bg-slate-700 text-sm" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8,40)">8mm</button>
+            <h3 class="font-bold text-lg">粉晶</h3>
+            <p>增進人緣、招桃花、舒緩情緒增進人緣、招桃花、舒緩情緒</p>
+            <div class="flex mt-1">
+              <button type="button" class="px-2 py-1 rounded border-2 border-slate-700 mr-1 hover:text-white hover:bg-slate-700 text-sm" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
+              <button type="button" class="px-2 py-1 rounded mr-1 text-white bg-slate-700 text-sm" data-size="8" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>8mm</button>
             </div>            
           </div>
-<!--           <div class="w-40 bg-red-200 bg-cover bg-center"></div> -->
+          <div class="w-40 ml-1 bg-[url('/assets/images/crystals/粉晶.jpg')] bg-cover bg-center"></div>
         </li>
-        <li class="h-32 flex p-3 flex">
+        <li class="flex p-3 flex rounded border-2 shadow bg-neutral-50">
           <div class="flex flex-col">
             <h3>粉晶</h3>
             <p>愛情、人際</p>
             <div class="flex mt-auto">
-              <button type="button" class="p-2" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6, 30)">6mm</button>
-              <button type="button" class="p-2" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8, 40)">8mm</button>
+              <button type="button" class="p-2" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
+              <button type="button" class="p-2" data-size="8" onclick='addBeed(`粉晶`, `url("/assets/images/crystals/_紅紋石.png")`, 6, 30)'>8mm</button>
+              <!-- <img src="./assets/images/crystals/_紅紋石.png" alt=""> -->
             </div>            
           </div>
           <div class="w-40 ">
@@ -69,8 +70,8 @@ current: design
             <h3>粉晶</h3>
             <p>愛情、人際</p>
             <div class="flex mt-auto">
-              <button type="button" class="p-2" data-size="6" onclick="addBeed('粉晶', '#FAA8', 6,30)">6mm</button>
-              <button type="button" class="p-2" data-size="8" onclick="addBeed('粉晶', '#FAA9', 8,40)">8mm</button>
+              <button type="button" class="p-2" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
+              <button type="button" class="p-2" data-size="8" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>8mm</button>
             </div>            
           </div>
           <div class="w-40 ">
@@ -84,10 +85,10 @@ current: design
 <!--     canvas -->
     <div class=" bg-neutral-50 relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
       <div class="totalLength absolute top-3 left-3 text-2xl"></div>  
-      <a href="#" ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 hover:text-red-700 border-4 border-red-900 rounded-lg">
+      <button  ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
         <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3" id="trash"></iconify-icon>
-      </a>
-      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover:text-white hover:bg-slate-700 active:bg-slate-700 active:border-slate-400 border-4 border-slate-700 rounded-lg">
+      </button>
+      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover:text-white hover:bg-slate-700 active:bg-slate-700 active:bg-slate-400 border-4 border-slate-700 rounded-lg">
         <iconify-icon icon="ci:undo" width="24" height="24" class="p-3"></iconify-icon>
       </button>
 

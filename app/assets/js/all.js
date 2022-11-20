@@ -219,7 +219,7 @@ let beeds = [
   },
   {
     name: '粉晶',
-    color: 'url("https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png")',
+    color: 'url("/assets/images/crystals/_紅紋石.png")',
     size: 10,
     price: 50,
   },
