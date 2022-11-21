@@ -163,3 +163,91 @@ current: test
         </div>
 
       </section>
+      <script>
+        
+        // test
+
+
+// 計算結果
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.needs-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('testSubmit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+const inputs = document.querySelectorAll("input");
+let crown = 0;
+let eye = 0;
+let throat = 0;
+let heart = 0;
+let plexus = 0;
+let sacral = 0;
+let root = 0;
+
+function getScores() {
+    inputs.forEach(function(item){
+        if(item.checked){
+            switch (item.name.substring(0,1)) {
+                case "c": crown += parseInt(item.value); break;
+                case "e": eye += parseInt(item.value); break;
+                case "t": throat += parseInt(item.value); break;
+                case "h": heart += parseInt(item.value); break;
+                case "p": plexus += parseInt(item.value); break;
+                case "s": sacral += parseInt(item.value); break;
+                case "r": root += parseInt(item.value); break;	                    
+            }
+        }
+    })
+}
+
+function showScores() {
+    document.querySelector("#c-score").innerHTML = crown;
+    document.querySelector("#e-score").innerHTML = eye;
+    document.querySelector("#t-score").innerHTML = throat;
+    document.querySelector("#h-score").innerHTML = heart;
+    document.querySelector("#p-score").innerHTML = plexus;
+    document.querySelector("#s-score").innerHTML = sacral;
+    document.querySelector("#r-score").innerHTML = root;        
+    document.querySelector("#results").classList.remove("hidden");
+}
+
+function createCharts() {
+	let total = 28;
+	document.querySelector("#c-chart").style.width = (crown / total * 100) + "%";
+	document.querySelector("#e-chart").style.width = (eye / total * 100) + "%";
+	document.querySelector("#t-chart").style.width = (throat / total * 100) + "%";
+	document.querySelector("#h-chart").style.width = (heart / total * 100) + "%";
+	document.querySelector("#p-chart").style.width = (plexus / total * 100) + "%";
+	document.querySelector("#s-chart").style.width = (sacral / total * 100) + "%";
+	document.querySelector("#r-chart").style.width = (root / total * 100) + "%";
+}
+document.querySelector("#testReset").onclick = function(e) { 
+  e.preventDefault();
+    crown = eye = throat = heart = plexus = sacral = root = 0;
+	showScores();
+    createCharts();
+    Array.prototype.forEach.call(inputs, function(i) {
+        i.checked = false
+    });
+    document.querySelector("#results").classList.add("hidden");
+}
+
+document.querySelector("#testSubmit").onclick = function(e) {
+  e.preventDefault();
+    crown = eye = throat = heart = plexus = sacral = root = 0;
+    getScores();
+    showScores();
+    createCharts();
+};
+
+      </script>
