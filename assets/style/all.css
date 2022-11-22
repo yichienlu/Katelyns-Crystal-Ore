@@ -1136,6 +1136,21 @@ select {
 .bg-\[url\(\'\/assets\/images\/designs\/design_01-1\.jpg\'\)\] {
   background-image: url('/assets/images/designs/design_01-1.jpg');
 }
+.bg-\[url\(\'\/assets\/images\/designs\/design_02-1\.jpg\'\)\] {
+  background-image: url('/assets/images/designs/design_02-1.jpg');
+}
+.bg-\[url\(\'\/assets\/images\/designs\/design_03-1\.jpg\'\)\] {
+  background-image: url('/assets/images/designs/design_03-1.jpg');
+}
+.bg-\[url\(\'\/assets\/images\/designs\/design_04-1\.jpg\'\)\] {
+  background-image: url('/assets/images/designs/design_04-1.jpg');
+}
+.bg-\[url\(\'\/assets\/images\/designs\/design_05-1\.jpg\'\)\] {
+  background-image: url('/assets/images/designs/design_05-1.jpg');
+}
+.bg-\[url\(\'\/assets\/images\/designs\/design_06-1\.jpg\'\)\] {
+  background-image: url('/assets/images/designs/design_06-1.jpg');
+}
 .bg-\[url\(\'\/assets\/images\/index\/illustration\.png\'\)\] {
   background-image: url('/assets/images/index/illustration.png');
 }
@@ -1150,6 +1165,9 @@ select {
 }
 .bg-\[url\(\'\/assets\/images\/index\/Testimonial\.png\'\)\] {
   background-image: url('/assets/images/index/Testimonial.png');
+}
+.bg-\[url\(\'\/assets\/images\/designs\/\$\{item\.image\}\'\)\] {
+  background-image: url('/assets/images/designs/${item.image}');
 }
 .bg-cover {
   background-size: cover;
