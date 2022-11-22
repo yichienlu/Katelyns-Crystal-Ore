@@ -144,7 +144,7 @@
       <main>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_01.png')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_01.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -164,7 +164,7 @@
         </section>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_02.png')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_02.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -184,7 +184,7 @@
         </section>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_03.png')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_03.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -230,7 +230,7 @@
 <div class="container mx-auto">
       <div class="swiper design-swiper ">         
         <div class="swiper-wrapper ">
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <!-- <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
           <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_02-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
@@ -247,7 +247,7 @@
           </div>
           <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_06-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
-          </div>          
+          </div>           -->
         </div>
         <div class="lg:hidden">
           <a href="#" class="mt-6 ml-auto btn-primary">訂製專屬手串</a>
@@ -510,15 +510,15 @@
 const swiper = new Swiper('.design-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  loop: true,
-  grabCursor:true,
-  speed:2000,
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  },
-  
+  // loop: true,
+  // grabCursor:true,
+  // speed:2000,
+  // autoplay: {
+  //   delay: 2000,
+  //   disableOnInteraction: false,
+  //   pauseOnMouseEnter: true,
+  // },
+
   breakpoints: {
     640: {
       slidesPerView: 2,
@@ -531,9 +531,11 @@ const swiper = new Swiper('.design-swiper', {
   },
 });
 
+
 axios.get('http://localhost:3000/designs')
 .then((res)=>{
   renderDesignData(res.data)
+  console.log(res.data)
 })
 
 function renderDesignData(data){
@@ -545,10 +547,11 @@ function renderDesignData(data){
     </div>
     `
   })
+
   document.querySelector(".design-swiper .swiper-wrapper").innerHTML = str
+
+  
 }
-
-
 
 
 

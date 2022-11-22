@@ -1124,14 +1124,14 @@ select {
 .bg-\[url\(\'\.\.\/images\/index\/banner\.jpg\'\)\] {
   background-image: url('../images/index/banner.jpg');
 }
-.bg-\[url\(\'\/assets\/images\/index\/step_01\.png\'\)\] {
-  background-image: url('/assets/images/index/step_01.png');
+.bg-\[url\(\'\.\.\/images\/index\/step_01\.png\'\)\] {
+  background-image: url('../images/index/step_01.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/step_02\.png\'\)\] {
-  background-image: url('/assets/images/index/step_02.png');
+.bg-\[url\(\'\.\.\/images\/index\/step_02\.png\'\)\] {
+  background-image: url('../images/index/step_02.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/step_03\.png\'\)\] {
-  background-image: url('/assets/images/index/step_03.png');
+.bg-\[url\(\'\.\.\/images\/index\/step_03\.png\'\)\] {
+  background-image: url('../images/index/step_03.png');
 }
 .bg-\[url\(\'\.\.\/images\/designs\/design_01-1\.jpg\'\)\] {
   background-image: url('../images/designs/design_01-1.jpg');
