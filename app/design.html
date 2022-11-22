@@ -85,10 +85,10 @@ current: design
 <!--     canvas -->
     <div class=" bg-neutral-50 relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
       <div class="totalLength absolute top-3 left-3 text-2xl"></div>  
-      <button  ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
-        <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3" id="trash"></iconify-icon>
+      <button  id="trash" ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
+        <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3"></iconify-icon>
       </button>
-      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover:text-white hover:bg-slate-700 active:bg-slate-700 active:bg-slate-400 border-4 border-slate-700 rounded-lg">
+      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover border-4 border-slate-700 rounded-lg">
         <iconify-icon icon="ci:undo" width="24" height="24" class="p-3"></iconify-icon>
       </button>
 
@@ -294,13 +294,10 @@ function dragStart(e) { e.dataTransfer.setData('text/plain', e.target.id);
 window.addEventListener('dragend', function(){
     document.querySelector(`[data-num='${dragged}']`).classList.remove('hidden');
 });
-// window.addEventListener('touchend', function(){
-//     document.querySelector(`[data-num='${dragged}']`).classList.remove('hidden');
-// });
 
 document.querySelector('.workplace').addEventListener('drop', function(e){
   e.preventDefault();
-  if(e.target.id == "trash"){
+  if(e.target.id == "trash" || e.target.parentNode.id=="trash"){
     deleteBead(dragged);
   }
   else if(e.target.dataset.num){
@@ -329,7 +326,6 @@ list.addEventListener('mouseleave', function(e){
 
 
 init();
-
 
 function deleteDesign(){
   beeds = [];

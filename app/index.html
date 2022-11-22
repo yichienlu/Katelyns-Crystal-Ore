@@ -414,8 +414,10 @@ current: index
 })();
 
 let design_array = []
-
-
+axios.get('http://localhost:3000/designs')
+.then((res)=>{
+  console.log(res.data)
+})
 //designs
 // const swiper = new Swiper('.design-swiper', {
 //   slidesPerView: 1,
