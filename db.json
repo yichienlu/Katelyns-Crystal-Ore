@@ -699,42 +699,42 @@
   "designs": [
     {
       "id": 1,
-      "image" :"design_01-1.jpg",
+      "image" :"design01.jpg",
       "content": "紅紋石、草莓晶、粉晶、白玉髓"
     },
     {
       "id": 2,
-      "image" :"design_02-1.jpg",
+      "image" :"design02.jpg",
       "content": "藍銅礦、海藍寶、白水晶"
     },
     {
       "id": 3,
-      "image" :"design_03-1.jpg",
+      "image" :"design03.jpg",
       "content": "黑曜石"
     },
     {
       "id": 4,
-      "image" :"design_04-1.jpg",
+      "image" :"design04.jpg",
       "content": "堇青石、拉長石"
     },
     {
       "id": 5,
-      "image" :"design_05-1.jpg",
+      "image" :"design05.jpg",
       "content": "瑪瑙、太陽石、白玉髓"
     },
     {
       "id": 6,
-      "image" :"design_06-1.jpg",
+      "image" :"design06.jpg",
       "content": "粉晶、白水晶"
     },
     {
       "id": 7,
-      "image" : "design_07-1.jpg",
+      "image" : "design07.jpg",
       "content": "海藍寶、粉晶、紫水晶"
     },
     {
       "id": 8,
-      "image" : "design_08-1.jpg",
+      "image" : "design08.jpg",
       "content": "紅兔毛、瑪瑙"
     }
   ],
