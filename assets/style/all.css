@@ -1121,8 +1121,8 @@ select {
 .bg-\[url\(\'\/assets\/images\/crystals\/\7C89\6676\.jpg\'\)\] {
   background-image: url('/assets/images/crystals/粉晶.jpg');
 }
-.bg-\[url\(\'\/assets\/images\/index\/banner\.jpg\'\)\] {
-  background-image: url('/assets/images/index/banner.jpg');
+.bg-\[url\(\'\.\.\/images\/index\/banner\.jpg\'\)\] {
+  background-image: url('../images/index/banner.jpg');
 }
 .bg-\[url\(\'\/assets\/images\/index\/step_01\.png\'\)\] {
   background-image: url('/assets/images/index/step_01.png');
@@ -1133,8 +1133,8 @@ select {
 .bg-\[url\(\'\/assets\/images\/index\/step_03\.png\'\)\] {
   background-image: url('/assets/images/index/step_03.png');
 }
-.bg-\[url\(\'\/assets\/images\/designs\/design_01-1\.jpg\'\)\] {
-  background-image: url('/assets/images/designs/design_01-1.jpg');
+.bg-\[url\(\'\.\.\/images\/designs\/design_01-1\.jpg\'\)\] {
+  background-image: url('../images/designs/design_01-1.jpg');
 }
 .bg-\[url\(\'\/assets\/images\/designs\/design_02-1\.jpg\'\)\] {
   background-image: url('/assets/images/designs/design_02-1.jpg');
@@ -1154,20 +1154,20 @@ select {
 .bg-\[url\(\'\/assets\/images\/index\/illustration\.png\'\)\] {
   background-image: url('/assets/images/index/illustration.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/user_01\.png\'\)\] {
-  background-image: url('/assets/images/index/user_01.png');
+.bg-\[url\(\'\.\.\/images\/index\/user_01\.png\'\)\] {
+  background-image: url('../images/index/user_01.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/user_02\.png\'\)\] {
-  background-image: url('/assets/images/index/user_02.png');
+.bg-\[url\(\'\.\.\/images\/index\/user_02\.png\'\)\] {
+  background-image: url('../images/index/user_02.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/user_03\.png\'\)\] {
-  background-image: url('/assets/images/index/user_03.png');
+.bg-\[url\(\'\.\.\/images\/index\/user_03\.png\'\)\] {
+  background-image: url('../images/index/user_03.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/Testimonial\.png\'\)\] {
-  background-image: url('/assets/images/index/Testimonial.png');
+.bg-\[url\(\'\.\.\/images\/index\/Testimonial\.png\'\)\] {
+  background-image: url('../images/index/Testimonial.png');
 }
-.bg-\[url\(\'\/assets\/images\/designs\/\$\{item\.image\}\'\)\] {
-  background-image: url('/assets/images/designs/${item.image}');
+.bg-\[url\(\'\.\.\/images\/designs\/\$\{item\.image\}\'\)\] {
+  background-image: url('../images/designs/${item.image}');
 }
 .bg-cover {
   background-size: cover;

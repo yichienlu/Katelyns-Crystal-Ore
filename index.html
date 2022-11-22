@@ -99,7 +99,7 @@
 
   
   <!-- Banner -->
-  <section class="bg-[url('/assets/images/index/banner.jpg')] bg-cover bg-center px-3">
+  <section class="bg-[url('../images/index/banner.jpg')] bg-cover bg-center px-3">
     <div class="container mx-auto pt-[232px] pb-40 lg:py-[218px]">
       <h2 class="text-white text-[28px] font-medium lg:text-[40px] lg:font-bold">
         <p>了解您的脈輪能量</p>
@@ -230,7 +230,7 @@
 <div class="container mx-auto">
       <div class="swiper design-swiper ">         
         <div class="swiper-wrapper ">
-          <!-- <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
           <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_02-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
@@ -247,7 +247,7 @@
           </div>
           <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_06-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
-          </div>           -->
+          </div>          
         </div>
         <div class="lg:hidden">
           <a href="#" class="mt-6 ml-auto btn-primary">訂製專屬手串</a>
@@ -365,7 +365,7 @@
 
      <ul class="grid lg:grid-cols-3 gap-y-[48px] lg:gap-x-[40px] xl:gap-x-[96px] text-neutral-900 lg:mb-[72px]">
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_01.png')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('../images/index/user_01.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">Emily</span> <br class="hidden lg:block xl:hidden">
@@ -376,7 +376,7 @@
          </div>
        </li>
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_02.png')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('../images/index/user_02.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">小聰</span> <br class="hidden lg:block xl:hidden">
@@ -387,7 +387,7 @@
          </div>
        </li>
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_03.png')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('../images/index/user_03.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">浩克</span> <br class="hidden lg:block xl:hidden">
@@ -404,7 +404,7 @@
       
       </div>
     </div>    
-  <div  class="h-[125px] lg:h-[640px] bg-[url('/assets/images/index/Testimonial.png')] bg-cover bg-center rounded-t-3xl lg:rounded-t-[48px]"></div>    
+  <div  class="h-[125px] lg:h-[640px] bg-[url('../images/index/Testimonial.png')] bg-cover bg-center rounded-t-3xl lg:rounded-t-[48px]"></div>    
 
   </section>
 
@@ -540,7 +540,7 @@ function renderDesignData(data){
   let str="";
   data.forEach(function(item){
     str+=`
-    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/${item.image}')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/${item.image}')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
       <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
     </div>
     `
