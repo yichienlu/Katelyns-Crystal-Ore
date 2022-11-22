@@ -6,15 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <title>首頁</title>
+  <title>首頁｜Katelyn's Crystal & Ore 晶礦飾品訂製</title>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+
+
+
   <link rel="stylesheet" href="./assets/style/all.css">
-  
+  <link rel="stylesheet" href="./assets/style/style.css">
+
+
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
 <body>
   <header class="bg-slate-700 text-white py-[18px] px-3 sticky" style="z-index:1000">
     <nav class="container flex items-center mx-auto">
-      <a href="#" class="block mr-auto">
+      <a href="index.html" class="block mr-auto">
         <h1 class="font-2 ">
           <div class="text-2xl font-bold ">Katelyn's</div>
           <div class="text-center text-slate-400">Crystal & Ore</div>
@@ -22,9 +34,9 @@
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li><a href="#" class=" hover:text-slate-400">脈輪測驗</a></li>
+        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
         <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li><a href="#" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -35,7 +47,7 @@
           </a>
         </li>
         <li class="ml-4 lg:ml-9">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <a href="login.html" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
@@ -75,28 +87,29 @@
       </div>
           <div class="px-3">
             <ul class="my-6">
-                      <li><a href="#" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
+                      <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
                       <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
-                 <a href="#" class="block w-full text-center btn-primary">客製化設計手串</a> 
+                 <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
     </nav>
   </header>
 
   
   <!-- Banner -->
-  <section class="bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center px-3">
+  <section class="bg-[url('/assets/images/index/banner.jpg')] bg-cover bg-center px-3">
     <div class="container mx-auto pt-[232px] pb-40 lg:py-[218px]">
       <h2 class="text-white text-[28px] font-medium lg:text-[40px] lg:font-bold">
         <p>了解您的脈輪能量</p>
         <p>為您量身打造專屬晶礦飾品</p>
       </h2>
       <div class="mt-8 columns-2 lg:flex lg:columns-auto lg:mt-14">
-        <a href="#" class="btn-outline lg:mr-6">測我的脈輪能量</a>
-        <a href="#" class="btn-primary">訂製專屬手串</a>
+        <a href="test.html" class="btn-outline lg:mr-6">測我的脈輪能量</a>
+        <a href="design.html" class="btn-primary">訂製專屬手串</a>
       </div>
     </div>
   </section>
+  <!-- <img src="./assets/images/index/step_01.png" alt=""> -->
 
   
   <!-- Quote -->
@@ -129,7 +142,7 @@
       <main>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('https://s3-alpha-sig.figma.com/img/1b41/d045/ee2d30d52ce61ecb7ee962012b6fe482?Expires=1668384000&Signature=TaNS3xe8-NXrYcoiP87VkWrC8AFNWvULJX8F9cTgETdJk4A0QBzyxSFp5xX~1k16N5nBmJ1FCEhoBxDpruA6FR4lhdAuZ3qqdFSf1p0Z4Iap60GDoClfGqXnPJSfT~brJUk91IWkmldNHS9tQFt8wFS0ywLzXgwCqUPaHyaFMZu96-YYGYdBzGLa3XAX60eCBtWClux3Bp2UxfJHtdzCqOq9iYkSNKQ25aJrh4sxUaqEcLbtqQ1-kD3KUNPqO9oU7VWNdT6GczJ5v2Ues~E35jQHNCZu~mDmW9K68Levyz-a0YHBlflqlCkGYfCSPLfmwvAJSczAXGFLOAZCh4fsdw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_01.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -149,7 +162,7 @@
         </section>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('https://s3-alpha-sig.figma.com/img/7f5d/accc/81bfa2b856239ef49490b338d189dd13?Expires=1668384000&Signature=WnYBRiZqLCIDM5W48TGCJ5O-0Y7L9Njn9~S99kD4USPYxrFXnWsaak7Iw6IElJ6Qwj1BiYR1twB7wXQuh3V60OPaC~8dHHu-zvnZgQGb9Ln3tPApbb6rfuz-ygRlmdqRtCKcp0RCwTL0mbCXpNHiZWveFKhJHWhN~BwPzVVrEAvHnAHSLBuw1lqSyofTea~VLVV8-1XahE9jmhG8FVFtJUiFGs1KQUVH3XVUA1DpqDwJluS5mPllcQTHdPJV9UCDLG5Zv3VudSl2ENPZkvckuPLko5OFdXtMGXLvdVpQV80YWkdJoXYny9IT5Aq2ay2bvYRyY9W2xNQFxetKKORuTA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_02.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -169,7 +182,7 @@
         </section>
         <section class="relative v">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
-            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('https://s3-alpha-sig.figma.com/img/d836/2101/077c3819d36af86096e3787ba2fb74c9?Expires=1668384000&Signature=NQ~pIxCB73siUNv5vYnPQnUdOWt-qBRdSe2yXUOP24EqL5IsRCOj92fTaL0IH5ZlDNsdJS4~PGlVgUD~1BNPvSGORr5j8VioG55Hxh1r4NrHG~fG~5aP5GPYZUH1T2z3daeB6R5I0WoJ3cIK1Zqyyw5DHh6BOX7HXGqKCuwkl9lb~1bqBgivjV7GQYfHLVm3A29xeYKqWm48a3j0zqY0rCHRBAzVk1oHFH~AiRgEkwtQmAlGQj~PQYlg0c8aGG4GAH3SiR6xKY8086QzWDE3RAuBdV9Pt8HGJk8DEbESi0Jc0YT55s3DJmPVpwUt102hA5sHr0LUVDBGuW7hzTkxow__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] relative">
+            <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('/assets/images/index/step_03.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
             </div>
             <div></div>
@@ -193,8 +206,9 @@
 
   <!-- Designs -->
     <section class="px-3 py-10 lg:py-20">
-
-    <h2 class="container flex items-center justify-center mx-auto mb-6 lg:mb-10 lg:justify-start">
+<div class="container mx-auto">
+  <div class="flex justify-center mb-10  lg:justify-between lg:mb-16">
+    <h2 class="flex items-center justify-center">
       <span class="text-2xl font-bold lg:text-[40px] text-slate-700">Designs</span>
       <div class="deco">
         <div class="deco-1"></div>
@@ -202,56 +216,69 @@
         <div class="deco-1"></div>
       </div>
       <span class="font-medium text-xl lg:text-[28px] text-slate-400">精選作品</span>
-      <a href="#" class="hidden ml-auto btn-primary lg:inline-block">訂製專屬手串</a>
-      
-    </h2>    
-      
 
-      <div class="container swiper design-swiper ">         
+    </h2>
+    <div class="hidden lg:inline-block">
+      <a href="#" class=" ml-auto btn-primary">訂製專屬手串</a>
+    </div>
+  </div>
+</div>
+
+      
+<div class="container mx-auto">
+      <div class="swiper design-swiper ">         
         <div class="swiper-wrapper ">
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('https://lh3.googleusercontent.com/iHybFOmRX8knAhUUK_oUHeFR4nJjUQBrSZJ7KjVo5t-kyITMpkbeSkEWyv76afJuF-HgWzm7muKZDj-ik8EuejffbUcMCzsD25KGunR0DT6h-NO1drw5b0f-Pxno29o12c77OqxoqaPKvYq9pQL3BsDej_nV_KeGVkFbcN6oSsC5NlOeJ47amglhjNTvcw9iHFKnenWVMuXXFiOaFHaBMI_l4b1X00-sC8TVilAB5PPiBxyMx7itQYq44yrIUwOMHHInhlEJi0b3qmSXL8C58lOaG3Gt9Hmpd8DAH6Uo3ldZwoKqe-acSFLLdi67Rs0iA4k1Acshic8HG0dtV1i2341tKJI8oeXvBXacOdW7SydSJY0x_yDCQmlJK5YdKVOF566tcYzoOl_j0yrzsIQqvyGlUZftm5Cm0s0G-x8OK3O63XMKndL3hrcZ614HXCV29bHvi59zJBXU50hfogRuTGTrXa0ZeP_PWvHFeS8LzL6ZJg20-L7l9V-BjVZJv5tP61yRSaYFn_Xz2Wl8-1Ug0fSvt4-hHFE5sU6aXGoEwuVKchHvLdEgIyxhlPh68CAaQKJYf5aWe7cg1GanXvAfH6047QbC0owv23ogDWWDEFxcbJdpGcN44Hblh8bo0_cg-p5NQ8rbdp5ljzAAstf4VxzaUsOGWslMnyLUDlXv-1np4cZew-ji0uxspzLy6z2zKCbuNrKjOEXfeWbMrK7gFFZUuHJHyk8wjPrXEMcnsQpqpa6RHRho5FhzpbCoaFsAcpvj5K15qg1vlPb4NI6a1oatNci7HSx8V2OZn_NhDkru6yz6J8hEZ9oYo2MyBakjJCewLdgVkxhxLIkljTHcUfwRre088Fv4YANYuy57Z4C7MLSQLOvhd0qaYigFVxdq6Api8a88j3e-MEt8Tl9KjhORZi_HcGe5YKzrUeSP10_czltmPQ=w1139-h854-no?authuser=0')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>          
         </div>
-      <a href="#" class="mt-6 ml-auto  btn-primary lg:hidden">訂製專屬手串</a>
-        
-      </div>
+        <div class="lg:hidden">
+          <a href="#" class="mt-6 ml-auto btn-primary">訂製專屬手串</a>
+        </div>
+      </div>  
+</div>
+
   </section>
 
   <!-- Chakra -->
   <section class="px-3 py-10 lg:py-20">
-    <h2 class="container flex items-center justify-center mx-auto mb-6 lg:mb-10 lg:justify-start">
-      <span class="text-2xl font-bold lg:text-[40px] text-slate-700">Chakra</span>
-      <div class="deco">
-        <div class="deco-1"></div>
-        <div class="deco-2"></div>
-        <div class="deco-1"></div>
+    <div class="container mx-auto">
+      <div class="flex justify-center mb-10  lg:justify-between lg:mb-16">
+        <h2 class="flex items-center justify-center">
+          <span class="text-2xl font-bold lg:text-[40px] text-slate-700">Chakra</span>
+          <div class="deco">
+            <div class="deco-1"></div>
+            <div class="deco-2"></div>
+            <div class="deco-1"></div>
+          </div>
+          <span class="font-medium text-xl lg:text-[28px] text-slate-400">脈輪能量</span>
+
+        </h2>
+        <div class="hidden lg:inline-block">
+          <a href="#" class=" ml-auto btn-primary">測我的脈輪能量</a>
+        </div>
       </div>
-      <span class="font-medium text-xl lg:text-[28px] text-slate-400">脈輪能量</span>
-      <a href="#" class="hidden ml-auto btn-primary lg:inline-block">測我的脈輪能量</a>
-      
-    </h2>    
+    </div>
       <div class="container mx-auto lg:flex ">
-        <div class="hidden lg:block w-[268px] shrink-0 mr-8">
+        <div class="hidden lg:block w-[268px] shrink-0  bg-[url('/assets/images/index/illustration.png')] bg-contain bg-no-repeat">
           
         </div>
         <div class="shrink-0 md:mr-12 lg:mr-[104px]">   
-<!--           md:mr-12沒效果 -->
           <ul class="flex flex-wrap items-center justify-center pb-6 lg:flex-col lg:items-start lg:text-2xl">
             <li class="mx-2 mb-3 lg:mb-16">
               <a href="#" class="flex items-center text-neutral-400 hover:text-neutral-900">
@@ -299,40 +326,44 @@
         </div>
         
         <div class="px-5 py-6 lg:p-12 rounded-3xl bg-lime-100 text-neutral-900">
-          <img src="" alt="" class="block mx-auto w-[104px] h-[104px] lg:w-[168px] lg:h-[168px] mb-3 lg:mb-4">
+          <img src="./assets/images/index/04.svg" alt="" class="block mx-auto w-[104px] h-[104px] lg:w-[168px] lg:h-[168px] mb-3 lg:mb-4">
           <h3 class="text-center text-xl lg:text-[32px] font-medium lg:font-bold mb-5 lg:mb-10">心輪 Heart</h3>
           <p class="lg:text-2xl">位於上下七輪的正中央，是身體的樞紐，是第一個高振動頻率的脈輪。主掌呼吸系統、心血管系統與免疫系統。元素是風，是一種流動的能量，更是慈悲與愛的所在地，失衡時會出現執著、過度保護自己、不客觀等。</p>
           <p class="my-8 lg:text-2xl lg:my-16">代表色：綠色</p>
           <p class="lg:text-2xl">對應晶礦：綠幽靈、綠髮晶、葡萄石、捷克隕石、孔雀石、粉晶、紅紋石、西瓜碧璽</p>
         </div>  
         
-      <a href="#" class="mt-6 ml-auto  btn-primary lg:hidden">測我的脈輪能量</a>
+        <div class="lg:hidden">
+          <a href="#" class="mt-6 ml-auto btn-primary">測我的脈輪能量</a>
+        </div>
         
       </div>
   </section>
 
   <!-- Testimonial -->
-  <section class="py-10  lg:py-20">
+  <section class="pt-10  lg:pt-20">
     <div class="px-3">
     <div class="container mx-auto">
       <div class="flex justify-center mb-10  lg:justify-between lg:mb-16">
-      <h2 class="flex items-center justify-center">
-        <span class="text-2xl font-bold lg:text-[40px] text-slate-700">Testimonial</span>
-        <div class="deco">
-          <div class="deco-1"></div>
-          <div class="deco-2"></div>
-          <div class="deco-1"></div>
-        </div>
-        <span class="font-medium text-xl lg:text-[28px] text-slate-400">能量見證</span>
+        <h2 class="flex items-center justify-center">
+          <span class="text-2xl font-bold lg:text-[40px] text-slate-700">Testimonial</span>
+          <div class="deco">
+            <div class="deco-1"></div>
+            <div class="deco-2"></div>
+            <div class="deco-1"></div>
+          </div>
+          <span class="font-medium text-xl lg:text-[28px] text-slate-400">能量見證</span>
 
-      </h2>
-      <a href="#" class="hidden ml-auto btn-primary lg:inline-block">了解晶礦能量</a>
+        </h2>
+        <div class="hidden lg:inline-block">
+          <a href="#" class=" ml-auto btn-primary">了解晶礦能量</a>
+        </div>
       </div>
       
 
      <ul class="grid lg:grid-cols-3 gap-y-[48px] lg:gap-x-[40px] xl:gap-x-[96px] text-neutral-900 lg:mb-[72px]">
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('https://s3-alpha-sig.figma.com/img/205d/449b/18e1458f2e6eaf91c7454af9a0e201bd?Expires=1668384000&Signature=QNRN9VUcJWugmxruI-eeuohBPPm2XP8sGEt3AvbITDVMCP4OPy2j9w8A7QnAAKQgwnPUnISHjh03DnrSAH0176c6oIEiDlBfC4N3pSv3udO4McwIX~BnXWJD8HUIF2QiJUkcGbMyXha5HkEJ1uk8W2-T-t5oifCHPMyiL5~H52QcC1AMfVY5ZH8eoAV4OsUuKo9ttQQTBZnOCUzKvUACGV~3EhXXf21sAoZBWa~p9BRodh0g7cfEhG8N~y5Z8iwIj4pZxsS35NxE3KtClhIMCKzMTrYA0J-ATIgaouS84SghNBO1y0jftS~jcUxbGdoSsLc-oX9ibWhpRLVRjGOokQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_01.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">Emily</span> <br class="hidden lg:block xl:hidden">
@@ -343,7 +374,7 @@
          </div>
        </li>
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('https://s3-alpha-sig.figma.com/img/cbd4/5c82/da2fbf19a71130665557676b1ed16ea6?Expires=1668384000&Signature=fKCwB9-D2nt~6CCMxK-tFKu~R1d~nHwE8CbNlBkf~tp38OIJs20afVwYv0PYn1X-i0gFkUykAKJzbskNdSLolKLy~9-~pMwRgwFC8l4wqWg3W9Dc3zbBMHzU5XfdCVDa4yEADWqmK8uIdUZFiQwsCckBF5xMDaW6SsS5FJ53u64dxOOWc6kA2GDg7IYM9qY~TCQmoWj34asUvvdi2GUYk7LHquV2dC~fDXpvdBca~g2p3hvxrSpjEOG224aAl0Z~hvY5eGlAmv80fywEy0R7BCGhb17y190wSbiioqV0wkYs5GN3kEG6BNGvs0juZ8zjxwc45erkm-6dZwgDHHHduw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_02.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">小聰</span> <br class="hidden lg:block xl:hidden">
@@ -354,7 +385,7 @@
          </div>
        </li>
        <li class="flex">
-         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('https://s3-alpha-sig.figma.com/img/16ea/619c/0045dc6277e732f15bb650e63b155500?Expires=1668384000&Signature=UzT55AmI9tuqFjD7zN6obMt4ARnR9Qlf7IYMMjxTN5rxN87ROBhSxjm5CRmkP0rxxYKHPWI3rSlbqbESg7ekSaYXxD-eUTefs9bte22D9qYOa7KqwLoN~7xTU-hMiAVqVyPMZnyZrBQyerWOSAEo-rqdeiL5OERVVbGIkh1ziUu5dqED1XW~DE2-rBYYyj6UNDaeDRC79KHwo8HZpxmJ2ltp8fToJDoFBbDiCx5A5ixgZeTqvVTDsqbk7M4OzHWSjPqCVhwtjND9elIXQ3ugE4h4rxM3csAMzVVDUUJTPKIV1EL5khDeX22CRoHDMQoGBHdTYnK7jHr2t3wWxDHPuQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] bg-cover"></div>
+         <div class="rounded-full h-12 w-12 lg:h-20 lg:w-20 shrink-0 mr-4 lg:mr-5 bg-[url('/assets/images/index/user_03.png')] bg-cover"></div>
          <div>
            <h3 class="mb-2 text-neutral-900 g:mb-4">
              <span class="text-lg font-bold lg:text-2xl">浩克</span> <br class="hidden lg:block xl:hidden">
@@ -365,12 +396,13 @@
          </div>
        </li>       
      </ul>
-      <a href="#" class="my-6 ml-auto  btn-primary lg:hidden">了解晶礦能量</a>
+     <div class=" lg:hidden">
+      <a href="#" class="my-6 ml-auto btn-primary">了解晶礦能量</a>
+     </div>
       
-          </div>
+      </div>
     </div>    
-  <div  class="h-[125px] lg:h-[640px] bg-[url('https://s3-alpha-sig.figma.com/img/30eb/2e7b/d95dc51ecf7af52239ecc94a2f435185?Expires=1668384000&Signature=OYF8qiuTYQEIxlrXaKd~2goYJA25N7t8sl1ENGw4FQhd77m6xrVYW4EkhQfegLx~T5ErGaV32qCsmwfeFa327lgtb3MUfWFxbKE2aQZdTcG726rez3OLCSqSP3lqvuO6FTWbNfPvUxQ7zxJME8ph7aUZQ9TD6nVw5xDgf7nwlVCKKxtxEpmEYmF1UF1P-6p4rJgN3CR9~KK~A1VCGT0EsN3l9vwrzK6bmoNT6zCIiovWWDv6-igP7Iq8o4YFZ-2H1aFewWlxQOBTbX3UPpGg3LWQRKUuPTKp9ybOn~4JDIXQywFM8GIuB80oA-TLVK8cVVynR2etD65t8TumQiOUGg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] bg-cover bg-center rounded-t-3xl lg:rounded-t-[48px]">
-    </div>    
+  <div  class="h-[125px] lg:h-[640px] bg-[url('/assets/images/index/Testimonial.png')] bg-cover bg-center rounded-t-3xl lg:rounded-t-[48px]"></div>    
 
   </section>
 
@@ -430,6 +462,83 @@
     
   </section>
 
+
+  <script>
+    
+// 水平滾動
+(function(){
+    init();
+    var g_containerInViewport;
+    function init(){
+        setStickyContainersSize();
+        bindEvents();
+    }
+    function bindEvents(){
+        window.addEventListener("wheel", wheelHandler);        
+    }
+    function setStickyContainersSize(){
+        document.querySelectorAll('.sticky-container').forEach(function(container){
+            const stikyContainerHeight = container.querySelector('main').scrollWidth;
+            const stikyContainerHeight2 = container.querySelector('section.v').scrollHeight;
+            container.setAttribute('style', `height:${stikyContainerHeight}px`); //高度還要再試過
+        });
+    }
+    function isElementInViewport (el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top <= 0 && rect.bottom > document.documentElement.clientHeight;
+    }
+    function wheelHandler(evt){
+        const containerInViewPort = Array.from(document.querySelectorAll('.sticky-container')).filter(function(container){
+            return isElementInViewport(container);
+        })[0];
+        if(!containerInViewPort){
+            return;
+        }
+        var isPlaceHolderBelowTop = containerInViewPort.offsetTop < document.documentElement.scrollTop;
+        var isPlaceHolderBelowBottom = containerInViewPort.offsetTop + containerInViewPort.offsetHeight > document.documentElement.scrollTop;
+        let g_canScrollHorizontally = isPlaceHolderBelowTop && isPlaceHolderBelowBottom;
+
+        if(g_canScrollHorizontally){
+            containerInViewPort.querySelector('main').scrollLeft += evt.deltaY;
+        }
+    }
+})();
+
+let design_array = []
+axios.get('http://localhost:3000/designs')
+.then((res)=>{
+  console.log(res.data)
+})
+//designs
+// const swiper = new Swiper('.design-swiper', {
+//   slidesPerView: 1,
+//   spaceBetween: 16,
+//   loop: true,
+//   grabCursor:true,
+//   speed:2000,
+//   autoplay: {
+//     delay: 2000,
+//     disableOnInteraction: false,
+//     pauseOnMouseEnter: true,
+//   },
+  
+//   breakpoints: {
+//     640: {
+//       slidesPerView: 2,
+//       spaceBetween: 24
+//     },
+//     1024: {
+//       slidesPerView: 3,
+//       spaceBetween: 48
+//     },
+//   },
+// });
+
+
+
+
+  </script>
+
   <footer class="px-3 py-12 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
@@ -458,6 +567,8 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>
