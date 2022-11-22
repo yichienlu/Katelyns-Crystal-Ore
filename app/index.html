@@ -137,24 +137,24 @@ current: index
 <div class="container mx-auto">
       <div class="swiper design-swiper ">         
         <div class="swiper-wrapper ">
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <!-- <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_02-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_03-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_04-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_05-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
           </div>
-          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_01-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+          <div class="swiper-slide design-1 relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/design_06-1.jpg')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
             <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">粉晶、白水晶、薔薇輝石、白玉髓</p>
-          </div>          
+          </div>           -->
         </div>
         <div class="lg:hidden">
           <a href="#" class="mt-6 ml-auto btn-primary">訂製專屬手串</a>
@@ -413,35 +413,48 @@ current: index
     }
 })();
 
-let design_array = []
+//designs
+const swiper = new Swiper('.design-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: true,
+  grabCursor:true,
+  speed:2000,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 24
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 48
+    },
+  },
+});
+
 axios.get('http://localhost:3000/designs')
 .then((res)=>{
-  console.log(res.data)
+  renderDesignData(res.data)
 })
-//designs
-// const swiper = new Swiper('.design-swiper', {
-//   slidesPerView: 1,
-//   spaceBetween: 16,
-//   loop: true,
-//   grabCursor:true,
-//   speed:2000,
-//   autoplay: {
-//     delay: 2000,
-//     disableOnInteraction: false,
-//     pauseOnMouseEnter: true,
-//   },
-  
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 24
-//     },
-//     1024: {
-//       slidesPerView: 3,
-//       spaceBetween: 48
-//     },
-//   },
-// });
+
+function renderDesignData(data){
+  let str="";
+  data.forEach(function(item){
+    str+=`
+    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-[url('/assets/images/designs/${item.image}')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+      <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
+    </div>
+    `
+  })
+  document.querySelector(".design-swiper .swiper-wrapper").innerHTML = str
+}
+
 
 
 
