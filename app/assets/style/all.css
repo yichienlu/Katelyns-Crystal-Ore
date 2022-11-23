@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer */
+/* https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer */
+/* https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state */

@@ -1,0 +1,34 @@
+---
+title: 登入
+layout: ./app/layout.ejs
+engine: ejs
+current: login
+---
+<section class="bg-neutral-200">
+  <div class="px-3 py-10 lg:py-20">
+    <div class="w-full sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto">
+      <form action="">
+        <label class="block mb-3">
+          <div class="mb-1">Email</div>
+          <input type="email" id="email" class=" w-full">        
+        </label>
+        <label class="block mb-6">
+          <div class=" mb-1">Password</div>
+          <input type="password" id="password" class=" w-full">
+        </label>
+        <button type="submit" id="login" class="w-full p-3 bg-slate-700 text-white">登入</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+
+document.querySelector("#login").addEventListener("click",function(){
+  
+})
+
+
+
+
+</script>
