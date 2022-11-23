@@ -4,3 +4,189 @@ layout: ./app/admin.ejs
 engine: ejs
 current: admin_orders
 ---
+
+<section class="px-3 py-10 lg:py-20">
+  <div class="container mx-auto">
+    <h1 class="text-xl lg:text-3xl font-bold mb-8 lg:mb-12">訂單管理</h1>
+    <table id="orderTable" class="border-4 border-slate-400">
+      <thead class="bg-slate-400 text-white text-center">
+        <tr class="border-b-4 border-slate-400">
+          <td class="w-10">編號</td>
+          <td class="w-20">時間</td>
+          <td class="min-w-40">收件資訊</td>
+          <td>訂購項目</td>
+          <td class="w-20">
+            <span>總金額</span>
+            <select name="isPaid" id="" class="bg-slate-700">
+              <option value="" class="active:bg-neutral-900">全部</option>
+              <option value="notPaid">未付款</option>
+              <option value="paid">已付款</option>
+            </select>
+          </td>
+          <td class="w-20">
+            <span>訂單狀態</span>
+            <select name="isPaid" id="" class="bg-slate-700">
+              <option value="" class="active:bg-neutral-900">全部</option>
+              <option value="notPaid">未出貨</option>
+              <option value="paid">已出貨</option>
+            </select>
+          </td>
+        </tr>
+      </thead>
+  <tbody>
+      <tr>
+        <td>1</td>
+        <td>
+          <div>2022/11/09</div>
+          <div>20:01</div>
+        </td>
+        <td>
+          <p>YC Lu</p>
+          <p>0987654321</p>
+          <p>六角市學院路1號</p>
+          <p>YC@gmail.com</p>
+        </td>
+        <td>
+          <ul class="">
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>              
+            </li>
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>
+            </li>              
+              <h4>加購：</h4>
+              <ul>
+                <li class="flex">
+                  <div>
+                    拭銀布
+                    <span class="font-bold text-red-600">$10</span>
+                  </div>
+                </li>
+              </ul>
+
+          </ul>
+
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$2570</div>
+          <input type="checkbox" id="order1" class="isPaid" checked>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="text-green-600" data-status="2">已出貨</a>
+        </td>
+      </tr>
+          <tr>
+        <td>2</td>
+        <td>
+          <div>2022/11/09</div>
+          <div>20:01</div>
+        </td>
+        <td>
+          <p>Pretty Auntie</p>
+          <p>0987654321</p>
+          <p>六角市學院路2號</p>
+          <p>prettyauntie@gmail.com</p>
+        </td>
+        <td>
+          <ul class="">
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>              
+            </li>
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>
+            </li>              
+              <h4>加購：</h4>
+              <ul>
+                <li class="flex">
+                  <div>
+                    拭銀布
+                    <span class="font-bold text-red-600">$10</span>
+                  </div>
+                </li>
+              </ul>
+
+          </ul>
+
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$2570</div>
+          <input type="checkbox" class="isPaid" data-paid="2" checked>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="text-red-600" data-status="2">未出貨</a>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
