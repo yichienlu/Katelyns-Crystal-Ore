@@ -16,7 +16,10 @@ current: login
           <div class=" mb-1">Password</div>
           <input type="password" id="password" class=" w-full">
         </label>
-        <button type="submit" id="login" class="w-full p-3 bg-slate-700 text-white">登入</button>
+        <div class="flex">
+          <button type="button" id="register" class="w-1/2 p-3 mr-4 bg-slate-400 text-white">註冊</button>
+          <button type="button" id="login" class="w-1/2 p-3 bg-slate-700 text-white">登入</button>
+        </div>
       </form>
     </div>
   </div>
@@ -24,10 +27,48 @@ current: login
 
 <script>
 
-document.querySelector("#login").addEventListener("click",function(){
-  
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
+
+document.querySelector("#register").addEventListener("click",function(){
+  console.log("click register")
+  axios.post("http://localhost:3000/register",{
+    "email": email.value.trim(),
+    "password": password.value,
+    "birthday":"",
+    "test_result": [0,0,0,0,0,0,0]
+  })
+  .then((res)=>{
+    console.log(res.data.accessToken)
+    alert("註冊成功！")
+    email.value = '';
+    password.value = '';
+    window.location.assign("index.html");
+
+  })
+  .catch((err)=>{
+    // console.log(err)
+    alert(err.response.data)
+  })
 })
 
+document.querySelector("#login").addEventListener("click",function(){
+    axios.post("http://localhost:3000/login",{
+      "email": email.value.trim(),
+      "password": password.value,
+    })
+    .then((res)=>{
+      console.log(res.data.accessToken)
+      alert("登入成功")
+      email.value = '';
+      password.value = '';
+      window.location.assign("index.html");
+    })
+    .catch((err)=>{
+      // console.log(err.response.data)
+      alert(err.response.data)
+    })
+  })
 
 
 
