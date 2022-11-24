@@ -43,16 +43,24 @@
   
       <ul class="flex items-center ml-16 ">
         <li class="">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <a href="cart.html" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bi:cart-dash" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9">
-          <a href="login.html" class="block px-1 py-2 hover:text-slate-400">
+        <li class="ml-4 lg:ml-9 relative">
+          <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
+          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+            <ul>
+              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+            </ul>
+          </div>
         </li>
         <li class="ml-4 lg:hidden">
           <a href="#" class="block px-1 py-2 hover:text-slate-400" onclick="toggleMenu(1)">
