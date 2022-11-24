@@ -414,14 +414,14 @@ current: index
 const swiper = new Swiper('.design-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  // loop: true,
-  // grabCursor:true,
-  // speed:2000,
-  // autoplay: {
-  //   delay: 2000,
-  //   disableOnInteraction: false,
-  //   pauseOnMouseEnter: true,
-  // },
+  loop: true,
+  grabCursor:true,
+  speed:2000,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
 
   breakpoints: {
     640: {
@@ -446,7 +446,7 @@ function renderDesignData(data){
   let str="";
   data.forEach(function(item){
     str+=`
-    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/${item.image}')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400" style="background-image:url('/assets/images/designs/${item.image}')">
       <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
     </div>
     `

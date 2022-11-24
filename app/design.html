@@ -11,7 +11,7 @@ current: design
     
 <!--     filter -->
     <div class="bg-white p-3">
-      <select name="" id="" class="lg:hidden">
+      <select name="" id="" class="lg:hidden w-full">
         <option value="">全部</option>
         <option value="">頂輪</option>
         <option value="">眉心輪</option>
@@ -24,68 +24,29 @@ current: design
       </select>
       
       <ul class="hidden lg:block">
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">全部</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">頂輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">眉心輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">喉輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">心輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">臍輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">腹輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">海底輪</a></li>
-        <li><a href="#" class="block p-2 text-center border-2 border-slate-700 rounded m-2 hover:border-slate-400">隔珠</a></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700" onclick="getMaterialsData('')">全部</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-purple-700 rounded mb-2 hover:text-white hover:bg-purple-700" onclick="getMaterialsData('頂輪')">頂輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-indigo-700 rounded mb-2 hover:text-white hover:bg-indigo-700" onclick="getMaterialsData('眉心輪')">眉心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-sky-700 rounded mb-2 hover:text-white hover:bg-sky-700" onclick="getMaterialsData('喉輪')">喉輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-lime-700 rounded mb-2 hover:text-white hover:bg-lime-700" onclick="getMaterialsData('心輪')">心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-yellow-700 rounded mb-2 hover:text-white hover:bg-yellow-700" onclick="getMaterialsData('臍輪')">臍輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-orange-700 rounded mb-2 hover:text-white hover:bg-orange-700" onclick="getMaterialsData('腹輪')">腹輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-red-700 rounded mb-2 hover:text-white hover:bg-red-700" onclick="getMaterialsData('海底輪')">海底輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-neutral-500 rounded mb-2 hover:text-white hover:bg-neutral-500" onclick="getMaterialsData('隔珠')">隔珠</btn></li>
       </ul>
       
     </div>
     
 <!--     buttons -->
     <div class="ore-list bg-white w-full lg:w-1/3 mr-3 ">
-      <ul class="beads-list h-full overflow-y-auto overflow-x-scroll lg:overflow-y-scroll lg:overflow-x-auto flex lg:block p-2">
-        <li class=" flex p-3 flex rounded border-2 shadow bg-neutral-50 ">
-          <div class="flex flex-col w-full">
-            <h3 class="font-bold text-lg">粉晶</h3>
-            <p>增進人緣、招桃花、舒緩情緒增進人緣、招桃花、舒緩情緒</p>
-            <div class="flex mt-1">
-              <button type="button" class="px-2 py-1 rounded border-2 border-slate-700 mr-1 hover:text-white hover:bg-slate-700 text-sm" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
-              <button type="button" class="px-2 py-1 rounded mr-1 text-white bg-slate-700 text-sm" data-size="8" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>8mm</button>
-            </div>            
-          </div>
-          <div class="w-40 ml-1 bg-[url('/assets/images/crystals/粉晶.jpg')] bg-cover bg-center"></div>
-        </li>
-        <li class="flex p-3 flex rounded border-2 shadow bg-neutral-50">
-          <div class="flex flex-col">
-            <h3>粉晶</h3>
-            <p>愛情、人際</p>
-            <div class="flex mt-auto">
-              <button type="button" class="p-2" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
-              <button type="button" class="p-2" data-size="8" onclick='addBeed(`粉晶`, `url("/assets/images/crystals/_紅紋石.png")`, 6, 30)'>8mm</button>
-              <!-- <img src="./assets/images/crystals/_紅紋石.png" alt=""> -->
-            </div>            
-          </div>
-          <div class="w-40 ">
-            image
-          </div>
-        </li>
-        <li class="h-32 flex p-3 flex">
-          <div class="flex flex-col">
-            <h3>粉晶</h3>
-            <p>愛情、人際</p>
-            <div class="flex mt-auto">
-              <button type="button" class="p-2" data-size="6" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>6mm</button>
-              <button type="button" class="p-2" data-size="8" onclick='addBeed(`粉晶`, `#FAA8`, 6, 30)'>8mm</button>
-            </div>            
-          </div>
-          <div class="w-40 ">
-            image
-          </div>
-        </li>
-      </ul>
+      <ul class="beads-list max-h-screen overflow-y-auto overflow-x-scroll lg:overflow-y-scroll lg:overflow-x-auto flex lg:block p-2"></ul>
     </div>
     
      <div class="relative grow ">
 <!--     canvas -->
     <div class=" bg-neutral-50 relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
       <div class="totalLength absolute top-3 left-3 text-2xl"></div>  
-      <button  id="trash" ondrop="allowDrop(event)"  class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
+      <button  id="trash" ondrop="allowDrop(event)" class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
         <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3"></iconify-icon>
       </button>
       <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover border-4 border-slate-700 rounded-lg">
@@ -101,8 +62,8 @@ current: design
 
     </div>
     <div class="flex items-center mt-3">
-      <button onclick="deleteDesign()" class="btn-primary">清除設計</button>
-      <p class="totalPrice ml-auto mr-8 text-2xl"></p>
+      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-5 px-[10px] lg:py-3 lg:px-6 hidden lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
+      <p class="totalPrice ml-auto mr-2 lg:mr-8 text-lg lg:text-2xl"></p>
       <button onclick="finishDesign()" class="btn-primary">送出設計</button>
     </div>
     </div>
@@ -110,89 +71,78 @@ current: design
 </section>
 
 <script>
-  // 串珠
 
-let beeds = [
-  {
-    name: '粉晶',
-    color: '#FBB5',
-    size: 8,
-    price: 40,
-  },
-  {
-    name: '海藍寶',
-    color: '#9AF9',
-    size: 6,
-    price: 30,
-  },
-  {
-    name: '海藍寶',
-    color: '#00A9',
-    size: 6,
-    price: 30,
-  },
-  {
-    name: '粉晶',
-    color: '#A00',
-    size: 8,
-    price: 40,
-  },
-    {
-    name: '粉晶',
-    color: '#A00',
-    size: 8,
-    price: 40,
-  },
-  {
-    name: '粉晶',
-    color: '#00A',
-    size: 6,
-    price: 30,
-  },
-  {
-    name: '粉晶',
-    color: '#00A9',
-    size: 10,
-    price: 50,
-  },
-  {
-    name: '粉晶',
-    color: 'url("/assets/images/crystals/_紅紋石.png")',
-    size: 10,
-    price: 50,
-  },
-  {
-    name: '粉晶',
-    color: '#00A',
-    size: 10,
-    price: 50,
-  },
-  {
-    name: '粉晶',
-    color: '#0AA',
-    size: 5,
-    price: 25,
-  },
-  {
-    name: '白水晶',
-    color: '#FFF5',
-    size: 10,
-    price: 50,
-  },
-  {
-    name: '粉晶',
-    color: '#0AA',
-    size: 5,
-    price: 25,
-  },
-  {
-    name: '粉晶',
-    color: '#00A',
-    size: 10,
-    price: 50,
-  },
-];
+let materialsData=[];
+function getMaterialsData(category){
+  axios.get("http://localhost:3000/materials")
+  .then((res)=>{
+    // console.log(res.data)
+    renderMaterialsData(res.data,category)
+    materialsData = res.data
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 
+}
+
+function renderMaterialsData(data,category){
+  // console.log("render", category)
+  let filteredData=[];
+  if(category==""){
+    filteredData = data;
+  }
+  else{
+  filteredData = data.filter((item)=>{
+    console.log(item.chakra, category)
+    return item.chakra.includes(category)
+  })
+}
+  // console.log(filteredData)
+  let str = '';
+  filteredData.forEach(function(item){
+
+    let btns = '';
+
+    // console.log(item.bead)
+    item.bead.forEach(function(i){
+      // console.log(item)
+      btns+=`
+      <button type="button" class="px-2 py-1 rounded bg-slate-700 mr-1 text-white hover:bg-slate-400 text-sm" data-size="${i[0]}" data-price="${i[1]}" data-bead="${item.id}">
+      ${i[0]}mm
+      </button>
+      `
+    })
+
+
+    str+= `
+    <li class=" flex p-3 rounded border-2 shadow bg-neutral-50 mr-2 lg:mr-0 lg:mb-2">
+          <div class="flex flex-col w-full">
+            <h3 class="font-bold text-lg">${item.name}</h3>
+            <p>${item.description}</p>
+            <div class="flex mt-auto">
+              ${btns}
+            </div>            
+          </div>
+          <div class="w-40 ml-1 bg-cover bg-center" style="background-image:url('/assets/images/crystals/${item.image}')"></div>
+          
+        </li>
+    `
+  })
+  document.querySelector(".beads-list").innerHTML = str
+}
+
+document.querySelector(".beads-list").addEventListener("click",function(e){
+  if(e.target.dataset.bead){
+    let id = e.target.dataset.bead;
+    addBeed(materialsData[id-1].name, materialsData[id-1].color, e.target.dataset.size, e.target.dataset.price)
+  }
+})
+
+getMaterialsData("")
+
+// 串珠
+let beeds = [];
 let perimeter = 130;
 const pi = 3.1416;
 let radius = `${perimeter/(2*pi)*4}px`; 
@@ -204,7 +154,6 @@ let str = '';
 let dragged = ''
 
 const list = document.querySelector('.list');
-
 
 function init(){
   rotate =  -90;
@@ -248,10 +197,10 @@ function allowDrop(e) {
 }
 
 function addBeed(name, color, size, price){
-  if(totalLength + size <=200){
-    beeds.push({name: name,color:color,size: size, price: price});
-    totalLength += size;
-    totalPrice += price;
+  if(totalLength + Number(size) <=200){
+    beeds.push({name: name,color:color,size: Number(size), price: Number(price)});
+    totalLength += Number(size);
+    totalPrice += Number(price);
     
     if(totalLength > 130){
       perimeter = totalLength;
