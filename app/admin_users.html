@@ -13,14 +13,13 @@ current: admin_users
         <tr class="border-b-4 border-slate-400">
           <td class="w-1/12">編號</td>
           <td class="w-4/12">Email</td>
-          <td class="w-2/12">暱稱</td>
           <td class="w-2/12">生日</td>
           <td class="w-2/12">測驗結果</td>
           <td class="w-1/12">訂單</td>
         </tr>
       </thead>
-  <tbody>
-      <tr>
+  <tbody id="users_list">
+      <!-- <tr>
         <td>1</td>
         <td>
           YC@gmail.com
@@ -76,8 +75,54 @@ current: admin_users
             <li><a href="#">3</a></li>
           </ul>
         </td>
-      </tr>
+      </tr> -->
     </tbody>
     </table>
   </div>
 </section>
+
+<script>
+  axios.get("http://localhost:3000/users")
+  .then((res)=>{
+    renderUsersData(res.data)
+  })
+  .catch((err)=>{
+
+  })
+
+function renderUsersData(data){
+  
+  let str="";
+  data.forEach(function(item){
+    str+=`
+    <tr>
+        <td>${item.id}</td>
+        <td>
+          ${item.email}
+        </td>
+        <td>
+          ${item.birthday}
+        </td>
+        <td>      
+          <ul>
+            <li>頂輪：${item.test_result[6]}</li>
+            <li>眉心輪：${item.test_result[5]}</li>
+            <li>喉輪：${item.test_result[4]}</li>
+            <li>心輪：${item.test_result[3]}</li>
+            <li>臍輪：${item.test_result[2]}</li>
+            <li>腹輪：${item.test_result[1]}</li>
+            <li>海底輪：${item.test_result[0]}</li>
+          </ul>
+        </td>
+        <td>      
+          <ul id="user${item.id}_orders"></ul>
+        </td>
+      </tr>
+    `
+
+  })
+  document.querySelector("#users_list").innerHTML = str
+}
+
+
+</script>

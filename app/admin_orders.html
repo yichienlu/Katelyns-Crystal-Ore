@@ -33,8 +33,8 @@ current: admin_orders
           </td>
         </tr>
       </thead>
-  <tbody>
-      <tr>
+  <tbody id="orders_list">
+      <!-- <tr>
         <td>1</td>
         <td>
           <div>2022/11/09</div>
@@ -110,7 +110,7 @@ current: admin_orders
           <a href="#" class="text-green-600" data-status="2">已出貨</a>
         </td>
       </tr>
-          <tr>
+      <tr>
         <td>2</td>
         <td>
           <div>2022/11/09</div>
@@ -185,8 +185,76 @@ current: admin_orders
         <td>
           <a href="#" class="text-red-600" data-status="2">未出貨</a>
         </td>
-      </tr>
+      </tr> -->
     </tbody>
     </table>
   </div>
 </section>
+
+<script>
+axios.get("http://localhost:3000/orders")
+.then((res)=>{
+  renderOrdersData(res.data)
+})
+.catch((err)=>{
+  console.log(err)
+})
+
+function renderOrdersData(data){
+  // console.log(data)
+  let str = "";
+  data.forEach(function(item){
+
+    let products="";
+    item.products.forEach(function(product){
+
+      let beads = "";
+      product.beads.forEach(function(bead){
+        beads+=`
+          ${bead[0]}(${bead[1]})|
+        `
+      })
+
+      products+=`
+        <li class="border-b border-slate-400">
+          <div>
+            ${beads}
+          </div>
+          <div class="font-bold text-red-600">$${product.price}</div>              
+        </li>
+      `
+    })
+    str += `
+    <tr>
+        <td>${item.id}</td>
+        <td>
+          <div>${new Date(item.order_time).getFullYear()}/${new Date(item.order_time).getMonth()+1}/${new Date(item.order_time).getDate()}</div>
+          <div>${new Date(item.order_time).getHours()}:${new Date(item.order_time).getMinutes()}:${new Date(item.order_time).getSeconds()}</div>
+        </td>
+        <td>
+          <p>${item.name}</p>
+          <p>${item.phone}</p>
+          <p>${item.address}</p>
+          <p>${item.email}</p>
+        </td>
+        <td>
+          <ul class="">
+            ${products}                        
+          </ul>
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <input type="checkbox" id="order1" class="isPaid" ${item.isPaid? "checked" :""}>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="${item.isShipped? "text-green-600":"text-red-600"}" data-status="2">${item.isShipped? "已出貨":"未出貨"}</a>
+        </td>
+      </tr>
+    `
+  })
+
+  document.querySelector("#orders_list").innerHTML = str
+}
+
+</script>
