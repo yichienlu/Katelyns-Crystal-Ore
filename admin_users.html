@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>後台｜會員管理</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  
+  <link rel="stylesheet" href="./assets/style/all.css">
+  <link rel="stylesheet" href="./assets/style/style.css">
+
+</head>
+<body>
+  <header class="bg-neutral-900 text-white py-[18px] px-3 sticky" style="z-index:1000">
+    <nav class="container mx-auto flex items-center">
+      <a href="#" class="block mr-auto">
+        <h1 class="font-logo">
+          <div class="font-bold text-2xl ">Katelyn's</div>
+          <div class="text-slate-400 text-center italic">Crystal & Ore</div>
+        </h1>
+      </a>
+  
+      <ul class="text-xl flex items-center">
+        <li><a href="admin_orders.html" class=" hover:text-slate-400">訂單管理</a></li>
+        <li class="mx-10"><a href="admin_users.html" class=" hover:text-slate-400 ">會員管理</a></li>
+        <li><a href="index.html" class="btn-outline outline-2 outline-neutral-50">回前台</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+<section class="px-3 py-10 lg:py-20">
+  <div class="container mx-auto">
+    <h1 class="text-xl lg:text-3xl font-bold mb-8 lg:mb-12">會員管理</h1>
+    <table id="orderTable" class="border-4 border-slate-400 w-full">
+      <thead class="bg-slate-400 text-white text-center">
+        <tr class="border-b-4 border-slate-400">
+          <td class="w-1/12">編號</td>
+          <td class="w-4/12">Email</td>
+          <td class="w-2/12">生日</td>
+          <td class="w-2/12">測驗結果</td>
+          <td class="w-1/12">訂單</td>
+        </tr>
+      </thead>
+  <tbody id="users_list">
+      <!-- <tr>
+        <td>1</td>
+        <td>
+          YC@gmail.com
+        </td>
+        <td>
+          YC
+        </td>
+        <td>
+          1995/01/01
+        </td>
+        <td>      
+          <ul>
+            <li>頂輪：14</li>
+            <li>眉心輪：20</li>
+            <li>喉輪：21</li>
+            <li>心輪：10</li>
+            <li>臍輪：9</li>
+            <li>腹輪：17</li>
+            <li>海底輪：26</li>
+          </ul>
+        </td>
+        <td>      
+          <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          prettyAuntie@gmail.com
+        </td>
+        <td>
+          漂亮阿姨
+        </td>
+        <td>
+          1985/01/01
+        </td>
+        <td>      
+          <ul>
+            <li>頂輪：14</li>
+            <li>眉心輪：20</li>
+            <li>喉輪：21</li>
+            <li>心輪：10</li>
+            <li>臍輪：9</li>
+            <li>腹輪：17</li>
+            <li>海底輪：26</li>
+          </ul>
+        </td>
+        <td>      
+          <ul>
+            <li><a href="#">3</a></li>
+          </ul>
+        </td>
+      </tr> -->
+    </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  axios.get("http://localhost:3000/users")
+  .then((res)=>{
+    renderUsersData(res.data)
+  })
+  .catch((err)=>{
+
+  })
+
+function renderUsersData(data){
+  
+  let str="";
+  data.forEach(function(item){
+    str+=`
+    <tr>
+        <td>${item.id}</td>
+        <td>
+          ${item.email}
+        </td>
+        <td>
+          ${item.birthday}
+        </td>
+        <td>      
+          <ul>
+            <li>頂輪：${item.test_result[6]}</li>
+            <li>眉心輪：${item.test_result[5]}</li>
+            <li>喉輪：${item.test_result[4]}</li>
+            <li>心輪：${item.test_result[3]}</li>
+            <li>臍輪：${item.test_result[2]}</li>
+            <li>腹輪：${item.test_result[1]}</li>
+            <li>海底輪：${item.test_result[0]}</li>
+          </ul>
+        </td>
+        <td>      
+          <ul id="user${item.id}_orders"></ul>
+        </td>
+      </tr>
+    `
+
+  })
+  document.querySelector("#users_list").innerHTML = str
+}
+
+
+</script>
+
+<footer class="bg-neutral-900 py-12 px-3 lg:py-8">
+  <div class="container mx-auto">
+    <div class="lg:flex items-center justify-between">
+      <a href="#" class="block mb-6 lg:mb-0 font-serif font-logo">
+        <div class="font-bold text-2xl text-white">Katelyn's</div>
+        <div class="text-slate-400 italic">Crystal & Ore</div>
+      </a>
+
+      <p class="mt-7 lg:my-0 self-end text-neutral-400">Copyright ©2022 Katelyn’s Crystal & Ore</p>     
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

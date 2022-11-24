@@ -43,16 +43,24 @@
   
       <ul class="flex items-center ml-16 ">
         <li class="">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <a href="cart.html" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bi:cart-dash" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9">
-          <a href="login.html" class="block px-1 py-2 hover:text-slate-400">
+        <li class="ml-4 lg:ml-9 relative">
+          <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
+          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+            <ul>
+              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+            </ul>
+          </div>
         </li>
         <li class="ml-4 lg:hidden">
           <a href="#" class="block px-1 py-2 hover:text-slate-400" onclick="toggleMenu(1)">
@@ -507,14 +515,14 @@
 const swiper = new Swiper('.design-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  // loop: true,
-  // grabCursor:true,
-  // speed:2000,
-  // autoplay: {
-  //   delay: 2000,
-  //   disableOnInteraction: false,
-  //   pauseOnMouseEnter: true,
-  // },
+  loop: true,
+  grabCursor:true,
+  speed:2000,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
 
   breakpoints: {
     640: {
@@ -539,7 +547,7 @@ function renderDesignData(data){
   let str="";
   data.forEach(function(item){
     str+=`
-    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-[url('../images/designs/${item.image}')] bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
+    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400" style="background-image:url('/assets/images/designs/${item.image}')">
       <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
     </div>
     `
@@ -595,7 +603,8 @@ function chooseChakra(num){
           <p class="mb-2 text-neutral-400">About</p>
             <ul class="flex">
               <li class="mr-6"><a href="#" class="block">關於我們</a></li>
-              <li><a href="#" class="block">聯絡我們</a></li>
+              <li class="mr-6"><a href="#" class="block">聯絡我們</a></li>
+              <li><a href="admin_orders.html" class="block">後臺管理</a></li>
             </ul>
           </li>
         </ul>

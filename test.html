@@ -43,16 +43,24 @@
   
       <ul class="flex items-center ml-16 ">
         <li class="">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <a href="cart.html" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bi:cart-dash" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9">
-          <a href="login.html" class="block px-1 py-2 hover:text-slate-400">
+        <li class="ml-4 lg:ml-9 relative">
+          <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
+          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+            <ul>
+              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+            </ul>
+          </div>
         </li>
         <li class="ml-4 lg:hidden">
           <a href="#" class="block px-1 py-2 hover:text-slate-400" onclick="toggleMenu(1)">
@@ -99,10 +107,12 @@
 
   <section class="px-3 py-10 lg:py-20">
   <div class="container mx-auto">
+    <h2 class="text-2xl font-bold mb-3">脈輪測驗</h2>
+    <p class="text-lg lg:text-2xl mb-5 lg:mb-10" >完成49題測驗，了解您的脈輪能量分布</p>
     <form class="needs-validation" novalidate>
 
 <ul class="tests-list text-center max-h-screen overflow-scroll">
-  <li class="mb-8">
+  <!-- <li class="mb-8">
     <h3 class="mb-4 text-lg lg:text-2xl font-bold">Q1. 你擔心自己的財務狀況?</h3>
     
     <input type="radio" id="r1-1" name="r1" value="1">
@@ -131,9 +141,9 @@
       
     <input type="radio" id="s1-4" name="s1" value="4">
     <label for="s1-4">經常</label>       
-  </li>  
+  </li>   -->
 
-</ul class="container mx-auto">
+</ul>
   <p class="text-center flex justify-between">
     <button id="testReset" class="btn-primary" >清除</button>
     
@@ -173,7 +183,7 @@
               <div class="text-xl lg:text-[28px]">喉輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="t-chart" class="h-full bg-blue-400 w-1/6"></div>              
+              <div id="t-chart" class="h-full bg-sky-400 w-1/6"></div>              
             </div>
             <div id="t-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="t-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -221,31 +231,31 @@
 
           </ul>
           <ul class="lg:text-lg">
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-purple-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>頂輪主要掌管智慧及和世界為一體的感覺。當此脈輪活躍時，你會傾向沒有偏見，並且十分意識到此世界和你的存在。</p>
               <p id="c-highLow"></p>
             </li>
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-indigo-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>眉心輪主要掌管洞察力和視覺化能力。當此脈輪活躍時，你會有很好的直覺，並且喜歡幻想。</p>
               <p id="e-highLow"></p>
             </li>
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-sky-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>喉輪主要掌管自我表達和言談。當喉輪活躍時，你將無障礙的表達你自己，你可以藉此而成為藝術家。</p>
               <p id="t-highLow"></p>
             </li>
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-lime-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>心輪主要掌管愛，善良等一般情感。當心輪打開時，你會具有同情心、友善，並且你會致力於和諧的人際關係。</p>
               <p id="h-highLow"></p>
             </li>
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-yellow-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>臍輪主要掌管你在團體中的感覺。當臍輪活躍時，你感覺在掌控中而且有足夠的自信心。</p>
               <p id="p-highLow"></p>
             </li class="mb-2 lg:mb-3">
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-orange-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>腹輪主要掌管情感和性慾。當腹輪活躍時，你的情感表達自如，而且表達時不會流於過度情緒化，對於親密關係採取開放態度，感覺充滿熱情和活力。</p>
               <p id="s-highLow"></p>
             </li>
-            <li class="mb-2 lg:mb-3 border-l-8 border-slate-700 px-2 py-1 lg:px-3 lg:py-2">
+            <li class="mb-2 lg:mb-3 border-l-8 border-red-400 px-2 py-1 lg:px-3 lg:py-2">
               <p>海底輪的能量主要掌管與肉體的聯繫，使人感覺安全放心。如果海底輪處於活躍狀態，你將覺得有種「身植大地」的感覺，感到穩定和安全。你不會不必要的懷疑他人。你覺得活在當下，而且和你的肉體緊密結合，覺得有充分的領域感。</p>
               <p id="r-highLow"></p>
             </li>
@@ -419,7 +429,7 @@ document.querySelector("#testSubmit").onclick = function(e) {
 
 
 function userTestResult(){
-//   axios.patch("http://localhost:3000/users")
+//   axios.patch("http://localhost:3000/users",{})
 //   .then(()=>{
 
 //   })
@@ -449,7 +459,8 @@ function userTestResult(){
           <p class="mb-2 text-neutral-400">About</p>
             <ul class="flex">
               <li class="mr-6"><a href="#" class="block">關於我們</a></li>
-              <li><a href="#" class="block">聯絡我們</a></li>
+              <li class="mr-6"><a href="#" class="block">聯絡我們</a></li>
+              <li><a href="admin_orders.html" class="block">後臺管理</a></li>
             </ul>
           </li>
         </ul>

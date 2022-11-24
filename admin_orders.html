@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>後台｜訂單管理</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  
+  <link rel="stylesheet" href="./assets/style/all.css">
+  <link rel="stylesheet" href="./assets/style/style.css">
+
+</head>
+<body>
+  <header class="bg-neutral-900 text-white py-[18px] px-3 sticky" style="z-index:1000">
+    <nav class="container mx-auto flex items-center">
+      <a href="#" class="block mr-auto">
+        <h1 class="font-logo">
+          <div class="font-bold text-2xl ">Katelyn's</div>
+          <div class="text-slate-400 text-center italic">Crystal & Ore</div>
+        </h1>
+      </a>
+  
+      <ul class="text-xl flex items-center">
+        <li><a href="admin_orders.html" class=" hover:text-slate-400">訂單管理</a></li>
+        <li class="mx-10"><a href="admin_users.html" class=" hover:text-slate-400 ">會員管理</a></li>
+        <li><a href="index.html" class="btn-outline outline-2 outline-neutral-50">回前台</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+<section class="px-3 py-10 lg:py-20">
+  <div class="container mx-auto">
+    <h1 class="text-xl lg:text-3xl font-bold mb-8 lg:mb-12">訂單管理</h1>
+    <table id="orderTable" class="border-4 border-slate-400">
+      <thead class="bg-slate-400 text-white text-center">
+        <tr class="border-b-4 border-slate-400">
+          <td class="w-10">編號</td>
+          <td class="w-20">時間</td>
+          <td class="min-w-40">收件資訊</td>
+          <td>訂購項目</td>
+          <td class="w-20">
+            <span>總金額</span>
+            <select name="isPaid" id="" class="bg-slate-700">
+              <option value="" class="active:bg-neutral-900">全部</option>
+              <option value="notPaid">未付款</option>
+              <option value="paid">已付款</option>
+            </select>
+          </td>
+          <td class="w-20">
+            <span>訂單狀態</span>
+            <select name="isPaid" id="" class="bg-slate-700">
+              <option value="" class="active:bg-neutral-900">全部</option>
+              <option value="notPaid">未出貨</option>
+              <option value="paid">已出貨</option>
+            </select>
+          </td>
+        </tr>
+      </thead>
+  <tbody id="orders_list">
+      <!-- <tr>
+        <td>1</td>
+        <td>
+          <div>2022/11/09</div>
+          <div>20:01</div>
+        </td>
+        <td>
+          <p>YC Lu</p>
+          <p>0987654321</p>
+          <p>六角市學院路1號</p>
+          <p>YC@gmail.com</p>
+        </td>
+        <td>
+          <ul class="">
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>              
+            </li>
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>
+            </li>              
+              <h4>加購：</h4>
+              <ul>
+                <li class="flex">
+                  <div>
+                    拭銀布
+                    <span class="font-bold text-red-600">$10</span>
+                  </div>
+                </li>
+              </ul>
+
+          </ul>
+
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$2570</div>
+          <input type="checkbox" id="order1" class="isPaid" checked>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="text-green-600" data-status="2">已出貨</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <div>2022/11/09</div>
+          <div>20:01</div>
+        </td>
+        <td>
+          <p>Pretty Auntie</p>
+          <p>0987654321</p>
+          <p>六角市學院路2號</p>
+          <p>prettyauntie@gmail.com</p>
+        </td>
+        <td>
+          <ul class="">
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>              
+            </li>
+            <li class="border-b border-slate-400">
+              <div>
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+                <span>粉晶(8)</span> |
+              </div>
+              <div class="font-bold text-red-600">$1280</div>
+            </li>              
+              <h4>加購：</h4>
+              <ul>
+                <li class="flex">
+                  <div>
+                    拭銀布
+                    <span class="font-bold text-red-600">$10</span>
+                  </div>
+                </li>
+              </ul>
+
+          </ul>
+
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$2570</div>
+          <input type="checkbox" class="isPaid" data-paid="2" checked>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="text-red-600" data-status="2">未出貨</a>
+        </td>
+      </tr> -->
+    </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+axios.get("http://localhost:3000/orders")
+.then((res)=>{
+  renderOrdersData(res.data)
+})
+.catch((err)=>{
+  console.log(err)
+})
+
+function renderOrdersData(data){
+  // console.log(data)
+  let str = "";
+  data.forEach(function(item){
+
+    let products="";
+    item.products.forEach(function(product){
+
+      let beads = "";
+      product.beads.forEach(function(bead){
+        beads+=`
+          ${bead[0]}(${bead[1]})|
+        `
+      })
+
+      products+=`
+        <li class="border-b border-slate-400">
+          <div>
+            ${beads}
+          </div>
+          <div class="font-bold text-red-600">$${product.price}</div>              
+        </li>
+      `
+    })
+    str += `
+    <tr>
+        <td>${item.id}</td>
+        <td>
+          <div>${new Date(item.order_time).getFullYear()}/${new Date(item.order_time).getMonth()+1}/${new Date(item.order_time).getDate()}</div>
+          <div>${new Date(item.order_time).getHours()}:${new Date(item.order_time).getMinutes()}:${new Date(item.order_time).getSeconds()}</div>
+        </td>
+        <td>
+          <p>${item.name}</p>
+          <p>${item.phone}</p>
+          <p>${item.address}</p>
+          <p>${item.email}</p>
+        </td>
+        <td>
+          <ul class="">
+            ${products}                        
+          </ul>
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <input type="checkbox" id="order1" class="isPaid" ${item.isPaid? "checked" :""}>
+          <label for="order1">付款</label>
+        </td>
+        <td>
+          <a href="#" class="${item.isShipped? "text-green-600":"text-red-600"}" data-status="2">${item.isShipped? "已出貨":"未出貨"}</a>
+        </td>
+      </tr>
+    `
+  })
+
+  document.querySelector("#orders_list").innerHTML = str
+}
+
+</script>
+
+<footer class="bg-neutral-900 py-12 px-3 lg:py-8">
+  <div class="container mx-auto">
+    <div class="lg:flex items-center justify-between">
+      <a href="#" class="block mb-6 lg:mb-0 font-serif font-logo">
+        <div class="font-bold text-2xl text-white">Katelyn's</div>
+        <div class="text-slate-400 italic">Crystal & Ore</div>
+      </a>
+
+      <p class="mt-7 lg:my-0 self-end text-neutral-400">Copyright ©2022 Katelyn’s Crystal & Ore</p>     
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
