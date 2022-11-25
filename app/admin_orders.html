@@ -194,7 +194,7 @@ current: admin_orders
 <script>
 axios.get("http://localhost:3000/orders?_expand=user")
 .then((res)=>{
-  console.log(res.data)
+  // console.log(res.data)
   renderOrdersData(res.data)
 })
 .catch((err)=>{
