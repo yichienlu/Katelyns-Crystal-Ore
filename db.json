@@ -2036,7 +2036,7 @@
     {
       "id": 1,
       "order_time": 1666502792607,
-      "user_id": 1,
+      "userId": 1,
       "name": "YC",
       "phone": "0987654321",
       "address": "桃園市中正路1號",
@@ -2248,13 +2248,12 @@
         }
       ],
       "isPaid": true,
-      "email": "YC@gmail.com",
       "isShipped": true
     },
     {
       "id": 2,
       "order_time": 1667542792607,
-      "user_id": 2,
+      "userId": 2,
       "name": "Pretty Auntie",
       "phone": "0987654321",
       "address": "新竹市中正路1號",
@@ -2380,7 +2379,6 @@
         }
       ],
       "isPaid": false,
-      "email": "prettyAuntie@gmail.com",
       "isShipped": false
     }
   ],

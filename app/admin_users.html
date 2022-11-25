@@ -87,13 +87,13 @@ current: admin_users
     renderUsersData(res.data)
   })
   .catch((err)=>{
-
+    console.log(err)
   })
 
 function renderUsersData(data){
-  
   let str="";
   data.forEach(function(item){
+
     str+=`
     <tr>
         <td>${item.id}</td>
@@ -115,14 +115,36 @@ function renderUsersData(data){
           </ul>
         </td>
         <td>      
-          <ul id="user${item.id}_orders"></ul>
+          <ul id="user${item.id}_orders">${getUserOrders(item.id)}</ul>
         </td>
       </tr>
     `
 
+
   })
+
   document.querySelector("#users_list").innerHTML = str
+
+  
 }
 
+function getUserOrders(id){
+  let order_str="";
+
+  axios.get(`http://localhost:3000/user/${id}/orders`)
+    .then((res)=>{
+      // console.log(res.data)
+      res.data.forEach(function(item){
+        order_str+=`<li>${item.id}</li>`
+      })
+      console.log(order_str)
+      return order_str
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+
+    
+}
 
 </script>

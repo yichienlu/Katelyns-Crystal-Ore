@@ -192,8 +192,9 @@ current: admin_orders
 </section>
 
 <script>
-axios.get("http://localhost:3000/orders")
+axios.get("http://localhost:3000/orders?_expand=user")
 .then((res)=>{
+  console.log(res.data)
   renderOrdersData(res.data)
 })
 .catch((err)=>{
@@ -235,7 +236,7 @@ function renderOrdersData(data){
           <p>${item.name}</p>
           <p>${item.phone}</p>
           <p>${item.address}</p>
-          <p>${item.email}</p>
+          <p>${item.user.email}</p>
         </td>
         <td>
           <ul class="">

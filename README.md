@@ -142,5 +142,4 @@ A: 建議可以查看一下自己的相關版本，以下是專案開發者的�
 - https://hackmd.io/gOVsRiomTHO-T0utYhOx2g
 - https://github.com/typicode/json-server
 
-routes.json
-// 改執行 json-server-auth db.json -r routes.json -p 3003  -r 將路由 json 帶入
+json-server db.json -m ./node_modules/json-server-auth
