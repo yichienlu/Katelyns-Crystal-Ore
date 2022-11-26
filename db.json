@@ -1387,7 +1387,7 @@
     {
       "id": 1,
       "name": "金",
-      "image": "",
+      "image": "金珠.jpg",
       "description": "18k鍍金",
       "chakra": [
         "隔珠"
@@ -1407,7 +1407,7 @@
     {
       "id": 2,
       "name": "銀",
-      "image": "",
+      "image": "銀珠.jpg",
       "description": "純銀隔珠",
       "chakra": [
         "隔珠"
@@ -1427,12 +1427,12 @@
     {
       "id": 3,
       "name": "黃銅",
-      "image": "",
+      "image": "銅珠.jpg",
       "description": "黃銅隔珠",
       "chakra": [
         "隔珠"
       ],
-      "color": "#BA6E40",
+      "color": "#CA9E60",
       "bead": [
         [
           3,
@@ -1447,12 +1447,12 @@
     {
       "id": 4,
       "name": "玫瑰金",
-      "image": "",
+      "image": "玫瑰金珠.jpg",
       "description": "玫瑰金鍍銅",
       "chakra": [
         "隔珠"
       ],
-      "color": "#BA6E40",
+      "color": "#CA6E40",
       "bead": [
         [
           3,
@@ -2247,6 +2247,7 @@
           ]
         }
       ],
+      "payMethod": "ATM",
       "isPaid": true,
       "isShipped": true
     },
@@ -2378,6 +2379,7 @@
           ]
         }
       ],
+      "payMethod": "credit card",
       "isPaid": false,
       "isShipped": false
     }

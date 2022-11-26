@@ -11,6 +11,7 @@ function toggleMenu(state){
 
 let loggedin = JSON.parse(localStorage.getItem("token"));
 let isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+let userId = JSON.parse(localStorage.getItem("userId"));
 
 if(loggedin){
   // console.log(loggedin)
@@ -27,6 +28,7 @@ if(loggedin){
 document.querySelector("#link_logout").addEventListener("click",function(){
   localStorage.removeItem("token")
   localStorage.removeItem("isAdmin")
+  localStorage.removeItem("userId")
   alert("登出成功")
   window.location.assign("index.html");
 })

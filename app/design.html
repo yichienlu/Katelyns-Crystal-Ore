@@ -62,9 +62,9 @@ current: design
 
     </div>
     <div class="flex items-center mt-3">
-      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-5 px-[10px] lg:py-3 lg:px-6 hidden lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
+      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-[10px] px-5 lg:py-3 lg:px-6 lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
       <p class="totalPrice ml-auto mr-2 lg:mr-8 text-lg lg:text-2xl"></p>
-      <button onclick="finishDesign()" class="btn-primary">送出設計</button>
+      <button onclick="addToCart()" class="btn-primary">送出設計</button>
     </div>
     </div>
   </div>
@@ -287,12 +287,37 @@ function deleteDesign(){
   init()
 }
 
-function finishDesign(){
-  alert('設計已送出製作');
-  beeds = [];
-  perimeter = 130;
-  radius = `${perimeter/(2*pi)*4}px`
-  init()
+function addToCart(){
+
+  if(beeds.length>0){
+    alert('設計已放入購物車');
+    let str="";
+    beeds.forEach(function(item){
+      // console.log()
+      str+=`[${item.name},${item.size}]`
+    })
+    let obj = {
+      "price":totalPrice,
+      "size":totalLength,
+      "beads":[str],
+    }
+
+    if(localStorage.getItem("cart")){
+      let cart = JSON.parse(localStorage.getItem("cart"))
+      cart.push(obj)
+      localStorage.setItem("cart",JSON.stringify(cart))
+    } else {
+      localStorage.setItem("cart",JSON.stringify([obj]))
+    }
+
+    beeds = [];
+    perimeter = 130;
+    radius = `${perimeter/(2*pi)*4}px`
+    init()
+  } else {
+    alert("還沒有設計喔!")
+  }
+
 }
 
 
