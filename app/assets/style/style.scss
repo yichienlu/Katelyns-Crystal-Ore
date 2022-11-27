@@ -1,5 +1,5 @@
 *{
-  outline: 1px solid #AAA;
+  // outline: 1px solid #AAA;
   box-sizing: border-box;
 }
 
@@ -246,4 +246,17 @@ transform: translate(-50%, -50%);
     background: #334155; 
   }
 
+}
+
+
+// cart
+#cartTable table, #userTable{
+  th, td {
+    border:1px solid #000
+  }
+}
+#orders_list{
+  th, td {
+    border:1px solid #000
+  }
 }

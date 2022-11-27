@@ -1,5 +1,4 @@
 * {
-  outline: 1px solid #AAA;
   box-sizing: border-box;
 }
 
@@ -240,4 +239,12 @@ ul.list {
 }
 .ore-list ::-webkit-scrollbar-thumb:hover {
   background: #334155;
+}
+
+#cartTable table th, #cartTable table td, #userTable th, #userTable td {
+  border: 1px solid #000;
+}
+
+#orders_list th, #orders_list td {
+  border: 1px solid #000;
 }/*# sourceMappingURL=style.css.map */

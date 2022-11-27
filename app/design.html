@@ -268,14 +268,14 @@ list.addEventListener('mouseleave', function(e){
   document.querySelector(".currentBead").innerHTML = '';
 });
 
-// document.querySelector("#trash").addEventListener("dragover", function(e){
-//   e.preventDefault();
-//   e.target.style.color = '#A00'
-// })
-// document.querySelector("#trash").addEventListener("dragleave", function(e){
-//   e.preventDefault();
-//   e.target.style.color = '#000'
-// })
+document.querySelector("#trash").addEventListener("dragover", function(e){
+  e.preventDefault();
+  e.target.style.color = '#A00'
+})
+document.querySelector("#trash").addEventListener("dragleave", function(e){
+  e.preventDefault();
+  e.target.style.color = '#000'
+})
 
 
 init();
@@ -291,15 +291,15 @@ function addToCart(){
 
   if(beeds.length>0){
     alert('設計已放入購物車');
-    let str="";
+    let array=[];
     beeds.forEach(function(item){
-      // console.log()
-      str+=`[${item.name},${item.size}]`
+      array.push([item.name,item.size])
     })
+
     let obj = {
       "price":totalPrice,
       "size":totalLength,
-      "beads":[str],
+      "beads":array,
     }
 
     if(localStorage.getItem("cart")){
@@ -309,11 +309,11 @@ function addToCart(){
     } else {
       localStorage.setItem("cart",JSON.stringify([obj]))
     }
-
     beeds = [];
     perimeter = 130;
     radius = `${perimeter/(2*pi)*4}px`
     init()
+    window.location.assign("cart.html")
   } else {
     alert("還沒有設計喔!")
   }

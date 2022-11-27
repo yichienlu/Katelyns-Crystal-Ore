@@ -7,19 +7,18 @@ current: cart
 
 <section class=" px-3 py-10 lg:py-20">
   <div class="container mx-auto">
-    <h3 class="">我的購物車</h3>
+    <h3 class="text-2xl font-bold lg:text-[40px] text-slate-700">我的購物車</h3>
     <p id="cartEmpty">
       購物車沒有東西，<a href="design.html" class="">去訂製專屬飾品</a>
     </p>
     <div id="cartTable" class="">
-      <table class="bg-red-200 mx-auto mb-5">
+      <table class="mx-auto mb-5">
         <thead>
           <tr>
-            <th width="5%"></th>
-            <th width="60%">品項</th>
-            <th width="10%">手圍</th>
-            <th width="15%">金額</th>
-            <th width="10%"></th>
+            <th width="">品項</th>
+            <th width="">手圍</th>
+            <th width="">金額</th>
+            <th width="" style="width:40px"></th>
           </tr>
         </thead>
         <tbody id="cartList">
@@ -29,12 +28,8 @@ current: cart
             <td colspan="2">
               <p>總金額</p>
             </td>
-            <td>
-
-            </td>
             <td id="cartTotalPrice"></td>
             <td></td>
-
         </tr>
         </tfoot>
           
@@ -84,9 +79,10 @@ current: cart
                   <option value="信用卡">信用卡</option>
                   <option value="超商付款">超商付款</option>
               </select>
+              <p class="text-red-500" data-message="交易方式"></p>
           </div>
       </div>
-      <input type="submit" value="送出預訂資料" class="btn-primary w-full" onclick="addOrder()">
+      <input type="button" value="送出預訂資料" class="btn-primary w-full disabled:bg-slate-400" id="createOrder">
   </form>
 
   </div>
@@ -97,11 +93,14 @@ current: cart
 
 
   let cart;
+  let cartTotalPrice;
+  let obj={}
   
   function renderCartData(){
     if(JSON.parse(localStorage.getItem("cart"))){   
       document.querySelector("#cartTable").classList.remove("hidden")
       document.querySelector("#cartEmpty").classList.add("hidden")
+      document.querySelector("#createOrder").disabled=false;
       
       cart = JSON.parse(localStorage.getItem("cart"));
       let cartTotalPrice=0;
@@ -109,10 +108,9 @@ current: cart
       cart.forEach(function(item,index){      
         str += `
           <tr>
-            <td>${index+1}</td>
             <td>${item.beads}</td>
             <td>${item.size/10}cm</td>
-            <td>${item.price}</td>
+            <td>$${item.price}</td>
             <td class="">
                 <a href="#" class="" onclick="deleteCartItem(${index})">刪除</a>
             </td>
@@ -122,19 +120,24 @@ current: cart
       })
       document.querySelector("#cartList").innerHTML = str
 
-      document.querySelector("#cartTotalPrice").innerHTML = cartTotalPrice
+      document.querySelector("#cartTotalPrice").innerHTML = `$${cartTotalPrice}`
+      obj.final_price = cartTotalPrice
     } else {
       document.querySelector("#cartTable").classList.add("hidden")
       document.querySelector("#cartEmpty").classList.remove("hidden")
+      document.querySelector("#createOrder").disabled=true;
     }
   }
 
 
 function deleteCartItem(num){
   let data = JSON.parse(localStorage.getItem("cart"))
-  data.splice(num,1);
-  localStorage.setItem("cart", JSON.stringify(data))
- 
+  if(data.length==1){
+    localStorage.removeItem("cart")
+  } else {
+    data.splice(num,1);
+    localStorage.setItem("cart", JSON.stringify(data))
+  }
   renderCartData()
 }
 
@@ -144,24 +147,62 @@ function clearCart(){
 }
 
 
-const alertMsg = document.querySelectorAll("[data-message]");
-const inputs = document.querySelectorAll("input[id]");
 
-function addOrder(){
-  alertMsg.forEach(function(item,index){
-    if(inputs[index].value==""){
-      item.textContent = `${item.dataset.message}必填`
-      axios.post("http://localhost:3000/orders", obj)
-      .then((res)=>{
-        console.log(res)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-    }
-  })
-}
 
 renderCartData()
+
+
+// 送出訂單
+const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
+const inputs = document.querySelectorAll("#orderInfo input[id],#orderInfo select[id]");
+
+
+document.querySelector("#createOrder").addEventListener("click",function(){
+let empty_input = false
+
+  alertMsg.forEach(function(item,index){
+    if(inputs[index].value==""){
+      empty_input = true;
+      item.textContent = `${item.dataset.message}必填`
+    } else {
+      item.textContent = ""
+    }
+  })
+
+
+  if(!empty_input){
+    obj.order_time = Date.now();
+  obj.userId = localStorage.getItem("userId");
+  obj.name = inputs[0].value.trim();
+  obj.phone =  inputs[1].value.trim();
+  obj.email = inputs[2].value.trim();
+  obj.address = inputs[3].value.trim();
+  obj.payMethod = inputs[4].value;
+  obj.products = JSON.parse(localStorage.getItem("cart"));
+  obj.isPaid = false;
+  obj.isShipped = false;
+  console.log(obj)
+
+      axios.post("http://localhost:3000/orders", obj)
+  .then((res)=>{
+    // console.log(res.statusText)
+    alert("訂單已送出")
+    window.location.assign("index.html")
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
+  localStorage.removeItem("cart")
+  }
+
+
+})
+
+
+
+
+
+
 
 </script>

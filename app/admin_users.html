@@ -8,75 +8,16 @@ current: admin_users
 <section class="px-3 py-10 lg:py-20">
   <div class="container mx-auto">
     <h1 class="text-xl lg:text-3xl font-bold mb-8 lg:mb-12">會員管理</h1>
-    <table id="orderTable" class="border-4 border-slate-400 w-full">
+    <table id="userTable" class="border-4 border-slate-400 w-full">
       <thead class="bg-slate-400 text-white text-center">
         <tr class="border-b-4 border-slate-400">
-          <td class="w-1/12">編號</td>
-          <td class="w-4/12">Email</td>
-          <td class="w-2/12">生日</td>
-          <td class="w-2/12">測驗結果</td>
-          <td class="w-1/12">訂單</td>
+          <th class="w-1/12">編號</th>
+          <th class="w-4/12">Email</th>
+          <th class="w-2/12">生日</th>
+          <th class="w-2/12">測驗結果</th>
         </tr>
       </thead>
-  <tbody id="users_list">
-      <!-- <tr>
-        <td>1</td>
-        <td>
-          YC@gmail.com
-        </td>
-        <td>
-          YC
-        </td>
-        <td>
-          1995/01/01
-        </td>
-        <td>      
-          <ul>
-            <li>頂輪：14</li>
-            <li>眉心輪：20</li>
-            <li>喉輪：21</li>
-            <li>心輪：10</li>
-            <li>臍輪：9</li>
-            <li>腹輪：17</li>
-            <li>海底輪：26</li>
-          </ul>
-        </td>
-        <td>      
-          <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>
-          prettyAuntie@gmail.com
-        </td>
-        <td>
-          漂亮阿姨
-        </td>
-        <td>
-          1985/01/01
-        </td>
-        <td>      
-          <ul>
-            <li>頂輪：14</li>
-            <li>眉心輪：20</li>
-            <li>喉輪：21</li>
-            <li>心輪：10</li>
-            <li>臍輪：9</li>
-            <li>腹輪：17</li>
-            <li>海底輪：26</li>
-          </ul>
-        </td>
-        <td>      
-          <ul>
-            <li><a href="#">3</a></li>
-          </ul>
-        </td>
-      </tr> -->
-    </tbody>
+  <tbody id="users_list"></tbody>
     </table>
   </div>
 </section>
@@ -113,9 +54,6 @@ function renderUsersData(data){
             <li>腹輪：${item.test_result[1]}</li>
             <li>海底輪：${item.test_result[0]}</li>
           </ul>
-        </td>
-        <td>      
-          <ul id="user${item.id}_orders">${getUserOrders(item.id)}</ul>
         </td>
       </tr>
     `

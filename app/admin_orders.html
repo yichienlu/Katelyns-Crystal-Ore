@@ -17,182 +17,31 @@ current: admin_orders
           <td>訂購項目</td>
           <td class="w-20">
             <span>總金額</span>
-            <select name="isPaid" id="" class="bg-slate-700">
+            <!-- <select name="isPaid" id="" class="bg-slate-700">
               <option value="" class="active:bg-neutral-900">全部</option>
               <option value="notPaid">未付款</option>
               <option value="paid">已付款</option>
-            </select>
+            </select> -->
           </td>
           <td class="w-20">
             <span>訂單狀態</span>
-            <select name="isPaid" id="" class="bg-slate-700">
+            <!-- <select name="isPaid" id="" class="bg-slate-700">
               <option value="" class="active:bg-neutral-900">全部</option>
-              <option value="notPaid">未出貨</option>
-              <option value="paid">已出貨</option>
-            </select>
+              <option value="notShipped">未出貨</option>
+              <option value="shipped">已出貨</option>
+            </select> -->
           </td>
         </tr>
       </thead>
   <tbody id="orders_list">
-      <!-- <tr>
-        <td>1</td>
-        <td>
-          <div>2022/11/09</div>
-          <div>20:01</div>
-        </td>
-        <td>
-          <p>YC Lu</p>
-          <p>0987654321</p>
-          <p>六角市學院路1號</p>
-          <p>YC@gmail.com</p>
-        </td>
-        <td>
-          <ul class="">
-            <li class="border-b border-slate-400">
-              <div>
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-              </div>
-              <div class="font-bold text-red-600">$1280</div>              
-            </li>
-            <li class="border-b border-slate-400">
-              <div>
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-              </div>
-              <div class="font-bold text-red-600">$1280</div>
-            </li>              
-              <h4>加購：</h4>
-              <ul>
-                <li class="flex">
-                  <div>
-                    拭銀布
-                    <span class="font-bold text-red-600">$10</span>
-                  </div>
-                </li>
-              </ul>
-
-          </ul>
-
-        </td>
-        <td>      
-          <div class="font-bold text-red-600">$2570</div>
-          <input type="checkbox" id="order1" class="isPaid" checked>
-          <label for="order1">付款</label>
-        </td>
-        <td>
-          <a href="#" class="text-green-600" data-status="2">已出貨</a>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>
-          <div>2022/11/09</div>
-          <div>20:01</div>
-        </td>
-        <td>
-          <p>Pretty Auntie</p>
-          <p>0987654321</p>
-          <p>六角市學院路2號</p>
-          <p>prettyauntie@gmail.com</p>
-        </td>
-        <td>
-          <ul class="">
-            <li class="border-b border-slate-400">
-              <div>
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-              </div>
-              <div class="font-bold text-red-600">$1280</div>              
-            </li>
-            <li class="border-b border-slate-400">
-              <div>
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-                <span>粉晶(8)</span> |
-              </div>
-              <div class="font-bold text-red-600">$1280</div>
-            </li>              
-              <h4>加購：</h4>
-              <ul>
-                <li class="flex">
-                  <div>
-                    拭銀布
-                    <span class="font-bold text-red-600">$10</span>
-                  </div>
-                </li>
-              </ul>
-
-          </ul>
-
-        </td>
-        <td>      
-          <div class="font-bold text-red-600">$2570</div>
-          <input type="checkbox" class="isPaid" data-paid="2" checked>
-          <label for="order1">付款</label>
-        </td>
-        <td>
-          <a href="#" class="text-red-600" data-status="2">未出貨</a>
-        </td>
-      </tr> -->
     </tbody>
     </table>
   </div>
 </section>
 
 <script>
-axios.get("http://localhost:3000/orders?_expand=user")
+  function getOrdersData(){
+    axios.get("http://localhost:3000/orders")
 .then((res)=>{
   // console.log(res.data)
   renderOrdersData(res.data)
@@ -200,9 +49,11 @@ axios.get("http://localhost:3000/orders?_expand=user")
 .catch((err)=>{
   console.log(err)
 })
+  }
+
+  getOrdersData()
 
 function renderOrdersData(data){
-  // console.log(data)
   let str = "";
   data.forEach(function(item){
 
@@ -225,18 +76,23 @@ function renderOrdersData(data){
         </li>
       `
     })
+
+    let time = new Date(item.order_time)
     str += `
     <tr>
-        <td>${item.id}</td>
         <td>
-          <div>${new Date(item.order_time).getFullYear()}/${new Date(item.order_time).getMonth()+1}/${new Date(item.order_time).getDate()}</div>
-          <div>${new Date(item.order_time).getHours()}:${new Date(item.order_time).getMinutes()}:${new Date(item.order_time).getSeconds()}</div>
+          ${item.id}
+          <button onclick="deleteOrder(${item.id})">刪除</button>
+        </td>
+        <td>
+          <div>${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')}</div>
+          <div>${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}</div>
         </td>
         <td>
           <p>${item.name}</p>
           <p>${item.phone}</p>
           <p>${item.address}</p>
-          <p>${item.user.email}</p>
+          <p>${item.email}</p>
         </td>
         <td>
           <ul class="">
@@ -245,11 +101,11 @@ function renderOrdersData(data){
         </td>
         <td>      
           <div class="font-bold text-red-600">$${item.final_price}</div>
-          <input type="checkbox" id="order1" class="isPaid" ${item.isPaid? "checked" :""}>
-          <label for="order1">付款</label>
+          <button class="${item.isPaid? "text-green-600":"text-red-600"}" onclick="togglePaid(${item.id},${item.isPaid})">${item.isPaid? "已付款":"未付款"}</button>
         </td>
         <td>
-          <a href="#" class="${item.isShipped? "text-green-600":"text-red-600"}" data-status="2">${item.isShipped? "已出貨":"未出貨"}</a>
+          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <button class="${item.isShipped? "text-green-600":"text-red-600"}"  onclick="toggleShipped(${item.id},${item.isShipped})">${item.isShipped? "已付款":"未付款"}</button>
         </td>
       </tr>
     `
@@ -258,4 +114,43 @@ function renderOrdersData(data){
   document.querySelector("#orders_list").innerHTML = str
 }
 
+
+
+function togglePaid(id,isPaid){
+axios.patch(`http://localhost:3000/orders/${id}`,{
+  "isPaid":!isPaid
+})
+  .then((res)=>{
+    // console.log(res.data)
+    getOrdersData()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+function toggleShipped(id,isShipped){
+axios.patch(`http://localhost:3000/orders/${id}`,{
+  "isShipped":!isShipped
+})
+  .then((res)=>{
+    // console.log(res.data)
+    getOrdersData()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+function deleteOrder(id){
+  axios.delete(`http://localhost:3000/orders/${id}`)
+  .then((res)=>{
+    // console.log(res.data)
+    getOrdersData()
+
+  })
+  .catch((err)=>{
+
+  })
+}
 </script>
