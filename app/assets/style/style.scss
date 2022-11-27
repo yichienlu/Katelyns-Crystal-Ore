@@ -128,15 +128,15 @@ $brand02: #334155;
   display: inline-block;
   font-size: 16px;
   padding: 4px 8px;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
   border: 2px solid $brand01;
   border-radius: 4px;
   @media(min-width: 1024px){
     font-size: 20px;
-  padding: 8px 20px;  
-    margin-left: 16px;
-    margin-right: 16px;
+  padding: 6px 12px;  
+    margin-left: 8px;
+    margin-right: 8px;
     
   }
 }

@@ -6,49 +6,17 @@ current: test
 ---
 <section class="px-3 py-10 lg:py-20">
   <div class="container mx-auto">
-    <h2 class="text-2xl font-bold mb-3">脈輪測驗</h2>
-    <p class="text-lg lg:text-2xl mb-5 lg:mb-10" >完成49題測驗，了解您的脈輪能量分布</p>
-    <form class="needs-validation" novalidate>
+    <h2 class="text-2xl font-bold mb-3 lg:w-2/3 mx-auto">脈輪測驗</h2>
+    <p class="text-lg lg:text-2xl mb-5 lg:mb-10 lg:w-2/3 mx-auto" >完成49題測驗，了解您的脈輪能量分布</p>
+    <form class="needs-validation lg:w-2/3 mx-auto" novalidate>
 
-<ul class="tests-list text-center max-h-screen overflow-scroll">
-  <!-- <li class="mb-8">
-    <h3 class="mb-4 text-lg lg:text-2xl font-bold">Q1. 你擔心自己的財務狀況?</h3>
-    
-    <input type="radio" id="r1-1" name="r1" value="1">
-    <label for="r1-1">沒有</label>
-
-    <input type="radio" id="r1-2" name="r1" value="2">
-    <label for="r1-2">很少</label>
-
-    <input type="radio" id="r1-3" name="r1" value="3">
-    <label for="r1-3">有時</label> 
-      
-    <input type="radio" id="r1-4" name="r1" value="4">
-    <label for="r1-4">經常</label>       
-  </li>
-  <li class="mb-8">
-    <h3 class="mb-4 text-lg lg:text-2xl font-bold">Q2. 你經常隱藏自己的情緒，不願意表露出來?</h3>
-    
-    <input type="radio" id="s1-1" name="s1" value="1">
-    <label for="s1-1">沒有</label>
-
-    <input type="radio" id="s1-2" name="s1" value="2">
-    <label for="s1-2">很少</label>
-
-    <input type="radio" id="s1-3" name="s1" value="3">
-    <label for="s1-3">有時</label> 
-      
-    <input type="radio" id="s1-4" name="s1" value="4">
-    <label for="s1-4">經常</label>       
-  </li>   -->
-
-</ul>
-  <p class="text-center flex justify-between">
-    <button id="testReset" class="btn-primary" >清除</button>
-    
-    <button type="submit" id="testSubmit" class="btn-primary">看結果</button>
-  </p>
-</form>        
+    <ul class="tests-list max-h-screen overflow-scroll"></ul>
+      <p class="text-center flex justify-between mt-5">
+        <button id="testReset" class="btn-primary" >清除</button>
+        
+        <button type="submit" id="testSubmit" class="btn-primary">看結果</button>
+      </p>
+    </form>        
   </div>
     
 </section>
@@ -188,16 +156,15 @@ function renderTestsData(data){
   let str = '';
   data.forEach(function(item){
     str+=`
-    <li class="mb-8">
-    <h3 class="mb-4 text-lg lg:text-2xl font-bold">Q${item.id}：${item.question}</h3>
+    <li class="mb-4">
+    <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
     
     <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}">
     <label for="${item.name}-1">${item.options[0][0]}</label>
     <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}">
     <label for="${item.name}-2">${item.options[1][0]}</label>
     <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}">
-    <label for="${item.name}-3">${item.options[2][0]}</label> 
-      
+    <label for="${item.name}-3">${item.options[2][0]}</label>
     <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}">
     <label for="${item.name}-4">${item.options[3][0]}</label>       
   </li>
