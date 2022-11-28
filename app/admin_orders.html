@@ -17,19 +17,9 @@ current: admin_orders
           <td>訂購項目</td>
           <td class="w-20">
             <span>總金額</span>
-            <!-- <select name="isPaid" id="" class="bg-slate-700">
-              <option value="" class="active:bg-neutral-900">全部</option>
-              <option value="notPaid">未付款</option>
-              <option value="paid">已付款</option>
-            </select> -->
           </td>
           <td class="w-20">
             <span>訂單狀態</span>
-            <!-- <select name="isPaid" id="" class="bg-slate-700">
-              <option value="" class="active:bg-neutral-900">全部</option>
-              <option value="notShipped">未出貨</option>
-              <option value="shipped">已出貨</option>
-            </select> -->
           </td>
         </tr>
       </thead>
@@ -37,14 +27,18 @@ current: admin_orders
     </tbody>
     </table>
   </div>
+
+  <h2 class="text-lg font-bold my-8 lg:mb-12">材料使用</h2>
+  <div id="bead-chart"></div>
+
 </section>
 
 <script>
   function getOrdersData(){
     axios.get("http://localhost:3000/orders")
 .then((res)=>{
-  // console.log(res.data)
-  renderOrdersData(res.data)
+  renderOrdersData(res.data);
+  renderPieChart(res.data);
 })
 .catch((err)=>{
   console.log(err)
@@ -121,7 +115,6 @@ axios.patch(`http://localhost:3000/orders/${id}`,{
   "isPaid":!isPaid
 })
   .then((res)=>{
-    // console.log(res.data)
     getOrdersData()
   })
   .catch((err)=>{
@@ -134,7 +127,6 @@ axios.patch(`http://localhost:3000/orders/${id}`,{
   "isShipped":!isShipped
 })
   .then((res)=>{
-    // console.log(res.data)
     getOrdersData()
   })
   .catch((err)=>{
@@ -145,7 +137,6 @@ axios.patch(`http://localhost:3000/orders/${id}`,{
 function deleteOrder(id){
   axios.delete(`http://localhost:3000/orders/${id}`)
   .then((res)=>{
-    // console.log(res.data)
     getOrdersData()
 
   })
@@ -153,4 +144,39 @@ function deleteOrder(id){
 
   })
 }
+
+function renderPieChart(data){
+  // console.log(data)
+  let pie_obj = {};
+  data.forEach(function(item){
+    item.products.forEach(function(product){
+      product.beads.forEach(function(bead){
+        if(pie_obj[bead[0]]){
+          pie_obj[bead[0]] += 1
+        } else {
+          pie_obj[bead[0]] = 1
+        }
+      })
+    })
+  })
+  
+  let sorted_beads = Object.entries(pie_obj).sort((a,b)=> b[1] - a[1])
+
+  const chart = c3.generate({
+    bindto:"#bead-chart",
+    data: {
+      columns:sorted_beads,
+      type: 'pie'
+    },
+    pie: {
+      label: {
+        format: function(value, ratio, id) {
+          return value;
+        }
+      }
+    }
+  })
+
+  }
+
 </script>
