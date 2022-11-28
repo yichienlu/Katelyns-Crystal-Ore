@@ -30,7 +30,7 @@ current: test
               <div class="text-xl lg:text-[28px]">頂輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="c-chart" class="h-full bg-purple-400 w-1/2"></div>              
+              <div id="c-chart" class="h-full bg-purple-400"></div>              
             </div>
             <div id="c-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="c-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -40,7 +40,7 @@ current: test
               <div class="text-xl lg:text-[28px]">眉心輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="e-chart" class="h-full bg-indigo-400 w-full"></div>              
+              <div id="e-chart" class="h-full bg-indigo-400"></div>              
             </div>
             <div id="e-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="e-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -50,7 +50,7 @@ current: test
               <div class="text-xl lg:text-[28px]">喉輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="t-chart" class="h-full bg-sky-400 w-1/6"></div>              
+              <div id="t-chart" class="h-full bg-sky-400"></div>              
             </div>
             <div id="t-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="t-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -60,7 +60,7 @@ current: test
               <div class="text-xl lg:text-[28px]">心輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="h-chart" class="h-full bg-lime-400 w-3/4"></div>              
+              <div id="h-chart" class="h-full bg-lime-400"></div>              
             </div>
             <div id="h-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="h-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -70,7 +70,7 @@ current: test
               <div class="text-xl lg:text-[28px]">臍輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="p-chart" class="h-full bg-yellow-400 w-2/3"></div>              
+              <div id="p-chart" class="h-full bg-yellow-400"></div>              
             </div>
             <div id="p-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="p-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -80,7 +80,7 @@ current: test
               <div class="text-xl lg:text-[28px]">腹輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="s-chart" class="h-full bg-orange-400 w-1/3"></div>              
+              <div id="s-chart" class="h-full bg-orange-400"></div>              
             </div>
             <div id="s-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="s-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -90,7 +90,7 @@ current: test
               <div class="text-xl lg:text-[28px]">海底輪</div>
             </div> 
             <div class="self-stretch w-6/12 flex items-center">
-              <div id="r-chart" class="h-full bg-red-400 w-1/2"></div>              
+              <div id="r-chart" class="h-full bg-red-400"></div>              
             </div>
             <div id="r-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
             <div id="r-result" class="w-2/12 text-lg lg:text-xl"></div>
@@ -128,7 +128,7 @@ current: test
             </li>
           </ul>
         <div class="flex justify-center">
-          <a href="#" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>                  
+          <a href="design" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>                  
         </div>
         </div>
 
@@ -275,6 +275,7 @@ function createCharts() {
 	document.querySelector("#s-chart").style.width = (sacral / total * 100) + "%";
 	document.querySelector("#r-chart").style.width = (root / total * 100) + "%";
 }
+
 document.querySelector("#testReset").onclick = function(e) { 
   e.preventDefault();
     crown = eye = throat = heart = plexus = sacral = root = 0;

@@ -144,5 +144,8 @@ A: 建議可以查看一下自己的相關版本，以下是專案開發者的�
 
 json-server db.json -m ./node_modules/json-server-auth
 
+## 部署至 Vercel
+https://www.youtube.com/watch?v=UhxcJh5oIHo
+
 
 https://undraw.co/illustrations
