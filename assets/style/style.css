@@ -1,5 +1,4 @@
 * {
-  outline: 1px solid #AAA;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -130,17 +129,17 @@ section.v {
   display: inline-block;
   font-size: 16px;
   padding: 4px 8px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
   border: 2px solid #94a3b8;
   border-radius: 4px;
 }
 @media (min-width: 1024px) {
   .tests-list label {
     font-size: 20px;
-    padding: 8px 20px;
-    margin-left: 16px;
-    margin-right: 16px;
+    padding: 6px 12px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
 
@@ -254,4 +253,12 @@ ul.list {
 }
 .ore-list ::-webkit-scrollbar-thumb:hover {
   background: #334155;
+}
+
+#cartTable table th, #cartTable table td, #userTable th, #userTable td {
+  border: 1px solid #000;
+}
+
+#orders_list th, #orders_list td {
+  border: 1px solid #000;
 }

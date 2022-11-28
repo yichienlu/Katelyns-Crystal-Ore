@@ -22,7 +22,11 @@
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
 
-
+  <style>
+    #user_icon:hover #user_box{
+      display: block;
+    }
+  </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
 <body>
@@ -48,17 +52,17 @@
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9 relative">
+        <li id="user_icon" class="ml-4 lg:ml-9 relative">
           <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
-          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+          <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
-              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
             </ul>
           </div>
         </li>
@@ -106,33 +110,207 @@
   </header>
 
   
-<section>
-<div>
-<h3>購物車</h3>
-<ul class="cart_list"></ul>
+<section class=" px-3 py-10 lg:py-20">
+  <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
+    <h3 class="text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
+    <p id="cartEmpty">
+      購物車沒有東西，<a href="design.html" class="">去訂製專屬飾品</a>
+    </p>
+    <div id="cartTable" class="">
+      <table class="mx-auto mb-5 w-full">
+        <thead class="bg-slate-700 text-white">
+          <tr>
+            <th width="">品項</th>
+            <th width="">手圍</th>
+            <th width="">金額</th>
+            <th width="" style="width:60px"></th>
+          </tr>
+        </thead>
+        <tbody id="cartList">
+        </tbody>
+        <tfoot class="bg-slate-400">
+          <tr>
+            <td colspan="2">
+              <p>總金額</p>
+            </td>
+            <td id="cartTotalPrice"></td>
+            <td></td>
+        </tr>
+        </tfoot>
+          
+      </table>
+      <a href="#" class="py-2 px-3 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="clearCart()">刪除所有品項</a>
+  </div>
+  </div>
+</section>
 
+<section class="px-3 py-10 lg:py-20" id="orderInfo">
+  <div class="container mx-auto">
+    <h3 class=" text-2xl font-bold lg:text-3xl mb-5 text-slate-700">填寫預訂資料</h3>
+    <form action="" class="sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
+      <div class="mb-3">
+          <label for="customerName" class="mb-1">姓名</label>
+          <div class="">
+              <input type="text" class="w-full" id="customerName" placeholder="請輸入姓名" name="姓名">
+              <p class=" text-red-500" data-message="姓名"></p>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="customerPhone" class="mb-1">電話</label>
+          <div class="">
+              <input type="tel" class="w-full" id="customerPhone" placeholder="請輸入電話" name="電話">
+              <p class=" text-red-500" data-message="電話"></p>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="customerEmail" class="mb-1">Email</label>
+          <div class="">
+              <input type="email" class="w-full" id="customerEmail" placeholder="請輸入 Email" name="Email">
+              <p class=" text-red-500" data-message="Email"></p>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="customerAddress" class="mb-1">寄送地址</label>
+          <div class="">
+              <input type="text" class="w-full" id="customerAddress" placeholder="請輸入寄送地址" name="寄送地址">
+              <p class="text-red-500" data-message="寄送地址"></p>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="tradeMethod" class="mb-1">交易方式</label>
+          <div class="">
+              <select id="tradeMethod" class="w-full" name="交易方式">
+                  <option value="ATM" selected>ATM</option>
+                  <option value="信用卡">信用卡</option>
+                  <option value="超商付款">超商付款</option>
+              </select>
+              <p class="text-red-500" data-message="交易方式"></p>
+          </div>
+      </div>
+      <input type="button" value="送出預訂資料" class="btn-primary w-full disabled:bg-slate-400" id="createOrder">
+  </form>
 
-</div>
-
-<form action="">
-  <label for="">收件人姓名</label>
-  <input type="text">
-  <label for="">收件地址</label>
-  <input type="text">
-  <label for="">收件電話</label>
-  <input type="tel">
-  <label for="">email</label>
-  <input type="email">
-  <label for="">匯款末五碼</label>
-  <input type="">
-  <button>送出訂單</button>
-</form>
-
-
-
-
+  </div>
 
 </section>
+
+<script>
+
+
+  let cart;
+  let cartTotalPrice;
+  let obj={}
+  
+  function renderCartData(){
+    if(JSON.parse(localStorage.getItem("cart"))){   
+      document.querySelector("#cartTable").classList.remove("hidden")
+      document.querySelector("#cartEmpty").classList.add("hidden")
+      document.querySelector("#createOrder").disabled=false;
+      
+      cart = JSON.parse(localStorage.getItem("cart"));
+      let cartTotalPrice=0;
+      let str="";
+      cart.forEach(function(item,index){      
+        str += `
+          <tr>
+            <td>${item.beads}</td>
+            <td>${item.size/10}cm</td>
+            <td>$${item.price}</td>
+            <td class="py-2">
+                <a href="#" class="py-1 px-2 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="deleteCartItem(${index})">刪除</a>
+            </td>
+          </tr>
+        `
+        cartTotalPrice += item.price
+      })
+      document.querySelector("#cartList").innerHTML = str
+
+      document.querySelector("#cartTotalPrice").innerHTML = `$${cartTotalPrice}`
+      obj.final_price = cartTotalPrice
+    } else {
+      document.querySelector("#cartTable").classList.add("hidden")
+      document.querySelector("#cartEmpty").classList.remove("hidden")
+      document.querySelector("#createOrder").disabled=true;
+    }
+  }
+
+
+function deleteCartItem(num){
+  let data = JSON.parse(localStorage.getItem("cart"))
+  if(data.length==1){
+    localStorage.removeItem("cart")
+  } else {
+    data.splice(num,1);
+    localStorage.setItem("cart", JSON.stringify(data))
+  }
+  renderCartData()
+}
+
+function clearCart(){
+  localStorage.removeItem("cart")
+  renderCartData()
+}
+
+
+
+
+renderCartData()
+
+
+// 送出訂單
+const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
+const inputs = document.querySelectorAll("#orderInfo input[id],#orderInfo select[id]");
+
+
+document.querySelector("#createOrder").addEventListener("click",function(){
+let empty_input = false
+
+  alertMsg.forEach(function(item,index){
+    if(inputs[index].value==""){
+      empty_input = true;
+      item.textContent = `${item.dataset.message}必填`
+    } else {
+      item.textContent = ""
+    }
+  })
+
+
+  if(!empty_input){
+    obj.order_time = Date.now();
+  obj.userId = localStorage.getItem("userId");
+  obj.name = inputs[0].value.trim();
+  obj.phone =  inputs[1].value.trim();
+  obj.email = inputs[2].value.trim();
+  obj.address = inputs[3].value.trim();
+  obj.payMethod = inputs[4].value;
+  obj.products = JSON.parse(localStorage.getItem("cart"));
+  obj.isPaid = false;
+  obj.isShipped = false;
+  console.log(obj)
+
+      axios.post("http://localhost:3000/orders", obj)
+  .then((res)=>{
+    // console.log(res.statusText)
+    alert("訂單已送出")
+    window.location.assign("index.html")
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
+  localStorage.removeItem("cart")
+  }
+
+
+})
+
+
+
+
+
+
+
+</script>
 
   <footer class="px-3 py-12 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
@@ -155,7 +333,7 @@
             <ul class="flex">
               <li class="mr-6"><a href="#" class="block">關於我們</a></li>
               <li class="mr-6"><a href="#" class="block">聯絡我們</a></li>
-              <li><a href="admin_orders.html" class="block">後臺管理</a></li>
+              <li><a href="admin_users.html" class="block">會員管理</a></li>
             </ul>
           </li>
         </ul>

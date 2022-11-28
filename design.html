@@ -22,7 +22,11 @@
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
 
-
+  <style>
+    #user_icon:hover #user_box{
+      display: block;
+    }
+  </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
 <body>
@@ -48,17 +52,17 @@
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9 relative">
+        <li id="user_icon" class="ml-4 lg:ml-9 relative">
           <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
-          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+          <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
-              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
             </ul>
           </div>
         </li>
@@ -163,9 +167,9 @@
 
     </div>
     <div class="flex items-center mt-3">
-      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-5 px-[10px] lg:py-3 lg:px-6 hidden lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
+      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-[10px] px-5 lg:py-3 lg:px-6 lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
       <p class="totalPrice ml-auto mr-2 lg:mr-8 text-lg lg:text-2xl"></p>
-      <button onclick="finishDesign()" class="btn-primary">送出設計</button>
+      <button onclick="addToCart()" class="btn-primary">送出設計</button>
     </div>
     </div>
   </div>
@@ -369,14 +373,14 @@ list.addEventListener('mouseleave', function(e){
   document.querySelector(".currentBead").innerHTML = '';
 });
 
-// document.querySelector("#trash").addEventListener("dragover", function(e){
-//   e.preventDefault();
-//   e.target.style.color = '#A00'
-// })
-// document.querySelector("#trash").addEventListener("dragleave", function(e){
-//   e.preventDefault();
-//   e.target.style.color = '#000'
-// })
+document.querySelector("#trash").addEventListener("dragover", function(e){
+  e.preventDefault();
+  e.target.style.color = '#A00'
+})
+document.querySelector("#trash").addEventListener("dragleave", function(e){
+  e.preventDefault();
+  e.target.style.color = '#000'
+})
 
 
 init();
@@ -388,12 +392,37 @@ function deleteDesign(){
   init()
 }
 
-function finishDesign(){
-  alert('設計已送出製作');
-  beeds = [];
-  perimeter = 130;
-  radius = `${perimeter/(2*pi)*4}px`
-  init()
+function addToCart(){
+
+  if(beeds.length>0){
+    alert('設計已放入購物車');
+    let array=[];
+    beeds.forEach(function(item){
+      array.push([item.name,item.size])
+    })
+
+    let obj = {
+      "price":totalPrice,
+      "size":totalLength,
+      "beads":array,
+    }
+
+    if(localStorage.getItem("cart")){
+      let cart = JSON.parse(localStorage.getItem("cart"))
+      cart.push(obj)
+      localStorage.setItem("cart",JSON.stringify(cart))
+    } else {
+      localStorage.setItem("cart",JSON.stringify([obj]))
+    }
+    beeds = [];
+    perimeter = 130;
+    radius = `${perimeter/(2*pi)*4}px`
+    init()
+    window.location.assign("cart.html")
+  } else {
+    alert("還沒有設計喔!")
+  }
+
 }
 
 
@@ -431,7 +460,7 @@ if(isMobileDevice()){
             <ul class="flex">
               <li class="mr-6"><a href="#" class="block">關於我們</a></li>
               <li class="mr-6"><a href="#" class="block">聯絡我們</a></li>
-              <li><a href="admin_orders.html" class="block">後臺管理</a></li>
+              <li><a href="admin_users.html" class="block">會員管理</a></li>
             </ul>
           </li>
         </ul>

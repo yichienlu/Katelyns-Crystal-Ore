@@ -22,7 +22,11 @@
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
 
-
+  <style>
+    #user_icon:hover #user_box{
+      display: block;
+    }
+  </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
 <body>
@@ -48,17 +52,17 @@
             <iconify-icon icon="bi:cart-dash" width="28" height="28" class="hidden lg:inline"></iconify-icon>
           </a>
         </li>
-        <li class="ml-4 lg:ml-9 relative">
+        <li id="user_icon" class="ml-4 lg:ml-9 relative">
           <a href="#" class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </a>
-          <div class="absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+          <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
-              <li><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
             </ul>
           </div>
         </li>
@@ -106,14 +110,346 @@
   </header>
 
   
-<h3>會員資料</h3>
+<h3 class="text-2xl font-bold lg:text-3xl mb-5 mt-5 text-slate-700">會員資料</h3>
+<p>
+  <label>
+    修改密碼
+    <input type="password" id="member_password">
+  </label> 
+  <input type="button" value="確認" onclick="changePassword()">
+</p>
+<p>
+  <label>
+    修改生日
+    <input type="text" id="member_birthday">
+  </label>
+  <input type="button" value="確認">
+</p>
 
-<h3>脈輪測驗結果</h3>
+<h3 class="text-2xl font-bold lg:text-3xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
+<table id="orderTable" class="border-4 border-slate-400">
+  <thead class="bg-slate-400 text-white text-center">
+    <tr class="border-b-4 border-slate-400">
+      <td class="w-10">編號</td>
+      <td class="w-20">時間</td>
+      <td class="min-w-40">收件資訊</td>
+      <td>訂購項目</td>
+      <td class="w-20">
+        <span>總金額</span>
+      </td>
+      <td class="w-20">
+        <span>訂單狀態</span>
+      </td>
+    </tr>
+  </thead>
+<tbody id="orders_list">
+</tbody>
+</table>
 
-<h3>訂單紀錄</h3>
+
+<h3 class="text-2xl font-bold lg:text-3xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
+<section id="results" class="px-3 py-10 lg:py-20">
+  <div class="container mx-auto ">
+    
+    <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">頂輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="c-chart" class="h-full bg-purple-400"></div>              
+        </div>
+        <div id="c-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="c-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">眉心輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="e-chart" class="h-full bg-indigo-400"></div>              
+        </div>
+        <div id="e-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="e-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">喉輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="t-chart" class="h-full bg-sky-400"></div>              
+        </div>
+        <div id="t-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="t-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">心輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="h-chart" class="h-full bg-lime-400"></div>              
+        </div>
+        <div id="h-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="h-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">臍輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="p-chart" class="h-full bg-yellow-400"></div>              
+        </div>
+        <div id="p-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="p-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">腹輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="s-chart" class="h-full bg-orange-400"></div>              
+        </div>
+        <div id="s-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="s-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+      <li class="mb-4 flex items-center">
+        <div class="w-3/12 text-center font-medium">
+          <div class="text-xl lg:text-[28px]">海底輪</div>
+        </div> 
+        <div class="self-stretch w-6/12 flex items-center">
+          <div id="r-chart" class="h-full bg-red-400"></div>              
+        </div>
+        <div id="r-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
+        <div id="r-result" class="w-2/12 text-lg lg:text-xl"></div>
+      </li>
+
+      </ul>
+      <ul class="lg:text-lg">
+        <li class="mb-2 lg:mb-3 border-l-8 border-purple-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>頂輪主要掌管智慧及和世界為一體的感覺。當此脈輪活躍時，你會傾向沒有偏見，並且十分意識到此世界和你的存在。</p>
+          <p id="c-highLow"></p>
+        </li>
+        <li class="mb-2 lg:mb-3 border-l-8 border-indigo-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>眉心輪主要掌管洞察力和視覺化能力。當此脈輪活躍時，你會有很好的直覺，並且喜歡幻想。</p>
+          <p id="e-highLow"></p>
+        </li>
+        <li class="mb-2 lg:mb-3 border-l-8 border-sky-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>喉輪主要掌管自我表達和言談。當喉輪活躍時，你將無障礙的表達你自己，你可以藉此而成為藝術家。</p>
+          <p id="t-highLow"></p>
+        </li>
+        <li class="mb-2 lg:mb-3 border-l-8 border-lime-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>心輪主要掌管愛，善良等一般情感。當心輪打開時，你會具有同情心、友善，並且你會致力於和諧的人際關係。</p>
+          <p id="h-highLow"></p>
+        </li>
+        <li class="mb-2 lg:mb-3 border-l-8 border-yellow-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>臍輪主要掌管你在團體中的感覺。當臍輪活躍時，你感覺在掌控中而且有足夠的自信心。</p>
+          <p id="p-highLow"></p>
+        </li class="mb-2 lg:mb-3">
+        <li class="mb-2 lg:mb-3 border-l-8 border-orange-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>腹輪主要掌管情感和性慾。當腹輪活躍時，你的情感表達自如，而且表達時不會流於過度情緒化，對於親密關係採取開放態度，感覺充滿熱情和活力。</p>
+          <p id="s-highLow"></p>
+        </li>
+        <li class="mb-2 lg:mb-3 border-l-8 border-red-400 px-2 py-1 lg:px-3 lg:py-2">
+          <p>海底輪的能量主要掌管與肉體的聯繫，使人感覺安全放心。如果海底輪處於活躍狀態，你將覺得有種「身植大地」的感覺，感到穩定和安全。你不會不必要的懷疑他人。你覺得活在當下，而且和你的肉體緊密結合，覺得有充分的領域感。</p>
+          <p id="r-highLow"></p>
+        </li>
+      </ul>
+    <div class="flex justify-center">
+      <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">重新測驗</a>                  
+    </div>
+    </div>
+
+  </section>
 
 
 
+<script>
+let test_result=[]
+let chakraData=[];
+
+function getUserData(){
+  axios.get(`http://localhost:3000/users/${localStorage.getItem("userId")}`)
+  .then((res)=>{
+    document.querySelector("#member_birthday").value = res.data.birthday
+      test_result = res.data.test_result;
+      showScores();
+      createCharts()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+function getChakraData(){
+  axios.get(`http://localhost:3000/chakras`)
+  .then((res)=>{
+    chakraData = res.data;
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+function getOrdersData(){
+  axios.get(`http://localhost:3000/users/${localStorage.getItem("userId")}/orders`)
+  .then((res)=>{
+    renderOrdersData(res.data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+
+function renderOrdersData(data){
+  let str = "";
+  data.forEach(function(item){
+
+    let products="";
+    item.products.forEach(function(product){
+
+      let beads = "";
+      product.beads.forEach(function(bead){
+        beads+=`
+          ${bead[0]}(${bead[1]})|
+        `
+      })
+
+      products+=`
+        <li class="border-b border-slate-400">
+          <div>
+            ${beads}
+          </div>
+          <div class="font-bold text-red-600">$${product.price}</div>              
+        </li>
+      `
+    })
+
+    let time = new Date(item.order_time)
+    str += `
+    <tr>
+        <td>
+          ${item.id}
+        </td>
+        <td>
+          <div>${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')}</div>
+          <div>${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}</div>
+        </td>
+        <td>
+          <p>${item.name}</p>
+          <p>${item.phone}</p>
+          <p>${item.address}</p>
+          <p>${item.email}</p>
+        </td>
+        <td>
+          <ul class="">
+            ${products}                        
+          </ul>
+        </td>
+        <td>      
+          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <button class="${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
+          <div class="${item.isPaid? "text-green-600":"text-red-600"}">${item.isPaid? "已付款":"未付款"}</div>
+        </td>
+        <td>
+          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <div class="${item.isShipped? "text-green-600":"text-red-600"}">${item.isShipped? "已出貨":"未出貨"}</div>
+        </td>
+      </tr>
+    `
+  })
+  document.querySelector("#orders_list").innerHTML = str
+}
+
+function payOrder(id){
+  axios.patch(`http://localhost:3000/orders/${id}`,{
+    "isPaid":true
+  })
+  .then((res)=>{
+    getOrdersData()
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
+
+
+function showScores() {
+  document.querySelector("#c-score").innerHTML = test_result[6];
+  document.querySelector("#c-result").innerHTML = showResults(test_result[6])[0];
+  document.querySelector("#c-highLow").innerHTML = chakraData[6][showResults(test_result[6])[1]] || "";
+
+  document.querySelector("#e-score").innerHTML = test_result[5];
+  document.querySelector("#e-result").innerHTML = showResults(test_result[5])[0];
+  document.querySelector("#e-highLow").innerHTML = chakraData[5][showResults(test_result[5])[1]] || "";
+
+  document.querySelector("#t-score").innerHTML = test_result[4];
+  document.querySelector("#t-result").innerHTML = showResults(test_result[4])[0];
+  document.querySelector("#t-highLow").innerHTML = chakraData[4][showResults(test_result[4])[1]] || "";
+
+  document.querySelector("#h-score").innerHTML = test_result[3];
+  document.querySelector("#h-result").innerHTML = showResults(test_result[3])[0];
+  document.querySelector("#h-highLow").innerHTML = chakraData[3][showResults(test_result[3])[1]] || "";
+
+  document.querySelector("#p-score").innerHTML = test_result[2];
+  document.querySelector("#p-result").innerHTML = showResults(test_result[2])[0];
+  document.querySelector("#p-highLow").innerHTML = chakraData[2][showResults(test_result[2])[1]] || "";
+
+  document.querySelector("#s-score").innerHTML = test_result[1];
+  document.querySelector("#s-result").innerHTML = showResults(test_result[1])[0];
+  document.querySelector("#s-highLow").innerHTML = chakraData[1][showResults(test_result[1])[1]] || "";
+
+  document.querySelector("#r-score").innerHTML = test_result[0];      
+  document.querySelector("#r-result").innerHTML = showResults(test_result[0])[0];
+  document.querySelector("#r-highLow").innerHTML = chakraData[0][showResults(test_result[0])[1]] || "";
+
+}
+function showResults(score){
+  return score<10 ? ["過弱","ifLow"] :
+  score<14 ? ["偏弱","ifLow"] :
+  score<20 ? ["一般",""] :
+  score<25 ? ["偏強","ifHigh"] : ["過強","ifHigh"]
+}
+
+function createCharts() {
+  let total = 28;
+  document.querySelector("#c-chart").style.width = (test_result[6] / total * 100) + "%";
+  document.querySelector("#e-chart").style.width = (test_result[5] / total * 100) + "%";
+  document.querySelector("#t-chart").style.width = (test_result[4] / total * 100) + "%";
+  document.querySelector("#h-chart").style.width = (test_result[3] / total * 100) + "%";
+  document.querySelector("#p-chart").style.width = (test_result[2] / total * 100) + "%";
+  document.querySelector("#s-chart").style.width = (test_result[1] / total * 100) + "%";
+  document.querySelector("#r-chart").style.width = (test_result[0] / total * 100) + "%";
+}
+
+
+function init(){
+  getChakraData()
+
+  setTimeout(()=>{
+    getUserData()
+  },'0')
+  getOrdersData()
+}
+
+init()
+
+function changePassword(){
+  if(document.querySelector("#member_password").value){
+    axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
+      "password":document.querySelector("#member_password").value
+    })
+  }  
+}
+function changeBirthday(){
+  if(document.querySelector("#member_birthday").value){
+    axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
+      "birthday":document.querySelector("#member_birthday").value
+    })
+  }  
+}
+</script>
 
   <footer class="px-3 py-12 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
@@ -136,7 +472,7 @@
             <ul class="flex">
               <li class="mr-6"><a href="#" class="block">關於我們</a></li>
               <li class="mr-6"><a href="#" class="block">聯絡我們</a></li>
-              <li><a href="admin_orders.html" class="block">後臺管理</a></li>
+              <li><a href="admin_users.html" class="block">會員管理</a></li>
             </ul>
           </li>
         </ul>
