@@ -40,9 +40,9 @@ current: cart
 </section>
 
 <section class="px-3 py-10 lg:py-20" id="orderInfo">
-  <div class="container mx-auto">
+  <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
     <h3 class=" text-2xl font-bold lg:text-3xl mb-5 text-slate-700">填寫預訂資料</h3>
-    <form action="" class="sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
+    <form action="" class=" mx-auto">
       <div class="mb-3">
           <label for="customerName" class="mb-1">姓名</label>
           <div class="">
@@ -157,7 +157,7 @@ const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
 const inputs = document.querySelectorAll("#orderInfo input[id],#orderInfo select[id]");
 
 
-document.querySelector("#createOrder").addEventListener("click",function(){
+document.querySelector("#createOrder").addEventListener("pointerdown",function(){
 let empty_input = false
 
   alertMsg.forEach(function(item,index){
@@ -181,7 +181,7 @@ let empty_input = false
   obj.products = JSON.parse(localStorage.getItem("cart"));
   obj.isPaid = false;
   obj.isShipped = false;
-  console.log(obj)
+  // console.log(obj)
 
       axios.post("http://localhost:3000/orders", obj)
   .then((res)=>{
