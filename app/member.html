@@ -18,7 +18,7 @@ current: member
     修改生日
     <input type="text" id="member_birthday">
   </label>
-  <input type="button" value="確認">
+  <input type="button" value="確認" onclick="changeBirthday()">
 </p>
 
 <h3 class="text-2xl font-bold lg:text-3xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
@@ -335,13 +335,27 @@ function changePassword(){
     axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
       "password":document.querySelector("#member_password").value
     })
+    .then((res)=>{
+      // console.log(res)
+      alert("密碼已更新")
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
   }  
 }
 function changeBirthday(){
-  if(document.querySelector("#member_birthday").value){
     axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
       "birthday":document.querySelector("#member_birthday").value
     })
-  }  
+    .then((res)=>{
+      // console.log(res)
+      alert("生日已更新")
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  
+
 }
 </script>
