@@ -10,11 +10,11 @@ header {
   top: -80px;
 }
 
-section {
+.full-page-height {
   min-height: calc(100vh - 326px);
 }
 @media (min-width: 1024px) {
-  section {
+  .full-page-height {
     min-height: calc(100vh - 188px);
   }
 }

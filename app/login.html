@@ -4,7 +4,7 @@ layout: ./app/layout.ejs
 engine: ejs
 current: login
 ---
-<section class="bg-[url('../images/index/banner.jpg')] bg-cover flex flex-col items-center px-3 py-10 lg:py-20">
+<section class="full-page-height bg-[url('../images/index/banner.jpg')] bg-cover flex flex-col items-center px-3 py-10 lg:py-20">
   <div class="w-full">
     <div class="bg-[#0008] w-full sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto p-10">
       <h1 class="font-bold text-xl lg:text-2xl text-center mb-5 text-white">會員登入</h1>
@@ -42,6 +42,7 @@ document.querySelector("#register").addEventListener("click",function(){
     "isAdmin": false
   })
   .then((res)=>{
+    console.log(res.data)
     alert("註冊成功！")
     localStorage.setItem("token",res.data.accessToken)
     localStorage.setItem("isAdmin",res.data.user.isAdmin)

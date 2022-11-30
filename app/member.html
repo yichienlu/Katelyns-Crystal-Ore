@@ -44,28 +44,7 @@ current: member
 </tbody>
 </table>
 
-<ul id="orders_list_mobile" class=" lg:hidden">
-  <li>
-    <div class="flex">
-      <div>12</div>
-      <div>11/30</div>
-    </div>
-    <div>
-      <p>姓名</p>
-      <p>電話</p>
-      <p>地址</p>
-      <p>email</p>
-    </div>
-    <div>
-      []
-    </div>
-    <div class="flex">
-      <div>$1000</div>
-      <div>已付款</div>
-      <div>已出貨</div>
-    </div>
-  </li>
-</ul>
+<ul id="orders_list_mobile" class=" lg:hidden"></ul>
 
 
 <h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
@@ -195,7 +174,9 @@ function getUserData(){
     document.querySelector("#member_birthday").value = res.data.birthday
     test_result = res.data.test_result;
     showScores();
-    createCharts()
+    setTimeout(()=>{
+      createCharts()
+    },'0')
 })
   .catch((err)=>{
     console.log(err)
