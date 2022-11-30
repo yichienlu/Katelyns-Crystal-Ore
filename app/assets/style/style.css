@@ -10,6 +10,15 @@ header {
   top: -80px;
 }
 
+section {
+  min-height: calc(100vh - 326px);
+}
+@media (min-width: 1024px) {
+  section {
+    min-height: calc(100vh - 188px);
+  }
+}
+
 .btn-primary {
   display: block;
   text-align: center;
@@ -115,6 +124,10 @@ section.v {
   opacity: 0;
   position: fixed;
   width: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .tests-list label {

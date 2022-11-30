@@ -4,8 +4,10 @@ layout: ./app/layout.ejs
 engine: ejs
 current: member
 ---
+<div class="px-3 sm:w-3/4 md:2/3 lg:1/2 mx-auto">
 
-<h3 class="text-2xl font-bold lg:text-3xl mb-5 mt-5 text-slate-700">會員資料</h3>
+
+<h3 class="font-bold text-lg lg:text-2xl mb-5 mt-5 text-slate-700">會員資料</h3>
 <p>
   <label>
     修改密碼
@@ -21,7 +23,7 @@ current: member
   <input type="button" value="確認" onclick="changeBirthday()">
 </p>
 
-<h3 class="text-2xl font-bold lg:text-3xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
+<h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
 <table id="orderTable" class="border-4 border-slate-400">
   <thead class="bg-slate-400 text-white text-center">
     <tr class="border-b-4 border-slate-400">
@@ -42,80 +44,80 @@ current: member
 </table>
 
 
-<h3 class="text-2xl font-bold lg:text-3xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
-<section id="results" class="px-3 py-10 lg:py-20">
+<h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
+<section id="results">
   <div class="container mx-auto ">
     
     <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">頂輪</div>
+          <div class="text-md lg:text-lg">頂輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="c-chart" class="h-full bg-purple-400"></div>              
         </div>
-        <div id="c-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="c-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="c-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="c-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">眉心輪</div>
+          <div class="text-md lg:text-lg">眉心輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="e-chart" class="h-full bg-indigo-400"></div>              
         </div>
-        <div id="e-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="e-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="e-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="e-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">喉輪</div>
+          <div class="text-md lg:text-lg">喉輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="t-chart" class="h-full bg-sky-400"></div>              
         </div>
-        <div id="t-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="t-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="t-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="t-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">心輪</div>
+          <div class="text-md lg:text-lg">心輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="h-chart" class="h-full bg-lime-400"></div>              
         </div>
-        <div id="h-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="h-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="h-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="h-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">臍輪</div>
+          <div class="text-md lg:text-lg">臍輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="p-chart" class="h-full bg-yellow-400"></div>              
         </div>
-        <div id="p-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="p-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="p-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="p-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">腹輪</div>
+          <div class="text-md lg:text-lg">腹輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="s-chart" class="h-full bg-orange-400"></div>              
         </div>
-        <div id="s-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="s-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="s-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="s-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
-      <li class="mb-4 flex items-center">
+      <li class="mb-2 flex items-center">
         <div class="w-3/12 text-center font-medium">
-          <div class="text-xl lg:text-[28px]">海底輪</div>
+          <div class="text-md lg:text-lg">海底輪</div>
         </div> 
         <div class="self-stretch w-6/12 flex items-center">
           <div id="r-chart" class="h-full bg-red-400"></div>              
         </div>
-        <div id="r-score" class="w-1/12 text-xl lg:text-[28px] ml-2"></div>
-        <div id="r-result" class="w-2/12 text-lg lg:text-xl"></div>
+        <div id="r-score" class="w-1/12 text-md lg:text-lg "></div>
+        <div id="r-result" class="w-2/12 text-md lg:text-lg"></div>
       </li>
 
       </ul>
@@ -156,7 +158,7 @@ current: member
 
   </section>
 
-
+</div>
 
 <script>
 let test_result=[]

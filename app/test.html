@@ -156,18 +156,18 @@ axios.get("http://localhost:3000/tests")
 
 function renderTestsData(data){
   let str = '';
-  data.forEach(function(item){
+  data.forEach(function(item,index){
     str+=`
     <li class="mb-4">
       <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
       <div class="ml-12">
-        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}">
+        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" ${index%4==1 ? "checked" : ""}>
         <label for="${item.name}-1">${item.options[0][0]}</label>
-        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}">
+        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" ${index%4==3 ? "checked" : ""}>
         <label for="${item.name}-2">${item.options[1][0]}</label>
-        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}">
+        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" ${index%4==2 ? "checked" : ""}>
         <label for="${item.name}-3">${item.options[2][0]}</label>
-        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}">
+        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" ${index%4==0 ? "checked" : ""}>
         <label for="${item.name}-4">${item.options[3][0]}</label>       
       </div>
     </li>
