@@ -30,12 +30,12 @@
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
 <body>
-  <header class="bg-slate-700 text-white py-2 px-3 sticky" style="z-index:1000">
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2 ">
-          <div class="text-xl font-bold text-white">Katelyn's</div>
-          <div class="text-center text-slate-400 text-xs">Crystal & Ore</div>
+        <h1 class="font-2  ">
+          <div class="font-bold text-2xl ">Katelyn's</div>
+          <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
@@ -59,6 +59,7 @@
           </button>
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
+              <li id="loggedin_greeting" class=""></li>
               <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
               <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
               <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
@@ -81,14 +82,14 @@
   
     <nav id="menu" class="fixed top-0 bottom-0 left-0 right-0 hidden lg:hidden bg-neutral-200 text-slate-700">
         <div class="px-3 bg-slate-700">
-      <div class="container mx-auto flex items-center py-2">
+      <div class="container mx-auto flex items-center py-[18px]">
           
-          <a href="#" class="block mr-auto">
-            <div class="font-2 ">
-              <div class="text-xl font-bold text-white">Katelyn's</div>
-              <div class="text-center text-slate-400 text-xs">Crystal & Ore</div>
-            </div>
-          </a>
+        <a href="#" class="block mr-auto">
+          <div class="font-2 ">
+            <div class="font-bold text-2xl text-white">Katelyn's</div>
+            <div class="text-slate-400 text-center">Crystal & Ore</div>
+          </div>
+        </a>
   
           <ul class="items-center">
             <li class="ml-4">
@@ -288,7 +289,7 @@ let empty_input = false
   obj.isShipped = false;
   // console.log(obj)
 
-      axios.post("http://localhost:3000/orders", obj)
+      axios.post("https://json-server-vercel-beta.vercel.app/orders", obj)
   .then((res)=>{
     // console.log(res.statusText)
     alert("訂單已送出")

@@ -1,5 +1,7 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 // 畫面
 var menu = document.querySelector("#menu");
 
@@ -11,18 +13,18 @@ function toggleMenu(state) {
   }
 }
 
-var loggedin = JSON.parse(localStorage.getItem("token"));
+var loggedIn = localStorage.getItem("token");
 var isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
-var userId = JSON.parse(localStorage.getItem("userId"));
+var userId = JSON.parse(localStorage.getItem("userId")); // console.log(localStorage.getItem("token"))
 
-if (loggedin) {
-  // console.log(loggedin)
+if (loggedIn) {
+  // console.log(loggedIn)
   document.querySelector("#link_member").classList.remove("hidden");
   document.querySelector("#link_login").classList.add("hidden");
   document.querySelector("#link_logout").classList.remove("hidden");
 
   if (isAdmin) {
-    // console.log(isAdmin)
+    console.log(_typeof(isAdmin));
     document.querySelector("#link_admin").classList.remove("hidden");
   }
 }
