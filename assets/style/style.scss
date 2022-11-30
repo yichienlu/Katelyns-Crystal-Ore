@@ -10,6 +10,13 @@ header{
   top: -80px;
 }
 
+section {
+  min-height: calc(100vh - 326px);
+    @media(min-width: 1024px){
+  min-height: calc(100vh - 188px);
+  }
+}
+
 .btn-primary{
   display:block;
   text-align: center;
