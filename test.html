@@ -53,10 +53,10 @@
           </a>
         </li>
         <li id="user_icon" class="ml-4 lg:ml-9 relative">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <button class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
-          </a>
+          </button>
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
@@ -109,23 +109,25 @@
     </nav>
   </header>
 
-  <section class="px-3 py-10 lg:py-20">
+  <section class="px-3 bg-neutral-200 bg-[url('https://s3-alpha-sig.figma.com/img/83a8/2f4c/db0843e53de6bad78b1170671bd91dac?Expires=1670803200&Signature=eTIKIgR7xUC6MvibZ-FYtvif0qH~O2k22~-1ztUNYhGyoBKBm5QkFgCTkqWeKNi738psORnfd4~dQiMP4MfnOZwCc6BZEh2lvkH-Uo9HiQ9FILwHHKXaXFxTLa42grDJg3vNYPeQeh5F8--DG1DVbzd0ueSL03dDEXgyIs6Yb48pYs3sRIwinSbvULpRBv~AT8MQjlnUZ86BcslXn-u-LwoAQExM2c0~2weuK4gGJwAfqzNfAzwHaz5iTa63BdY66s9S2gXD5lD6j5I1a7QL1PPAf9AqvaGRIj0ESAKRiRJxsx3ZWzjcCjyVgxXO0Ba0w2K2X-UqYYlJDDslBfaKJw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')] bg-cover bg-center bg-fixed">
   <div class="container mx-auto">
-    <h2 class="text-2xl font-bold mb-3 lg:w-2/3 mx-auto">脈輪測驗</h2>
-    <p class="text-lg lg:text-2xl mb-5 lg:mb-10 lg:w-2/3 mx-auto" >完成49題測驗，了解您的脈輪能量分布</p>
-    <form class="needs-validation lg:w-2/3 mx-auto" novalidate>
+    <div class="lg:w-1/2 mx-auto py-6 lg:py-12 bg-[#FFFA]">
+        <h2 class="text-xl lg:text-2xl font-bold mb-3 text-center">脈輪測驗</h2>
+        <p class="text-lg lg:text-xl mb-5 text-center " >完成49題測驗，了解您的脈輪能量分布</p>
+        <form class="py-5 px-8 " novalidate>
+        <ul class="tests-list "></ul>
+          <p class="text-center flex justify-between mt-5">
+            <button id="testReset" class="btn-primary" >清除</button>
+            <button type="submit" id="testSubmit" class="btn-primary">看結果</button>
+          </p>
+        </form> 
+    </div>
 
-    <ul class="tests-list max-h-screen overflow-scroll"></ul>
-      <p class="text-center flex justify-between mt-5">
-        <button id="testReset" class="btn-primary" >清除</button>
+    
+             
+      </div>
+    </section>
         
-        <button type="submit" id="testSubmit" class="btn-primary">看結果</button>
-      </p>
-    </form>        
-  </div>
-    
-</section>
-    
     <section id="results" class="px-3 py-10 lg:py-20 hidden">
       <div class="container mx-auto ">
         
@@ -233,7 +235,7 @@
             </li>
           </ul>
         <div class="flex justify-center">
-          <a href="design" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>                  
+          <a href="design.html" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>                  
         </div>
         </div>
 
@@ -262,17 +264,19 @@ function renderTestsData(data){
   data.forEach(function(item){
     str+=`
     <li class="mb-4">
-    <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
+      <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
+      <div class="ml-12">
+        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}">
+        <label for="${item.name}-1">${item.options[0][0]}</label>
+        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}">
+        <label for="${item.name}-2">${item.options[1][0]}</label>
+        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}">
+        <label for="${item.name}-3">${item.options[2][0]}</label>
+        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}">
+        <label for="${item.name}-4">${item.options[3][0]}</label>       
+      </div>
+    </li>
     
-    <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}">
-    <label for="${item.name}-1">${item.options[0][0]}</label>
-    <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}">
-    <label for="${item.name}-2">${item.options[1][0]}</label>
-    <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}">
-    <label for="${item.name}-3">${item.options[2][0]}</label>
-    <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}">
-    <label for="${item.name}-4">${item.options[3][0]}</label>       
-  </li>
     
     `
   })

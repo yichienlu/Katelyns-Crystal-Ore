@@ -53,10 +53,10 @@
           </a>
         </li>
         <li id="user_icon" class="ml-4 lg:ml-9 relative">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <button class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
-          </a>
+          </button>
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
@@ -109,17 +109,18 @@
     </nav>
   </header>
 
-  <section class="bg-neutral-200">
-  <div class="px-3 py-10 lg:py-20">
+  <section class="bg-[url('../images/index/banner.jpg')] bg-cover ">
+  <div class="bg-[#0008] px-3 py-10 lg:py-20">
+    <h1 class="font-bold text-3xl lg:text-4xl text-center mb-5 text-white">會員登入</h1>
     <div class="w-full sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto">
       <form action="">
         <label class="block mb-3">
-          <div class="mb-1">Email</div>
-          <input type="email" id="email" class=" w-full">        
+          <div class="mb-1 font-bold text-white">Email</div>
+          <input type="email" id="email" class=" w-full text-white bg-[#FFF5] autofill:bg-[#FFF5] focus:border-slate-700 focus:border">        
         </label>
         <label class="block mb-6">
-          <div class=" mb-1">Password</div>
-          <input type="password" id="password" class=" w-full">
+          <div class=" mb-1 font-bold text-white">Password</div>
+          <input type="password" id="password" class=" w-full bg-[#FFF5] text-white">
         </label>
         <div class="flex">
           <button type="button" id="register" class="w-1/2 p-3 mr-4 bg-slate-400 text-white">註冊</button>

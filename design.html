@@ -53,10 +53,10 @@
           </a>
         </li>
         <li id="user_icon" class="ml-4 lg:ml-9 relative">
-          <a href="#" class="block px-1 py-2 hover:text-slate-400">
+          <button class="block px-1 py-2 hover:text-slate-400">
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
-          </a>
+          </button>
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
@@ -129,15 +129,15 @@
       </select>
       
       <ul class="hidden lg:block">
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700" onclick="getMaterialsData('')">全部</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-purple-700 rounded mb-2 hover:text-white hover:bg-purple-700" onclick="getMaterialsData('頂輪')">頂輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-indigo-700 rounded mb-2 hover:text-white hover:bg-indigo-700" onclick="getMaterialsData('眉心輪')">眉心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-sky-700 rounded mb-2 hover:text-white hover:bg-sky-700" onclick="getMaterialsData('喉輪')">喉輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-lime-700 rounded mb-2 hover:text-white hover:bg-lime-700" onclick="getMaterialsData('心輪')">心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-yellow-700 rounded mb-2 hover:text-white hover:bg-yellow-700" onclick="getMaterialsData('臍輪')">臍輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-orange-700 rounded mb-2 hover:text-white hover:bg-orange-700" onclick="getMaterialsData('腹輪')">腹輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-red-700 rounded mb-2 hover:text-white hover:bg-red-700" onclick="getMaterialsData('海底輪')">海底輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-neutral-500 rounded mb-2 hover:text-white hover:bg-neutral-500" onclick="getMaterialsData('隔珠')">隔珠</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700 hover:border-slate-700" onclick="getMaterialsData('')">全部</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-purple-700 hover:border-purple-700" onclick="getMaterialsData('頂輪')">頂輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-indigo-700 hover:border-indigo-700" onclick="getMaterialsData('眉心輪')">眉心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-sky-700 hover:border-sky-700" onclick="getMaterialsData('喉輪')">喉輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-lime-700 hover:border-lime-700" onclick="getMaterialsData('心輪')">心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-yellow-700 hover:border-yellow-700" onclick="getMaterialsData('臍輪')">臍輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-orange-700 hover:border-orange-700" onclick="getMaterialsData('腹輪')">腹輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-red-700 hover:border-red-700" onclick="getMaterialsData('海底輪')">海底輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-400 hover:border-slate-400" onclick="getMaterialsData('隔珠')">隔珠</btn></li>
       </ul>
       
     </div>
@@ -218,7 +218,7 @@ function renderMaterialsData(data,category){
       `
     })
     str+= `
-    <li class=" flex p-3 rounded border-2 shadow bg-neutral-50 mr-2 lg:mr-0 lg:mb-2">
+    <li class=" flex p-3 rounded  hover:shadow-lg bg-neutral-50 mr-2 lg:mr-0 lg:mb-2">
           <div class="flex flex-col w-full">
             <h3 class="font-bold text-lg">${item.name}</h3>
             <p>${item.description}</p>
