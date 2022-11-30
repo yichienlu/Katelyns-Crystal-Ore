@@ -4,10 +4,11 @@ layout: ./app/layout.ejs
 engine: ejs
 current: member
 ---
-<div class="px-3 sm:w-3/4 md:2/3 lg:1/2 mx-auto">
+<div class="px-3 py-5 sm:w-3/4 md:2/3 lg:1/2 mx-auto">
 
 
-<h3 class="font-bold text-lg lg:text-2xl mb-5 mt-5 text-slate-700">會員資料</h3>
+<h3 class="font-bold text-lg lg:text-2xl mb-5 text-slate-700">會員資料</h3>
+<p id="member_email" class="mb-3"></p>
 <p>
   <label>
     修改密碼
@@ -24,7 +25,7 @@ current: member
 </p>
 
 <h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
-<table id="orderTable" class="border-4 border-slate-400">
+<table id="orderTable" class="border-4 border-slate-400 hidden lg:table">
   <thead class="bg-slate-400 text-white text-center">
     <tr class="border-b-4 border-slate-400">
       <td class="w-10">編號</td>
@@ -42,6 +43,29 @@ current: member
 <tbody id="orders_list">
 </tbody>
 </table>
+
+<ul id="orders_list_mobile" class=" lg:hidden">
+  <li>
+    <div class="flex">
+      <div>12</div>
+      <div>11/30</div>
+    </div>
+    <div>
+      <p>姓名</p>
+      <p>電話</p>
+      <p>地址</p>
+      <p>email</p>
+    </div>
+    <div>
+      []
+    </div>
+    <div class="flex">
+      <div>$1000</div>
+      <div>已付款</div>
+      <div>已出貨</div>
+    </div>
+  </li>
+</ul>
 
 
 <h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
@@ -165,20 +189,21 @@ let test_result=[]
 let chakraData=[];
 
 function getUserData(){
-  axios.get(`http://localhost:3000/users/${localStorage.getItem("userId")}`)
+  axios.get(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`)
   .then((res)=>{
+    document.querySelector("#member_email").innerHTML = res.data.email
     document.querySelector("#member_birthday").value = res.data.birthday
-      test_result = res.data.test_result;
-      showScores();
-      createCharts()
-  })
+    test_result = res.data.test_result;
+    showScores();
+    createCharts()
+})
   .catch((err)=>{
     console.log(err)
   })
 }
 
 function getChakraData(){
-  axios.get(`http://localhost:3000/chakras`)
+  axios.get(`https://json-server-vercel-beta.vercel.app/chakras`)
   .then((res)=>{
     chakraData = res.data;
   })
@@ -188,7 +213,7 @@ function getChakraData(){
 }
 
 function getOrdersData(){
-  axios.get(`http://localhost:3000/users/${localStorage.getItem("userId")}/orders`)
+  axios.get(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}/orders`)
   .then((res)=>{
     renderOrdersData(res.data)
   })
@@ -200,6 +225,7 @@ function getOrdersData(){
 
 function renderOrdersData(data){
   let str = "";
+  let str_mobile = ""
   data.forEach(function(item){
 
     let products="";
@@ -254,12 +280,35 @@ function renderOrdersData(data){
         </td>
       </tr>
     `
+    str_mobile += `
+      <li class="my-2 border-4 border-slate-400">
+        <div class="flex p-1 border-b-2">
+          <div class="mr-auto">編號：${item.id}</div>
+          <div>
+            ${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')} ${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}
+          </div>
+        </div>
+        <div class="p-1 border-b-2">
+          <p>${item.name}</p>
+          <p>${item.phone}</p>
+          <p>${item.address}</p>
+          <p>${item.email}</p>
+        </div>
+        <ul class="p-2">${products}</ul>
+        <div class="flex">
+          <div class="font-bold mr-auto">總金額：<span class="text-red-600">$${item.final_price}</span></div>
+          <div class="${item.isPaid? "text-green-600":"text-red-600"} mr-2">${item.isPaid? "已付款":"未付款"}</div>
+          <div class="${item.isShipped? "text-green-600":"text-red-600"}">${item.isShipped? "已出貨":"未出貨"}</div>
+        </div>
+      </li>
+    `
   })
   document.querySelector("#orders_list").innerHTML = str
+  document.querySelector("#orders_list_mobile").innerHTML = str_mobile
 }
 
 function payOrder(id){
-  axios.patch(`http://localhost:3000/orders/${id}`,{
+  axios.patch(`https://json-server-vercel-beta.vercel.app/orders/${id}`,{
     "isPaid":true
   })
   .then((res)=>{
@@ -334,7 +383,7 @@ init()
 
 function changePassword(){
   if(document.querySelector("#member_password").value){
-    axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
+    axios.patch(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`,{
       "password":document.querySelector("#member_password").value
     })
     .then((res)=>{
@@ -347,7 +396,7 @@ function changePassword(){
   }  
 }
 function changeBirthday(){
-    axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,{
+    axios.patch(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`,{
       "birthday":document.querySelector("#member_birthday").value
     })
     .then((res)=>{

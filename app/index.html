@@ -419,17 +419,18 @@ const swiper = new Swiper('.design-swiper', {
 });
 
 
-axios.get('http://localhost:3000/designs')
+axios.get('https://json-server-vercel-beta.vercel.app/designs')
 .then((res)=>{
+  console.log(res.data)
+
   renderDesignData(res.data)
-  // console.log(res.data)
 })
 
 function renderDesignData(data){
   let str="";
   data.forEach(function(item){
     str+=`
-    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400" style="background-image:url('/assets/images/designs/${item.image}')">
+    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400" style="background-image:url('./assets/images/designs/${item.image}')">
       <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
     </div>
     `
@@ -441,9 +442,9 @@ function renderDesignData(data){
 
 let chakraData = [];
 current_chakra = 1;
-axios.get('http://localhost:3000/chakras')
+axios.get('https://json-server-vercel-beta.vercel.app/chakras')
 .then((res)=>{
-  // console.log(res.data)
+  console.log(res.data)
   chakraData = res.data
   chooseChakra(current_chakra)
 })

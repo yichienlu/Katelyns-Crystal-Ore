@@ -183,7 +183,7 @@ let empty_input = false
   obj.isShipped = false;
   // console.log(obj)
 
-      axios.post("http://localhost:3000/orders", obj)
+      axios.post("https://json-server-vercel-beta.vercel.app/orders", obj)
   .then((res)=>{
     // console.log(res.statusText)
     alert("訂單已送出")

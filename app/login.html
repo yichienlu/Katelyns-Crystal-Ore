@@ -34,7 +34,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 
 document.querySelector("#register").addEventListener("click",function(){
-  axios.post("http://localhost:3000/register",{
+  axios.post("https://json-server-vercel-beta.vercel.app/register",{
     "email": email.value.trim(),
     "password": password.value,
     "birthday":"",
@@ -46,6 +46,7 @@ document.querySelector("#register").addEventListener("click",function(){
     localStorage.setItem("token",res.data.accessToken)
     localStorage.setItem("isAdmin",res.data.user.isAdmin)
     localStorage.setItem("userId",res.data.user.id)
+    localStorage.setItem("email",res.data.user.email)
     email.value = '';
     password.value = '';
     window.location.assign("index.html");
@@ -57,7 +58,7 @@ document.querySelector("#register").addEventListener("click",function(){
 })
 
 document.querySelector("#login").addEventListener("click",function(){
-    axios.post("http://localhost:3000/login",{
+    axios.post("https://json-server-vercel-beta.vercel.app/login",{
       "email": email.value.trim(),
       "password": password.value,
     })

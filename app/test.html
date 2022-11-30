@@ -141,13 +141,13 @@ current: test
 
 
 let chakraData;
-axios.get("http://localhost:3000/chakras")
+axios.get("https://json-server-vercel-beta.vercel.app/chakras")
 .then((res)=>{
   chakraData = res.data
 })
 
 let inputs;
-axios.get("http://localhost:3000/tests")
+axios.get("https://json-server-vercel-beta.vercel.app/tests")
 .then((res)=>{
   renderTestsData(res.data)
   inputs = document.querySelectorAll("input");
@@ -160,7 +160,7 @@ function renderTestsData(data){
     str+=`
     <li class="mb-4">
       <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
-      <div class="ml-12">
+      <div class="lg:pl-12">
         <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" ${index%4==1 ? "checked" : ""}>
         <label for="${item.name}-1">${item.options[0][0]}</label>
         <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" ${index%4==3 ? "checked" : ""}>
@@ -226,7 +226,7 @@ function getScores() {
     } else {
       showScores();
       createCharts();
-      
+      userTestResult(root,sacral,plexus, heart, throat, eye, crown)
       crown = eye = throat = heart = plexus = sacral = root = 0;
     }
 }
@@ -295,16 +295,24 @@ document.querySelector("#testReset").onclick = function(e) {
 document.querySelector("#testSubmit").onclick = function(e) {
   e.preventDefault();
     getScores();
+
 };
 
 
 
-function userTestResult(){
-//   axios.patch("http://localhost:3000/users",{})
-//   .then(()=>{
+function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
+  let obj = {
+    "test_result": [root, sacral, plexus, heart, throat, eye, crown]
+  }
+  axios.patch(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`,obj)
+  .then((res)=>{
+    // console.log(res.data)
+    alert("已儲存資料")
 
-//   })
-  alert("已儲存資料")
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 }
 
 
