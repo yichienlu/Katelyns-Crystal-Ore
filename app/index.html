@@ -417,7 +417,7 @@ const swiper = new Swiper('.design-swiper', {
 });
 
 
-axios.get('https://json-server-vercel-beta.vercel.app/designs')
+axios.get('http://localhost:3000/designs')
 .then((res)=>{
   renderDesignData(res.data)
 })
@@ -438,7 +438,7 @@ function renderDesignData(data){
 
 let chakraData = [];
 current_chakra = 1;
-axios.get('https://json-server-vercel-beta.vercel.app/chakras')
+axios.get('http://localhost:3000/chakras')
 .then((res)=>{
   chakraData = res.data
   chooseChakra(current_chakra)

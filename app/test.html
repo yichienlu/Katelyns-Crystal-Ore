@@ -141,13 +141,13 @@ current: test
 
 
 let chakraData;
-axios.get("https://json-server-vercel-beta.vercel.app/chakras")
+axios.get("http://localhost:3000/chakras")
 .then((res)=>{
   chakraData = res.data
 })
 
 let inputs;
-axios.get("https://json-server-vercel-beta.vercel.app/tests")
+axios.get("http://localhost:3000/tests")
 .then((res)=>{
   renderTestsData(res.data)
   inputs = document.querySelectorAll("input");
@@ -304,7 +304,7 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
   let obj = {
     "test_result": [root, sacral, plexus, heart, throat, eye, crown]
   }
-  axios.patch(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`,obj)
+  axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,obj)
   .then((res)=>{
     // console.log(res.data)
     alert("已儲存資料")

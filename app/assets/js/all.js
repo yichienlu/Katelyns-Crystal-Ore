@@ -1,3 +1,6 @@
+// let base_URL = "https://json-server-vercel-beta.vercel.app/"
+let base_URL = "http://localhost:3000"
+
 // 畫面
 const menu = document.querySelector("#menu");
 function toggleMenu(state) {
@@ -21,7 +24,6 @@ if (loggedIn) {
   document.querySelector("#link_logout").classList.remove("hidden")
 
   if (isAdmin) {
-    console.log(typeof(isAdmin))
     document.querySelector("#link_admin").classList.remove("hidden")
   }
 }
@@ -30,6 +32,7 @@ document.querySelector("#link_logout").addEventListener("click", function () {
   localStorage.removeItem("token")
   localStorage.removeItem("isAdmin")
   localStorage.removeItem("userId")
+  localStorage.removeItem("email")
   alert("登出成功")
   window.location.assign("index.html");
 })

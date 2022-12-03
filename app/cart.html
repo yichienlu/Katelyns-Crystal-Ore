@@ -156,6 +156,7 @@ renderCartData()
 const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
 const inputs = document.querySelectorAll("#orderInfo input[id],#orderInfo select[id]");
 
+document.querySelector("#customerEmail").value = localStorage?.getItem("email")
 
 document.querySelector("#createOrder").addEventListener("pointerdown",function(){
 let empty_input = false
@@ -183,7 +184,7 @@ let empty_input = false
   obj.isShipped = false;
   // console.log(obj)
 
-      axios.post("https://json-server-vercel-beta.vercel.app/orders", obj)
+      axios.post("http://localhost:3000/orders", obj)
   .then((res)=>{
     // console.log(res.statusText)
     alert("訂單已送出")

@@ -35,7 +35,7 @@ current: admin_orders
 
 <script>
   function getOrdersData(){
-    axios.get("https://json-server-vercel-beta.vercel.app/orders")
+    axios.get("http://localhost:3000/orders")
 .then((res)=>{
   renderOrdersData(res.data);
   renderPieChart(res.data);
@@ -111,7 +111,7 @@ function renderOrdersData(data){
 
 
 function togglePaid(id,isPaid){
-axios.patch(`https://json-server-vercel-beta.vercel.app/orders/${id}`,{
+axios.patch(`http://localhost:3000/orders/${id}`,{
   "isPaid":!isPaid
 })
   .then((res)=>{
@@ -123,7 +123,7 @@ axios.patch(`https://json-server-vercel-beta.vercel.app/orders/${id}`,{
 }
 
 function toggleShipped(id,isShipped){
-axios.patch(`https://json-server-vercel-beta.vercel.app/orders/${id}`,{
+axios.patch(`http://localhost:3000/orders/${id}`,{
   "isShipped":!isShipped
 })
   .then((res)=>{
@@ -135,7 +135,7 @@ axios.patch(`https://json-server-vercel-beta.vercel.app/orders/${id}`,{
 }
 
 function deleteOrder(id){
-  axios.delete(`https://json-server-vercel-beta.vercel.app/orders/${id}`)
+  axios.delete(`http://localhost:3000/orders/${id}`)
   .then((res)=>{
     getOrdersData()
 

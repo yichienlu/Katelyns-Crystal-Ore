@@ -146,6 +146,7 @@ json-server db.json -m ./node_modules/json-server-auth
 
 ## 部署至 Vercel
 https://www.youtube.com/watch?v=UhxcJh5oIHo
+https://json-server-vercel-beta.vercel.app/
 
 
 https://undraw.co/illustrations

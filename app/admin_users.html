@@ -23,7 +23,7 @@ current: admin_users
 </section>
 
 <script>
-  axios.get("https://json-server-vercel-beta.vercel.app/users")
+  axios.get("http://localhost:3000/users")
   .then((res)=>{
     renderUsersData(res.data)
   })
@@ -69,7 +69,7 @@ function renderUsersData(data){
 function getUserOrders(id){
   let order_str="";
 
-  axios.get(`https://json-server-vercel-beta.vercel.app/user/${id}/orders`)
+  axios.get(`http://localhost:3000/user/${id}/orders`)
     .then((res)=>{
       // console.log(res.data)
       res.data.forEach(function(item){
