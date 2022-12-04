@@ -98,17 +98,8 @@ header {
   }
 }
 
-main {
-  overflow-x: hidden;
-  display: flex;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 92px;
-}
-
-section.v {
-  min-width: 100%;
-  min-height: calc(100vh - 92px);
+.scrollBox-step {
+  height: calc(100vh - 92px);
 }
 
 .design-swiper .swiper-slide p {
@@ -118,6 +109,62 @@ section.v {
 .design-swiper .swiper-slide:hover p {
   border-radius: 0;
   border: none;
+}
+
+.design-slide-1 {
+  background-image: url("../images/designs/design01.jpg");
+}
+.design-slide-1:hover {
+  background-image: url("../images/designs/design01-1.jpg");
+}
+
+.design-slide-2 {
+  background-image: url("../images/designs/design02.jpg");
+}
+.design-slide-2:hover {
+  background-image: url("../images/designs/design02-1.jpg");
+}
+
+.design-slide-3 {
+  background-image: url("../images/designs/design03.jpg");
+}
+.design-slide-3:hover {
+  background-image: url("../images/designs/design03-1.jpg");
+}
+
+.design-slide-4 {
+  background-image: url("../images/designs/design04.jpg");
+}
+.design-slide-4:hover {
+  background-image: url("../images/designs/design04-1.jpg");
+}
+
+.design-slide-5 {
+  background-image: url("../images/designs/design05.jpg");
+}
+.design-slide-5:hover {
+  background-image: url("../images/designs/design05-1.jpg");
+}
+
+.design-slide-6 {
+  background-image: url("../images/designs/design06.jpg");
+}
+.design-slide-6:hover {
+  background-image: url("../images/designs/design06-1.jpg");
+}
+
+.design-slide-7 {
+  background-image: url("../images/designs/design07.jpg");
+}
+.design-slide-7:hover {
+  background-image: url("../images/designs/design07-1.jpg");
+}
+
+.design-slide-8 {
+  background-image: url("../images/designs/design08.jpg");
+}
+.design-slide-8:hover {
+  background-image: url("../images/designs/design08-1.jpg");
 }
 
 .tests-list input[type=radio] {

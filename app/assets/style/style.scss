@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+$brand01: #94a3b8;
+$brand02: #334155;
+
+
 header{
   top: 0;
 }
@@ -90,20 +94,10 @@ font-family: 'Merienda', cursive;
   }
 }
 
-
-// 水平滾動
-
-main {
-  overflow-x: hidden;
-  display: flex;
-  position: sticky;
-  top:92px;
+// ScrollBox
+.scrollBox-step{
+  height: calc(100vh - 92px);
 }
-section.v {
-  min-width: 100%;
-  min-height: calc(100vh - 92px);
-}
-
 
 
 //swiper
@@ -118,9 +112,54 @@ section.v {
   border: none;
 }
 }
-
-$brand01: #94a3b8;
-$brand02: #334155;
+.design-slide-1 {
+  background-image: url('../images/designs/design01.jpg');
+  &:hover {
+    background-image: url('../images/designs/design01-1.jpg');
+  }
+}
+.design-slide-2 {
+  background-image: url('../images/designs/design02.jpg');
+  &:hover {
+    background-image: url('../images/designs/design02-1.jpg');
+  }
+}
+.design-slide-3 {
+  background-image: url('../images/designs/design03.jpg');
+  &:hover {
+    background-image: url('../images/designs/design03-1.jpg');
+  }
+}
+.design-slide-4 {
+  background-image: url('../images/designs/design04.jpg');
+  &:hover {
+    background-image: url('../images/designs/design04-1.jpg');
+  }
+}
+.design-slide-5 {
+  background-image: url('../images/designs/design05.jpg');
+  &:hover {
+    background-image: url('../images/designs/design05-1.jpg');
+  }
+}
+.design-slide-6 {
+  background-image: url('../images/designs/design06.jpg');
+  &:hover {
+    background-image: url('../images/designs/design06-1.jpg');
+  }
+}
+.design-slide-7 {
+  background-image: url('../images/designs/design07.jpg');
+  &:hover {
+    background-image: url('../images/designs/design07-1.jpg');
+  }
+}
+.design-slide-8 {
+  background-image: url('../images/designs/design08.jpg');
+  &:hover {
+    background-image: url('../images/designs/design08-1.jpg');
+  }
+}
 
 
 // radio style
