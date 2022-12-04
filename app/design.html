@@ -23,16 +23,16 @@ current: design
         <option value="隔珠">隔珠</option>
       </select>
       
-      <ul class="hidden lg:block">
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700 hover:border-slate-700" onclick="getMaterialsData('')">全部</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-purple-700 hover:border-purple-700" onclick="getMaterialsData('頂輪')">頂輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-indigo-700 hover:border-indigo-700" onclick="getMaterialsData('眉心輪')">眉心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-sky-700 hover:border-sky-700" onclick="getMaterialsData('喉輪')">喉輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-lime-700 hover:border-lime-700" onclick="getMaterialsData('心輪')">心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-yellow-700 hover:border-yellow-700" onclick="getMaterialsData('臍輪')">臍輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-orange-700 hover:border-orange-700" onclick="getMaterialsData('腹輪')">腹輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-red-700 hover:border-red-700" onclick="getMaterialsData('海底輪')">海底輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-400 hover:border-slate-400" onclick="getMaterialsData('隔珠')">隔珠</btn></li>
+      <ul class="hidden lg:block" id="materialsCategories">
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700 hover:border-slate-700 bg-slate-700" data-category="全部">全部</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-purple-700 hover:border-purple-700" data-category="頂輪">頂輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-indigo-700 hover:border-indigo-700" data-category="眉心輪">眉心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-sky-700 hover:border-sky-700" data-category="喉輪">喉輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-lime-700 hover:border-lime-700" data-category="心輪">心輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-yellow-700 hover:border-yellow-700" data-category="臍輪">臍輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-orange-700 hover:border-orange-700" data-category="腹輪">腹輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-red-700 hover:border-red-700" data-category="海底輪">海底輪</btn></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-400 hover:border-slate-400" data-category="隔珠">隔珠</btn></li>
       </ul>
       
     </div>
@@ -69,27 +69,46 @@ current: design
     </div>
   </div>
 </section>
-
 <script>
 
-let materialsData=[];
+// 材料列表
+let materialsData =[];
+let materialsCategory = {
+  "全部":"slate-700",
+  "頂輪":"purple-700",
+  "眉心輪":"indigo-700",
+  "喉輪":"sky-700",
+  "心輪":"lime-700",
+  "臍輪":"yellow-700",
+  "腹輪":"orange-700",
+  "海底輪":"red-700",
+  "隔珠":"slate-400"
+};
+document.querySelector("#materialsCategories").addEventListener('click', function(e){
+  if(e.target.dataset.category){
+    getMaterialsData(e.target.dataset.category)
+  }
+})
+let currentCategory='全部'
 function getMaterialsData(category){
   axios.get("http://localhost:3000/materials")
   .then((res)=>{
-    // console.log(res.data)
     renderMaterialsData(res.data,category)
     materialsData = res.data
+    document.querySelector(`[data-category='${currentCategory}']`).classList.toggle(`bg-${materialsCategory[currentCategory]}`)
+    console.log(currentCategory)
+    currentCategory = category;
+    console.log(currentCategory)
+    document.querySelector(`[data-category='${currentCategory}']`).classList.toggle(`bg-${materialsCategory[currentCategory]}`)
+    
   })
   .catch((err)=>{
     console.log(err)
   })
-
 }
-
 function renderMaterialsData(data,category){
-  // console.log("render", category)
   let filteredData=[];
-  if(category==""){
+  if(category=="全部"){
     filteredData = data;
   }
   else{
@@ -97,15 +116,10 @@ function renderMaterialsData(data,category){
     return item.chakra.includes(category)
   })
 }
-  // console.log(filteredData)
   let str = '';
   filteredData.forEach(function(item){
-
     let btns = '';
-
-    // console.log(item.bead)
     item.bead.forEach(function(i){
-      // console.log(item)
       btns+=`
       <button type="button" class="px-2 py-1 rounded bg-slate-700 mr-1 text-white hover:bg-slate-400 text-sm" data-size="${i[0]}" data-price="${i[1]}" data-bead="${item.id}">
       ${i[0]}mm
@@ -122,20 +136,17 @@ function renderMaterialsData(data,category){
             </div>            
           </div>
           <div class="w-40 ml-1 bg-cover bg-center" style="background-image:url('/assets/images/crystals/${item.image}')"></div>
-          
         </li>
     `
   })
   document.querySelector(".beads-list").innerHTML = str
 }
-
 const category = document.querySelector("#category_select");
 category.addEventListener("change", function(){
   getMaterialsData(category.value)
 })
 
-
-
+// 新增珠子 
 document.querySelector(".beads-list").addEventListener("click",function(e){
   if(e.target.dataset.bead){
     let id = e.target.dataset.bead;
@@ -143,9 +154,9 @@ document.querySelector(".beads-list").addEventListener("click",function(e){
   }
 })
 
-getMaterialsData("")
+getMaterialsData("全部")
 
-// 串珠
+// render串珠
 let beeds = [];
 let perimeter = 130;
 const pi = 3.1416;
@@ -234,7 +245,6 @@ function addBeed(name, color, size, price){
 
 
 list.addEventListener('dragstart', dragStart);
-// list.addEventListener('touchmove', dragStart);
 
 function dragStart(e) { e.dataTransfer.setData('text/plain', e.target.id);
        setTimeout(() => {

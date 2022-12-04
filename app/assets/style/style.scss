@@ -216,58 +216,58 @@ font-family: 'Merienda', cursive;
 ul.list {
   position: absolute;
   right: 50%;
-bottom: 50%;
+  bottom: 50%;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 .beed {
-    position: absolute;
+  position: absolute;
   box-shadow: 2px 2px 5px 0px #0005;
-border-radius: 50%;
-translate: -50% -50%;
-cursor: grab;
+  border-radius: 50%;
+  translate: -50% -50%;
+  cursor: grab;
 }
 .beed::before {
-content: '';
-display: block;
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #FFF5, #0005);
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FFF5, #0005);
 }
 .beed:hover{
-    box-shadow: 2px 2px 10px 1px #0009;
+  box-shadow: 2px 2px 10px 1px #0009;
 }
 .beed:active {
-cursor: none;
+  cursor: none;
 }
 .beed .box {
-display: none;
-position: absolute;
-content:'';
-padding: 5px;
-background-color: #AA0;
-translate: 50px ;
-text-align: center;
-z-index: 1000;
+  display: none;
+  position: absolute;
+  content:'';
+  padding: 5px;
+  background-color: #AA0;
+  translate: 50px ;
+  text-align: center;
+  z-index: 1000;
 }
 .beed:hover .box{
 display: block;
 }
 .beed:active .box{
-display: none;
+  display: none;
 }
 
 .currentBead {
-    position: absolute;
+  position: absolute;
   left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
