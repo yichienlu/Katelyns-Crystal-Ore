@@ -2639,8 +2639,8 @@
           ]
         }
       ],
-      "isPaid": false,
-      "isShipped": false,
+      "isPaid": true,
+      "isShipped": true,
       "id": 6
     },
     {
@@ -3089,9 +3089,9 @@
         17,
         24,
         17,
-        16,
-        21,
-        17
+        18,
+        22,
+        18
       ],
       "isAdmin": true,
       "id": 7

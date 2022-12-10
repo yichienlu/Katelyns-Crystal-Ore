@@ -52,14 +52,9 @@ current: design
       <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover border-4 border-slate-700 rounded-lg">
         <iconify-icon icon="ci:undo" width="24" height="24" class="p-3"></iconify-icon>
       </button>
-
       <ul class="list"></ul>
-      
       <div class="currentBead font-bold"></div>
       
-
-      
-
     </div>
     <div class="flex items-center mt-3">
       <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-[10px] px-5 lg:py-3 lg:px-6 lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
@@ -69,6 +64,7 @@ current: design
     </div>
   </div>
 </section>
+<div><img src="" id="screenshot"></div>
 <script>
 
 // 材料列表
@@ -198,10 +194,12 @@ beeds.forEach(function(item, index){
     background-size: cover;
     background-position: center center;
     `;
-    document.querySelector(`li.beed:nth-of-type(${index+1})`).setAttribute('data-type', `${item.name}`)
+  document.querySelector(`li.beed:nth-of-type(${index+1})`).setAttribute('data-type', `${item.name}`)
   prevSize = item.size;
   totalLength += item.size;
   totalPrice += item.price
+
+
 })
 
 document.querySelector(".totalLength").innerHTML = `${totalLength /10 } cm`
@@ -249,10 +247,10 @@ function addBeed(name, color, size, price){
 list.addEventListener('dragstart', dragStart);
 
 function dragStart(e) { e.dataTransfer.setData('text/plain', e.target.id);
-       setTimeout(() => {
-        e.target.classList.add('hidden');
-         dragged = e.target.dataset.num
-    }, 0);
+  setTimeout(() => {
+    e.target.classList.add('hidden');
+    dragged = e.target.dataset.num
+  }, 0);
 }
 
 
@@ -300,9 +298,11 @@ function deleteDesign(){
 }
 
 function addToCart(){
-
   if(beeds.length>0){
-    alert('設計已放入購物車');
+
+    // console.log(document.querySelector(".list").innerHTML)
+
+    // alert('設計已放入購物車');
     let array=[];
     beeds.forEach(function(item){
       array.push([item.name,item.size])
@@ -312,6 +312,7 @@ function addToCart(){
       "price":totalPrice,
       "size":totalLength,
       "beads":array,
+      "image":document.querySelector(".list").innerHTML
     }
 
     if(localStorage.getItem("cart")){
@@ -325,7 +326,7 @@ function addToCart(){
     perimeter = 130;
     radius = `${perimeter/(2*pi)*4}px`
     init()
-    window.location.assign("cart.html")
+    // window.location.assign("cart.html")
   } else {
     alert("還沒有設計喔!")
   }

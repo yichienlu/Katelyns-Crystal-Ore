@@ -6,7 +6,7 @@ current: cart
 ---
 
 <section class=" px-3 py-10 lg:py-20">
-  <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
+  <div class="container mx-auto">
     <h3 class="text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
     <p id="cartEmpty">
       購物車沒有東西，<a href="design.html" class="underline">去訂製專屬飾品</a>
@@ -103,12 +103,22 @@ current: cart
       document.querySelector("#createOrder").disabled=false;
       
       cart = JSON.parse(localStorage.getItem("cart"));
+      console.log(cart)
       let cartTotalPrice=0;
       let str="";
       cart.forEach(function(item,index){      
         str += `
           <tr>
-            <td>${item.beads}</td>
+            <td class="lg:flex items-center">
+              <div class="p-5 w-[300px] h-[300px] relative grow">
+                <ul class="list-unstyled bg-red-500 absolute right-1/2 bottom-1/2" draggable="false">
+                  ${item.image}
+                </ul>                
+              </div>
+              <div class="w-[300px]">
+                ${item.beads}
+              </div>
+            </td>
             <td>${item.size/10}cm</td>
             <td>$${item.price}</td>
             <td class="py-2">
