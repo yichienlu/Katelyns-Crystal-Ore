@@ -103,20 +103,25 @@ current: cart
       document.querySelector("#createOrder").disabled=false;
       
       cart = JSON.parse(localStorage.getItem("cart"));
-      console.log(cart)
       let cartTotalPrice=0;
       let str="";
-      cart.forEach(function(item,index){      
+      cart.forEach(function(item,index){
+        let beads = ''
+        item.beads.forEach(function(bead){
+          beads += `${bead[0]}(${bead[1]}mm)、`
+        })
+        beads = beads.slice(0, -1)
+
         str += `
           <tr>
             <td class="lg:flex items-center">
-              <div class="p-5 w-[300px] h-[300px] relative grow">
-                <ul class="list-unstyled bg-red-500 absolute right-1/2 bottom-1/2" draggable="false">
+              <div class="p-5 w-[300px] h-[300px] mx-auto relative">
+                <ul class="list-unstyled absolute right-1/2 bottom-1/2" draggable="false">
                   ${item.image}
                 </ul>                
               </div>
-              <div class="w-[300px]">
-                ${item.beads}
+              <div class="w-[300px] p-5 mx-auto">
+                ${beads}
               </div>
             </td>
             <td>${item.size/10}cm</td>
