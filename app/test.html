@@ -24,6 +24,8 @@ current: test
     </section>
         
     <section id="results" class="px-3 py-10 lg:py-20 hidden">
+
+      <h3 class="text-xl lg:text-2xl font-bold mb-3 text-center">測驗結果</h3>
       <div class="container mx-auto ">
         
         <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
@@ -141,13 +143,13 @@ current: test
 
 
 let chakraData;
-axios.get("http://localhost:3000/chakras")
+axios.get("https://katelyns-crystal-ore.onrender.com/chakras")
 .then((res)=>{
   chakraData = res.data
 })
 
 let inputs;
-axios.get("http://localhost:3000/tests")
+axios.get("https://katelyns-crystal-ore.onrender.com/tests")
 .then((res)=>{
   renderTestsData(res.data)
   inputs = document.querySelectorAll("input");
@@ -155,47 +157,44 @@ axios.get("http://localhost:3000/tests")
 })
 
 function renderTestsData(data){
+
   let str = '';
   data.forEach(function(item,index){
     str+=`
     <li class="mb-4">
-      <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
+      <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question} <span id="question${index+1}" class="text-red-500 hidden">未填！</span></h3>
       <div class="lg:pl-12">
-        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" ${index%4==1 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" class="answer${index+1}">
         <label for="${item.name}-1">${item.options[0][0]}</label>
-        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" ${index%4==3 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" class="answer${index+1}">
         <label for="${item.name}-2">${item.options[1][0]}</label>
-        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" ${index%4==2 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" class="answer${index+1}">
         <label for="${item.name}-3">${item.options[2][0]}</label>
-        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" ${index%4==0 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" class="answer${index+1}">
         <label for="${item.name}-4">${item.options[3][0]}</label>       
       </div>
     </li>
-    
-    
     `
   })
 
   document.querySelector(".tests-list").innerHTML = str
+
+  for(let i=1; i<=49;i++){
+    document.querySelectorAll(`.answer${i}`).forEach(function(item){
+      item.addEventListener('click',function(){
+        document.querySelector(`#question${i}`).classList.add("hidden")
+      })
+    })
+  }
 }
 
-// 計算結果
 
-// 驗證
-// (function () {
-// 'use strict'
-// const forms = document.querySelectorAll('.needs-validation')
-// Array.from(forms)
-//   .forEach(function (form) {
-//     form.addEventListener('testSubmit', function (event) {
-//       if (!form.checkValidity()) {
-//         event.preventDefault()
-//         event.stopPropagation()
-//       }
-//       form.classList.add('was-validated')
-//     }, false)
-//   })
-// })()
+
+
+
+
+
+// 計算結果
 
 let crown = 0;
 let eye = 0;
@@ -206,6 +205,21 @@ let sacral = 0;
 let root = 0;
 
 function getScores() {
+
+  // 驗證
+  let answered = 0
+  for(let i=1; i<=49;i++){
+    answered = 0
+    document.querySelectorAll(`.answer${i}`).forEach(function(item){
+      item.checked ? answered++ : answered
+    })
+
+    if(answered==0){
+      document.querySelector(`#question${i}`).classList.remove("hidden")
+    }
+  }
+
+// 計算結果
     let count=0;
     inputs.forEach(function(item){
       if(item.checked){
@@ -222,13 +236,27 @@ function getScores() {
       }
     })
     if(count<49){
-        alert("有漏填的題目喔！")
+        // alert("有漏填的題目喔！")
+        Swal.fire({
+          icon: 'error',
+          title: '喔歐~',
+          text: '有漏填的題目喔！'
+        })
+      crown = eye = throat = heart = plexus = sacral = root = 0;
     } else {
       showScores();
       createCharts();
+      Swal.fire({
+        icon: 'success',
+        title: '已儲存資料',
+        text: '請參考下方測驗結果說明',
+        showConfirmButton: false,
+        timer: 1500
+      })
       userTestResult(root,sacral,plexus, heart, throat, eye, crown)
       crown = eye = throat = heart = plexus = sacral = root = 0;
     }
+
 }
 
 function showScores() {
@@ -304,11 +332,11 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
   let obj = {
     "test_result": [root, sacral, plexus, heart, throat, eye, crown]
   }
-  axios.patch(`http://localhost:3000/users/${localStorage.getItem("userId")}`,obj)
+
+  axios.patch(`https://katelyns-crystal-ore.onrender.com/users/${localStorage.getItem("userId")}`,obj)
   .then((res)=>{
     // console.log(res.data)
-    alert("已儲存資料")
-
+    // alert("已儲存資料")
   })
   .catch((err)=>{
     console.log(err)

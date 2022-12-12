@@ -1,5 +1,8 @@
 // let base_URL = "https://json-server-vercel-beta.vercel.app/"
-let base_URL = "http://localhost:3000"
+// let base_URL = "http://localhost:3000"
+let base_URL = "https://katelyns-crystal-ore.onrender.com"
+
+
 
 // 畫面
 const menu = document.querySelector("#menu");

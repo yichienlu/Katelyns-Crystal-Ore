@@ -397,7 +397,7 @@ const swiper = new Swiper('.design-swiper', {
 });
 
 
-axios.get('http://localhost:3000/designs')
+axios.get('https://katelyns-crystal-ore.onrender.com/designs')
 .then((res)=>{
   renderDesignData(res.data)
 })
@@ -418,7 +418,7 @@ function renderDesignData(data){
 
 let chakraData = [];
 current_chakra = 7;
-axios.get('http://localhost:3000/chakras')
+axios.get('https://katelyns-crystal-ore.onrender.com/chakras')
 .then((res)=>{
   chakraData = res.data
   chooseChakra(current_chakra)

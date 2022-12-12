@@ -87,7 +87,7 @@ document.querySelector("#materialsCategories").addEventListener('click', functio
 })
 let currentCategory='全部'
 function getMaterialsData(category){
-  axios.get("http://localhost:3000/materials")
+  axios.get("https://katelyns-crystal-ore.onrender.com/materials")
   .then((res)=>{
     renderMaterialsData(res.data,category)
     materialsData = res.data
@@ -223,7 +223,15 @@ function addBeed(name, color, size, price){
     }
     init();
   } else {
-    alert('上限為20cm')
+    // alert('上限為20cm')
+    Swal.fire({
+      title: '噢不！！',
+      text: '上限為20cm',
+      icon: 'warning',
+      iconColor:'#94a3b8',
+      confirmButtonText: '知道了！',
+      confirmButtonColor: '#334155'
+    })
   }
 }
 
@@ -328,7 +336,15 @@ function addToCart(){
     init()
     // window.location.assign("cart.html")
   } else {
-    alert("還沒有設計喔!")
+    // alert("還沒有設計喔!")
+    Swal.fire({
+      title: '噢不！！',
+      text: '還沒有設計耶',
+      icon: 'warning',
+      iconColor:'#94a3b8',
+      confirmButtonText: '去設計',
+      confirmButtonColor: '#334155',
+    })
   }
 
 }

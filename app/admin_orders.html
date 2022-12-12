@@ -35,7 +35,7 @@ current: admin_orders
 
 <script>
   function getOrdersData(){
-    axios.get("http://localhost:3000/orders")
+    axios.get("https://katelyns-crystal-ore.onrender.com/orders")
 .then((res)=>{
   renderOrdersData(res.data);
   renderPieChart(res.data);
@@ -111,7 +111,7 @@ function renderOrdersData(data){
 
 
 function togglePaid(id,isPaid){
-axios.patch(`http://localhost:3000/orders/${id}`,{
+axios.patch(`https://katelyns-crystal-ore.onrender.com/orders/${id}`,{
   "isPaid":!isPaid
 })
   .then((res)=>{
@@ -123,7 +123,7 @@ axios.patch(`http://localhost:3000/orders/${id}`,{
 }
 
 function toggleShipped(id,isShipped){
-axios.patch(`http://localhost:3000/orders/${id}`,{
+axios.patch(`https://katelyns-crystal-ore.onrender.com/orders/${id}`,{
   "isShipped":!isShipped
 })
   .then((res)=>{
@@ -135,7 +135,7 @@ axios.patch(`http://localhost:3000/orders/${id}`,{
 }
 
 function deleteOrder(id){
-  axios.delete(`http://localhost:3000/orders/${id}`)
+  axios.delete(`https://katelyns-crystal-ore.onrender.com/orders/${id}`)
   .then((res)=>{
     getOrdersData()
 
