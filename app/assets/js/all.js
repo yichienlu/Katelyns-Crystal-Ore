@@ -36,7 +36,17 @@ document.querySelector("#link_logout").addEventListener("click", function () {
   localStorage.removeItem("isAdmin")
   localStorage.removeItem("userId")
   localStorage.removeItem("email")
-  alert("登出成功")
+  // alert("登出成功")
+  Swal.fire({
+    // icon: 'success',
+    title: '登出成功',
+    text: '期待您的下次蒞臨',
+    imageUrl: './assets/images/index/step_03.png',
+    imageWidth: 400,
+    imageHeight: 200,
+    showConfirmButton: false,
+    timer: 1500
+  })
   window.location.assign("index.html");
 })
 

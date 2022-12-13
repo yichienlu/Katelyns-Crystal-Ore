@@ -28,7 +28,7 @@ current: member
 <table id="orderTable" class="border-4 border-slate-400 hidden lg:table">
   <thead class="bg-slate-400 text-white text-center">
     <tr class="border-b-4 border-slate-400">
-      <td class="w-10">編號</td>
+      <td class="w-10">訂單編號</td>
       <td class="w-20">時間</td>
       <td class="min-w-40">收件資訊</td>
       <td>訂購項目</td>
@@ -176,9 +176,8 @@ function getUserData(){
     document.querySelector("#member_email").innerHTML = res.data.email
     document.querySelector("#member_birthday").value = res.data.birthday
     let test_result = res.data.test_result;
-    // console.log(res.data)
-    showScores(test_result);
     setTimeout(()=>{
+      showScores(test_result);
       createCharts(test_result)
     },0)
 })
@@ -191,6 +190,7 @@ function getChakraData(){
   axios.get(`https://katelyns-crystal-ore.onrender.com/chakras`)
   .then((res)=>{
     chakraData = res.data;
+    getUserData()
   })
   .catch((err)=>{
     console.log(err)
@@ -274,7 +274,7 @@ function renderOrdersData(data){
     str_mobile += `
       <li class="my-2 border-4 border-slate-400">
         <div class="flex p-1 border-b-2">
-          <div class="mr-auto">編號：${item.id}</div>
+          <div class="mr-auto">訂單編號：${item.id}</div>
           <div>
             ${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')} ${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}
           </div>
@@ -372,10 +372,6 @@ function createCharts(test_result) {
 
 function init(){
   getChakraData()
-
-  setTimeout(()=>{
-    getUserData()
-  },'0')
   getOrdersData()
 }
 
