@@ -31,16 +31,11 @@
       outline: 1px solid #AAA;
       box-sizing: border-box;
     }
-    #loader-beads{
-      animation: loader-beads 6s linear infinite
-    }
-    @keyframes loader-beads {
-      100% {transform: rotate(360deg)}
-    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
+<body class="relative">
   <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
@@ -153,9 +148,9 @@
     </div>
   </footer>
 
-  <div class="absolute top-0 bottom-0 left-0 right-0 bg-slate-400 opacity-90" style="z-index:1000">
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
     <div id="loader-beads" class="absolute top-0 bottom-0 left-0 right-0">
-
+      <img src="./assets/images/index/loader.png" alt="" class="w-1/2 block mx-auto relative top-[50vh] -translate-y-1/2">
     </div>
   </div>
 

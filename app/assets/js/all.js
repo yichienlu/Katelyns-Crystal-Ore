@@ -2,6 +2,11 @@
 // let base_URL = "http://localhost:3000"
 let base_URL = "https://katelyns-crystal-ore.onrender.com"
 
+window.addEventListener("load", function(event) {
+  this.setTimeout(()=>{
+    this.document.querySelector("#loader").classList.add("hidden")
+  }, 1000)
+});
 
 
 // 畫面

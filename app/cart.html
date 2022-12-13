@@ -7,35 +7,22 @@ current: cart
 
 <section class=" px-3 py-10 lg:py-20">
   <div class="container mx-auto">
-    <h3 class="text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
+    <h3 class="lg:w-2/3 mx-auto text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
     <p id="cartEmpty">
       購物車沒有東西，<a href="design.html" class="underline">去訂製專屬飾品</a>
     </p>
-    <div id="cartTable" class="">
-      <table class="mx-auto mb-5 w-full">
-        <thead class="bg-slate-700 text-white">
-          <tr>
-            <th width="">品項</th>
-            <th width="">手圍</th>
-            <th width="">金額</th>
-            <th width="" style="width:60px"></th>
-          </tr>
-        </thead>
-        <tbody id="cartList">
-        </tbody>
-        <tfoot class="bg-slate-400">
-          <tr>
-            <td colspan="2">
-              <p>總金額</p>
-            </td>
-            <td id="cartTotalPrice"></td>
-            <td></td>
-        </tr>
-        </tfoot>
-          
-      </table>
-      <a href="#" class="py-2 px-3 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="clearCart()">刪除所有品項</a>
-  </div>
+    <div id="cartTable">
+      <ul id="cartList" class="lg:w-2/3 mx-auto"></ul>
+
+      <div class="lg:w-2/3 mx-auto bg-slate-700 text-white p-2 text-right text-xl font-bold flex justify-between">
+        <div>總金額</div>
+        <div id="cartTotalPrice"></div>
+      </div>
+   
+      <div class="lg:w-2/3 mx-auto">
+        <a href="#" class="inline-block py-2 px-3 mt-4 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="clearCart()">刪除所有品項</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -47,28 +34,28 @@ current: cart
           <label for="customerName" class="mb-1">姓名</label>
           <div class="">
               <input type="text" class="w-full" id="customerName" placeholder="請輸入姓名" name="姓名">
-              <p class=" text-red-500" data-message="姓名">　</p>
+              <p class=" text-red-500" data-message="姓名"></p>
           </div>
       </div>
       <div class="mb-3">
           <label for="customerPhone" class="mb-1">電話</label>
           <div class="">
               <input type="tel" class="w-full" id="customerPhone" placeholder="請輸入電話" name="電話">
-              <p class=" text-red-500" data-message="電話">　</p>
+              <p class=" text-red-500" data-message="電話"></p>
           </div>
       </div>
       <div class="mb-3">
           <label for="customerEmail" class="mb-1">Email</label>
           <div class="">
               <input type="email" class="w-full" id="customerEmail" placeholder="請輸入 Email" name="Email">
-              <p class=" text-red-500" data-message="Email">　</p>
+              <p class=" text-red-500" data-message="Email"></p>
           </div>
       </div>
       <div class="mb-3">
           <label for="customerAddress" class="mb-1">寄送地址</label>
           <div class="">
               <input type="text" class="w-full" id="customerAddress" placeholder="請輸入寄送地址" name="寄送地址">
-              <p class="text-red-500" data-message="寄送地址">　</p>
+              <p class="text-red-500" data-message="寄送地址"></p>
           </div>
       </div>
       <div class="mb-3">
@@ -79,7 +66,7 @@ current: cart
                   <option value="信用卡">信用卡</option>
                   <option value="超商付款">超商付款</option>
               </select>
-              <p class="text-red-500" data-message="交易方式"></p>
+              <!-- <p class="text-red-500" data-message="交易方式"></p> -->
           </div>
       </div>
       <input type="button" value="送出預訂資料" class="btn-primary w-full disabled:bg-slate-400" id="createOrder" disabled>
@@ -95,7 +82,7 @@ current: cart
   let cart;
   let cartTotalPrice;
   let obj={}
-  document.querySelector("#customerEmail").value = localStorage?.getItem("email")
+  document.querySelector("#customerEmail").value = localStorage?.getItem("email").replaceAll('"', '')
   
   function renderCartData(){
     if(JSON.parse(localStorage.getItem("cart"))){   
@@ -114,29 +101,34 @@ current: cart
         beads = beads.slice(0, -1)
 
         str += `
-          <tr>
-            <td class="lg:flex items-center">
-              <div class="p-5 w-[300px] h-[300px] mx-auto relative">
-                <ul class="list-unstyled absolute right-1/2 bottom-1/2" draggable="false">
-                  ${item.image}
-                </ul>                
-              </div>
-              <div class="w-[300px] p-5 mx-auto">
-                ${beads}
-              </div>
-            </td>
-            <td>${item.size/10}cm</td>
-            <td>$${item.price}</td>
-            <td class="py-2">
-                <a href="#" class="py-1 px-2 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="deleteCartItem(${index})">刪除</a>
-            </td>
-          </tr>
+        <li class="border-2 border-slate-400 relative xl:flex items-center mb-3 bg-slate-400">
+          <div class="absolute top-0 left-0 bg-white">
+            <button class="block p-4 text-slate-700 hover:text-slate-400"  onclick="deleteCartItem(${index})">
+              <iconify-icon icon="carbon:close" width="24" height="24"></iconify-icon>
+            </button>
+          </div>
+          <div class="md:flex  border-b-2 xl:border-b-0 xl:border-r-2 border-slate-400 items-center bg-white">
+            <div class="p-2 w-[320px] h-[320px] mx-auto relative">
+              <ul class="list-unstyled absolute right-1/2 bottom-1/2" draggable="false">
+                ${item.image}
+              </ul>    
+              <div class="font-bold absolute bottom-0 right-0 m-2">手圍：${item.size/10} cm</div>
+            </div>
+            <div class="md:w-[320px] lg:w-[400px]  p-3 mx-auto">
+              ${beads}
+            </div>
+          </div>
+          <div class="flex justify-between xl:block p-2 grow text-center font-bold text-lg bg-slate-400 text-white">
+            <div></div>
+            <div>$ ${item.price}</div>
+          </div>
+        </li>
         `
         cartTotalPrice += item.price
       })
       document.querySelector("#cartList").innerHTML = str
 
-      document.querySelector("#cartTotalPrice").innerHTML = `$${cartTotalPrice}`
+      document.querySelector("#cartTotalPrice").innerHTML = `$ ${cartTotalPrice}`
       obj.final_price = cartTotalPrice
     } else {
       document.querySelector("#cartTable").classList.add("hidden")
@@ -168,8 +160,8 @@ function clearCart(){
     text: "刪掉就要重新設計喔，真的要清空嗎?",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#94a3b8',
+    cancelButtonColor: '#334155',
     confirmButtonText: '忍痛清除',
     cancelButtonText: '我再想想'
   }).then((result) => {
@@ -184,8 +176,6 @@ function clearCart(){
     }
   })
 
-
-
 }
 
 
@@ -195,7 +185,7 @@ renderCartData()
 // 表單即時驗證
 const form = document.querySelector(".orderInfo-form");
 const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
-const inputs = document.querySelectorAll("#orderInfo input[id]");
+const inputs = document.querySelectorAll("#orderInfo input[name]");
 inputs.forEach(function(item,index){
   item.addEventListener('focusout',function(){
   if(item.value==''){
@@ -253,7 +243,7 @@ if(errors==undefined){
       confirmButtonText: '確定'
     })
     localStorage.removeItem("cart")
-    window.location.assign("index.html")
+    window.location.assign("member.html")
   })
   .catch((err)=>{
     console.log(err)
