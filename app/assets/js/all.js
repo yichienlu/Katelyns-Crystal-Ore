@@ -36,7 +36,8 @@ if (loggedIn) {
   }
 }
 
-document.querySelector("#link_logout").addEventListener("click", function () {
+document.querySelector("#link_logout").addEventListener("click", function (e) {
+  e.preventDefault()
   localStorage.removeItem("token")
   localStorage.removeItem("isAdmin")
   localStorage.removeItem("userId")
@@ -51,8 +52,10 @@ document.querySelector("#link_logout").addEventListener("click", function () {
     imageHeight: 200,
     showConfirmButton: false,
     timer: 1500
+  }).then(()=>{
+    window.location.assign("index.html");
   })
-  window.location.assign("index.html");
+
 })
 
 

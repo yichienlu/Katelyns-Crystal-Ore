@@ -120,7 +120,7 @@ current: cart
           </div>
           <div class="flex justify-between xl:block p-2 grow text-center font-bold text-lg bg-slate-400 text-white">
             <div></div>
-            <div>$ ${item.price}</div>
+            <div>$ ${new Intl.NumberFormat().format(item.price)}</div>
           </div>
         </li>
         `
@@ -128,7 +128,7 @@ current: cart
       })
       document.querySelector("#cartList").innerHTML = str
 
-      document.querySelector("#cartTotalPrice").innerHTML = `$ ${cartTotalPrice}`
+      document.querySelector("#cartTotalPrice").innerHTML = `$ ${new Intl.NumberFormat().format(cartTotalPrice)}`
       obj.final_price = cartTotalPrice
     } else {
       document.querySelector("#cartTable").classList.add("hidden")
