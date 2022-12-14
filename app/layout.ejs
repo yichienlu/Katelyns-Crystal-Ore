@@ -29,14 +29,14 @@
       display: block;
     }
     *{
-      outline: 1px solid #AAA;
+      /* outline: 1px solid #AAA; */
       box-sizing: border-box;
     }
 
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body class="relative">
+<body class="relative" >
   <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
@@ -150,8 +150,28 @@
   </footer>
 
   <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
-    <div id="loader-beads" class="absolute top-0 bottom-0 left-0 right-0">
-      <img src="./assets/images/index/loader.png" alt="" class="w-1/2 block mx-auto relative top-[50vh] -translate-y-1/2">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
     </div>
   </div>
 

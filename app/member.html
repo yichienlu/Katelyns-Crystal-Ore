@@ -232,6 +232,9 @@ function renderOrdersData(data){
       products+=`
         <li class="border-b border-slate-400">
           <div>
+            ${product?.image}
+          </div>
+          <div>
             ${beads}
           </div>
           <div class="font-bold text-red-600">$${product.price}</div>              
@@ -388,8 +391,6 @@ function changePassword(){
       Swal.fire({
         title: '密碼已更新',
         icon: 'success',
-        confirmButtonColor: '#334155',
-        confirmButtonText: '確定'
       })
     })
     .catch((err)=>{
