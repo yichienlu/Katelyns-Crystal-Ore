@@ -64,7 +64,7 @@
             <iconify-icon icon="bx:user" width="24" height="24" class="lg:hidden"></iconify-icon>
             <iconify-icon icon="bx:user" width="28" height="28" class="hidden lg:block"></iconify-icon>
           </button>
-          <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
+          <div id="user_box" class="hidden absolute w-[100px] bg-white shadow-md right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
               <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
@@ -490,29 +490,10 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
     </div>
   </footer>
 
-  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
-    <div class="absolute top-0 bottom-0 left-0 right-0 ">
-      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
-        <div class="loader-circles" style="transform: rotate(20deg)"></div>
-        <div class="loader-circles" style="transform: rotate(40deg)"></div>
-        <div class="loader-circles" style="transform: rotate(60deg)"></div>
-        <div class="loader-circles" style="transform: rotate(80deg)"></div>
-        <div class="loader-circles" style="transform: rotate(100deg)"></div>
-        <div class="loader-circles" style="transform: rotate(120deg)"></div>
-        <div class="loader-circles" style="transform: rotate(140deg)"></div>
-        <div class="loader-circles" style="transform: rotate(160deg)"></div>
-        <div class="loader-circles" style="transform: rotate(180deg)"></div>
-        <div class="loader-circles" style="transform: rotate(200deg)"></div>
-        <div class="loader-circles" style="transform: rotate(220deg)"></div>
-        <div class="loader-circles" style="transform: rotate(240deg)"></div>
-        <div class="loader-circles" style="transform: rotate(260deg)"></div>
-        <div class="loader-circles" style="transform: rotate(280deg)"></div>
-        <div class="loader-circles" style="transform: rotate(300deg)"></div>
-        <div class="loader-circles" style="transform: rotate(320deg)"></div>
-        <div class="loader-circles" style="transform: rotate(340deg)"></div>
-        <div class="loader-circles" style="transform: rotate(360deg)"></div>
-    </div>
-      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-slate-700" style="z-index:1000">
+    <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
+      <p class="font-2 text-3xl text-slate-400">Loading
+      </p>
     </div>
   </div>
 

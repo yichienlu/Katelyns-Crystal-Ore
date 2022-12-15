@@ -8,7 +8,7 @@ window.addEventListener("load", function (event) {
 
   this.setTimeout(function () {
     _this.document.querySelector("#loader").classList.add("hidden");
-  }, 1000);
+  }, 1500);
 }); // 畫面
 
 var menu = document.querySelector("#menu");
