@@ -167,53 +167,32 @@ header {
   background-image: url("../images/designs/design08-1.jpg");
 }
 
-#loader-beads {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  -webkit-animation: rotate-circle 0.5s ease-in-out infinite;
-          animation: rotate-circle 0.5s ease-in-out infinite;
-}
-#loader-beads .loader-circles {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  transform: rotate(0deg);
-  transform-origin: 5px 100px;
-  background-color: #FFF;
-  position: absolute;
-  top: 0;
-  left: 95px;
-}
-#loader-beads .loader-circles::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3333333333), rgba(0, 0, 0, 0.3333333333));
-}
-@-webkit-keyframes rotate-circle {
+@-webkit-keyframes typing {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    color: #94a3b8;
+  }
+  50% {
+    color: #FFF;
   }
   100% {
-    transform: translate(-50%, -50%) rotate(20deg);
+    color: #94a3b8;
   }
 }
-@keyframes rotate-circle {
+
+@keyframes typing {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    color: #94a3b8;
+  }
+  50% {
+    color: #FFF;
   }
   100% {
-    transform: translate(-50%, -50%) rotate(20deg);
+    color: #94a3b8;
   }
+}
+#loader p {
+  -webkit-animation: typing 1s infinite;
+          animation: typing 1s infinite;
 }
 
 .tests-list input[type=radio] {
