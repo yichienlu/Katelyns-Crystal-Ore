@@ -157,4 +157,3 @@ https://api-docs.render.com/reference/get-services
 rnd_DgeBA81ePhK78mBqDhaLKOMx5JP4
 
 https://hackmd.io/@NoName21/deploy-to-render-2022
-https://www.youtube.com/watch?v=EcxYcpF3W7c

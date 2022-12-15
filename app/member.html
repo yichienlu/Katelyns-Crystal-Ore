@@ -4,166 +4,184 @@ layout: ./app/layout.ejs
 engine: ejs
 current: member
 ---
-<div class="px-3 py-5 sm:w-3/4 md:2/3 lg:1/2 mx-auto">
+<div class="px-3 py-5  mx-auto">
 
 
-<h3 class="font-bold text-lg lg:text-2xl mb-5 text-slate-700">會員資料</h3>
-<p id="member_email" class="mb-3"></p>
-<p>
-  <label>
-    修改密碼
-    <input type="password" id="member_password">
-  </label> 
-  <input type="button" value="確認" onclick="changePassword()">
-</p>
-<p>
-  <label>
-    修改生日
-    <input type="date" id="member_birthday">
-  </label>
-  <input type="button" value="確認" onclick="changeBirthday()">
-</p>
-
-<h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">訂單紀錄</h3>
-<table id="orderTable" class="border-4 border-slate-400 hidden lg:table">
-  <thead class="bg-slate-400 text-white text-center">
-    <tr class="border-b-4 border-slate-400">
-      <td class="w-10">訂單編號</td>
-      <td class="w-20">時間</td>
-      <td class="min-w-40">收件資訊</td>
-      <td>訂購項目</td>
-      <td class="w-20">
-        <span>總金額</span>
-      </td>
-      <td class="w-20">
-        <span>訂單狀態</span>
-      </td>
-    </tr>
-  </thead>
-<tbody id="orders_list">
-</tbody>
-</table>
-<div class="" id="no_order">
-  <p>尚無訂單</p>
-  <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>
-</div>
-
-<ul id="orders_list_mobile" class=" lg:hidden"></ul>
-<h3 class="font-bold text-lg lg:text-2xl mt-5 mb-5 text-slate-700">脈輪測驗結果</h3>
-<section id="results">
-  <div class="container mx-auto ">
-    <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">頂輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="c-chart" class="h-full bg-purple-400"></div>              
-        </div>
-        <div id="c-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="c-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">眉心輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="e-chart" class="h-full bg-indigo-400"></div>              
-        </div>
-        <div id="e-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="e-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">喉輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="t-chart" class="h-full bg-sky-400"></div>              
-        </div>
-        <div id="t-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="t-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">心輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="h-chart" class="h-full bg-lime-400"></div>              
-        </div>
-        <div id="h-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="h-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">臍輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="p-chart" class="h-full bg-yellow-400"></div>              
-        </div>
-        <div id="p-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="p-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">腹輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="s-chart" class="h-full bg-orange-400"></div>              
-        </div>
-        <div id="s-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="s-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-      <li class="mb-2 flex items-center">
-        <div class="w-3/12 text-center font-medium">
-          <div class="text-md lg:text-lg">海底輪</div>
-        </div> 
-        <div class="self-stretch w-6/12 flex items-center">
-          <div id="r-chart" class="h-full bg-red-400"></div>              
-        </div>
-        <div id="r-score" class="w-1/12 text-md lg:text-lg "></div>
-        <div id="r-result" class="w-2/12 text-md lg:text-lg"></div>
-      </li>
-
-      </ul>
-      <ul class="lg:text-lg">
-        <li class="mb-2 lg:mb-3 border-l-8 border-purple-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>頂輪主要掌管智慧及和世界為一體的感覺。當此脈輪活躍時，你會傾向沒有偏見，並且十分意識到此世界和你的存在。</p>
-          <p id="c-highLow"></p>
-        </li>
-        <li class="mb-2 lg:mb-3 border-l-8 border-indigo-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>眉心輪主要掌管洞察力和視覺化能力。當此脈輪活躍時，你會有很好的直覺，並且喜歡幻想。</p>
-          <p id="e-highLow"></p>
-        </li>
-        <li class="mb-2 lg:mb-3 border-l-8 border-sky-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>喉輪主要掌管自我表達和言談。當喉輪活躍時，你將無障礙的表達你自己，你可以藉此而成為藝術家。</p>
-          <p id="t-highLow"></p>
-        </li>
-        <li class="mb-2 lg:mb-3 border-l-8 border-lime-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>心輪主要掌管愛，善良等一般情感。當心輪打開時，你會具有同情心、友善，並且你會致力於和諧的人際關係。</p>
-          <p id="h-highLow"></p>
-        </li>
-        <li class="mb-2 lg:mb-3 border-l-8 border-yellow-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>臍輪主要掌管你在團體中的感覺。當臍輪活躍時，你感覺在掌控中而且有足夠的自信心。</p>
-          <p id="p-highLow"></p>
-        </li class="mb-2 lg:mb-3">
-        <li class="mb-2 lg:mb-3 border-l-8 border-orange-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>腹輪主要掌管情感和性慾。當腹輪活躍時，你的情感表達自如，而且表達時不會流於過度情緒化，對於親密關係採取開放態度，感覺充滿熱情和活力。</p>
-          <p id="s-highLow"></p>
-        </li>
-        <li class="mb-2 lg:mb-3 border-l-8 border-red-400 px-2 py-1 lg:px-3 lg:py-2">
-          <p>海底輪的能量主要掌管與肉體的聯繫，使人感覺安全放心。如果海底輪處於活躍狀態，你將覺得有種「身植大地」的感覺，感到穩定和安全。你不會不必要的懷疑他人。你覺得活在當下，而且和你的肉體緊密結合，覺得有充分的領域感。</p>
-          <p id="r-highLow"></p>
-        </li>
-      </ul>
-      <div class="">
-        <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">重新測驗</a>                  
-      </div>
-    </div>
-  </section>
-  <div class="" id="no_test">
-    <p>尚未完成脈輪測驗</p>
-    <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">前往測驗</a>
+  <h3 class="font-bold text-lg lg:text-xl px-6 py-2 rounded-t-2xl text-slate-700 bg-slate-400 inline-block">會員資料</h3>
+  <div class="border-4 border-slate-400 p-6 mb-10">
+    <p class="mb-3">
+      <span class="mr-4 inline-block font-bold">帳　　號</span>
+      <span id="member_email" class="py-2 inline-block"></span>
+    </p>
+    <p class="mb-3">
+      <label>
+        <span class="mr-4 font-bold">修改密碼</span>
+        <input type="password" id="member_password" class=" rounded-md" style="width: 168px;">
+      </label> 
+      <input type="button" value="確認" onclick="changePassword()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
+    </p>
+    <p class="mr-4">
+      <label>
+        <span class="mr-4 font-bold">修改生日</span>
+        <input type="date" id="member_birthday" class=" rounded-md" style="width: 168px;">
+      </label>
+      <input type="button" value="確認" onclick="changeBirthday()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
+    </p>
   </div>
+
+
+  <h3 class="font-bold text-lg lg:text-xl px-6 py-2 rounded-t-2xl text-slate-700 bg-slate-400 inline-block">訂單紀錄</h3>
+  <div class="mb-10 border-4 border-slate-400">
+    <table id="orderTable" class="border-0 w-full hidden lg:table">
+      <thead class=" border-0 bg-slate-400 text-white text-center">
+        <tr class="border-b-4 ">
+          <td class="w-10 border border-slate-400">編號</td>
+          <td class="w-20 border border-slate-400">時間</td>
+          <td class="min-w-40 border border-slate-400">收件資訊</td>
+          <td class="border border-slate-400">訂購項目</td>
+          <td class="w-20 border border-slate-400">
+            <span>總金額</span>
+          </td>
+          <td class="w-20 border border-slate-400">
+            <span>訂單狀態</span>
+          </td>
+        </tr>
+      </thead>
+    <tbody id="orders_list">
+    </tbody>
+    </table>
+  
+    <div class="" id="no_order">
+      <p>尚無訂單</p>
+      <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">訂製專屬手串</a>
+    </div>
+  
+    <ul id="orders_list_mobile" class="lg:hidden"></ul>
+  
+
+
+  </div>
+  
+
+
+  <h3 class="font-bold text-lg lg:text-xl px-6 py-2 rounded-t-2xl text-slate-700 bg-slate-400 inline-block">脈輪測驗結果</h3>
+  <div class="border-4 border-slate-400 p-6 mb-10">
+    <section id="results">
+      <div class="container mx-auto ">
+        <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">頂輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="c-chart" class="h-full bg-purple-400"></div>              
+            </div>
+            <div id="c-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="c-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">眉心輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="e-chart" class="h-full bg-indigo-400"></div>              
+            </div>
+            <div id="e-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="e-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">喉輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="t-chart" class="h-full bg-sky-400"></div>              
+            </div>
+            <div id="t-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="t-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">心輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="h-chart" class="h-full bg-lime-400"></div>              
+            </div>
+            <div id="h-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="h-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">臍輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="p-chart" class="h-full bg-yellow-400"></div>              
+            </div>
+            <div id="p-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="p-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">腹輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="s-chart" class="h-full bg-orange-400"></div>              
+            </div>
+            <div id="s-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="s-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+          <li class="mb-2 flex items-center">
+            <div class="w-3/12 text-center font-medium">
+              <div class="text-md lg:text-lg">海底輪</div>
+            </div> 
+            <div class="self-stretch w-6/12 flex items-center">
+              <div id="r-chart" class="h-full bg-red-400"></div>              
+            </div>
+            <div id="r-score" class="w-1/12 text-md lg:text-lg "></div>
+            <div id="r-result" class="w-2/12 text-md lg:text-lg"></div>
+          </li>
+
+          </ul>
+          <ul class="lg:text-lg">
+            <li class="mb-2 lg:mb-3 border-l-8 border-purple-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>頂輪主要掌管智慧及和世界為一體的感覺。當此脈輪活躍時，你會傾向沒有偏見，並且十分意識到此世界和你的存在。</p>
+              <p id="c-highLow"></p>
+            </li>
+            <li class="mb-2 lg:mb-3 border-l-8 border-indigo-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>眉心輪主要掌管洞察力和視覺化能力。當此脈輪活躍時，你會有很好的直覺，並且喜歡幻想。</p>
+              <p id="e-highLow"></p>
+            </li>
+            <li class="mb-2 lg:mb-3 border-l-8 border-sky-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>喉輪主要掌管自我表達和言談。當喉輪活躍時，你將無障礙的表達你自己，你可以藉此而成為藝術家。</p>
+              <p id="t-highLow"></p>
+            </li>
+            <li class="mb-2 lg:mb-3 border-l-8 border-lime-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>心輪主要掌管愛，善良等一般情感。當心輪打開時，你會具有同情心、友善，並且你會致力於和諧的人際關係。</p>
+              <p id="h-highLow"></p>
+            </li>
+            <li class="mb-2 lg:mb-3 border-l-8 border-yellow-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>臍輪主要掌管你在團體中的感覺。當臍輪活躍時，你感覺在掌控中而且有足夠的自信心。</p>
+              <p id="p-highLow"></p>
+            </li class="mb-2 lg:mb-3">
+            <li class="mb-2 lg:mb-3 border-l-8 border-orange-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>腹輪主要掌管情感和性慾。當腹輪活躍時，你的情感表達自如，而且表達時不會流於過度情緒化，對於親密關係採取開放態度，感覺充滿熱情和活力。</p>
+              <p id="s-highLow"></p>
+            </li>
+            <li class="mb-2 lg:mb-3 border-l-8 border-red-400 px-2 py-1 lg:px-3 lg:py-2">
+              <p>海底輪的能量主要掌管與肉體的聯繫，使人感覺安全放心。如果海底輪處於活躍狀態，你將覺得有種「身植大地」的感覺，感到穩定和安全。你不會不必要的懷疑他人。你覺得活在當下，而且和你的肉體緊密結合，覺得有充分的領域感。</p>
+              <p id="r-highLow"></p>
+            </li>
+          </ul>
+          <div class="">
+            <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">重新測驗</a>                  
+          </div>
+        </div>
+      </section>
+      <div class="" id="no_test">
+        <p>尚未完成脈輪測驗</p>
+        <a href="test.html" class="w-full lg:w-auto btn-primary mt-6">前往測驗</a>
+      </div>
+  </div>
+
 </div>
 
 <script>
@@ -224,19 +242,22 @@ function renderOrdersData(data){
 
       let beads = "";
       product.beads.forEach(function(bead){
-        beads+=`
-          ${bead[0]}(${bead[1]})|
-        `
+        beads+=`${bead[0]}(${bead[1]})、`
       })
-
+      beads = beads.slice(0,-1)
       products+=`
-        <li class="border-b border-slate-400">
-          <div>
-            ${product?.image}
+        <li class="border border-slate-400 lg:flex items-center">
+          <div class="md:flex items-center border border-slate-400">
+            <div class="mx-auto w-[300px] h-[300px] relative border border-slate-400">
+              <ul class="absolute top-1/2 left-1/2">
+                ${product.image}
+              </ul>
+            </div>
+            <div class="bg-red-200 mx-auto md:w-[300px] border border-slate-400">
+              ${beads}
+            </div>
           </div>
-          <div>
-            ${beads}
-          </div>
+
           <div class="font-bold text-red-600">$${product.price}</div>              
         </li>
       `
@@ -245,48 +266,49 @@ function renderOrdersData(data){
     let time = new Date(item.order_time)
     str += `
     <tr>
-        <td>
+        <td class="border-0" style="border-color: #94a3b8">
           ${item.id}
         </td>
-        <td>
+        <td class="border-0" style="border-color: #94a3b8">
           <div>${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')}</div>
           <div>${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}</div>
         </td>
-        <td>
+        <td class="border-0" style="border-color: #94a3b8">
           <p>${item.name}</p>
           <p>${item.phone}</p>
           <p>${item.address}</p>
           <p>${item.email}</p>
         </td>
-        <td>
+        <td class="border-0" style="border-color: #94a3b8">
           <ul class="">
             ${products}                        
           </ul>
         </td>
-        <td>      
+        <td class="border-0" style="border-color: #94a3b8">      
           <div class="font-bold text-red-600">$${item.final_price}</div>
           <div class="${item.isPaid? "text-green-600":"text-red-600"}">${item.isPaid? "已付款":"未付款"}</div>
           <button class="px-2 py-1 border-2 hover:bg-slate-400 ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
           </td>
-        <td>
-          <div class="font-bold text-red-600">$${item.final_price}</div>
+        <td class="border-0" style="border-color: #94a3b8">
           <div class="${item.isShipped? "text-green-600":"text-red-600"}">${item.isShipped? "已出貨":"未出貨"}</div>
         </td>
       </tr>
     `
     str_mobile += `
-      <li class="my-2 border-4 border-slate-400">
-        <div class="flex p-1 border-b-2">
-          <div class="mr-auto">訂單編號：${item.id}</div>
-          <div>
-            ${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')} ${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}
+      <li class="lg:flex items-center">
+        <div class="lg:flex">
+          <div class="flex 2xl:block  p-1 border-b-2">
+            <div class="mr-auto">訂單編號：${item.id}</div>
+            <div>
+              ${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')} ${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}
+            </div>
           </div>
-        </div>
-        <div class="p-1 border-b-2">
-          <p>${item.name}</p>
-          <p>${item.phone}</p>
-          <p>${item.address}</p>
-          <p>${item.email}</p>
+          <div class="p-1 border-b-2">
+            <p>${item.name}</p>
+            <p>${item.phone}</p>
+            <p>${item.address}</p>
+            <p>${item.email}</p>
+          </div>
         </div>
         <ul class="p-2">${products}</ul>
         <div class="flex">
@@ -386,11 +408,11 @@ function changePassword(){
       "password":document.querySelector("#member_password").value
     })
     .then((res)=>{
-      // console.log(res)
-      // alert("密碼已更新")
       Swal.fire({
         title: '密碼已更新',
         icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
       })
     })
     .catch((err)=>{
@@ -403,13 +425,11 @@ function changeBirthday(){
       "birthday":document.querySelector("#member_birthday").value
     })
     .then((res)=>{
-      // console.log(res)
-      // alert("生日已更新")
       Swal.fire({
         title: '生日已更新',
         icon: 'success',
-        confirmButtonColor: '#334155',
-        confirmButtonText: '確定'
+        showConfirmButton: false,
+        timer: 1500
       })
     })
     .catch((err)=>{
