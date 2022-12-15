@@ -1266,8 +1266,8 @@ select {
 .bg-\[url\(\'\.\.\/images\/index\/step_03\.png\'\)\] {
   background-image: url('../images/index/step_03.png');
 }
-.bg-\[url\(\'\/assets\/images\/index\/illustration\.png\'\)\] {
-  background-image: url('/assets/images/index/illustration.png');
+.bg-\[url\(\'\.\/assets\/images\/index\/illustration\.png\'\)\] {
+  background-image: url('./assets/images/index/illustration.png');
 }
 .bg-\[url\(\'\.\.\/images\/index\/user_01\.png\'\)\] {
   background-image: url('../images/index/user_01.png');
