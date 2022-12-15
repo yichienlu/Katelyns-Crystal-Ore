@@ -9,7 +9,7 @@ current: test
     <div class="lg:w-1/2 mx-auto py-6 lg:py-12 bg-[#FFFA]">
         <h2 class="text-xl lg:text-2xl font-bold mb-3 text-center">脈輪測驗</h2>
         <p class="text-lg lg:text-xl mb-5 text-center " >完成49題測驗，了解您的脈輪能量分布</p>
-        <form class="py-5 px-8 " novalidate>
+        <form class="p-4 lg:p-8 " novalidate>
         <ul class="tests-list "></ul>
           <p class="text-center flex justify-between mt-5">
             <button id="testReset" class="btn-primary" >清除</button>
@@ -164,13 +164,13 @@ function renderTestsData(data){
     <li class="mb-4">
       <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question} <span id="question${index+1}" class="text-red-500 hidden">未填！</span></h3>
       <div class="lg:pl-12">
-        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" class="answer${index+1}">
+        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" class="answer${index+1}" ${index%4==0?'checked':''}>
         <label for="${item.name}-1">${item.options[0][0]}</label>
-        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" class="answer${index+1}">
+        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" class="answer${index+1}" ${index%4==1?'checked':''}>
         <label for="${item.name}-2">${item.options[1][0]}</label>
-        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" class="answer${index+1}">
+        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" class="answer${index+1}" ${index%4==2?'checked':''}>
         <label for="${item.name}-3">${item.options[2][0]}</label>
-        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" class="answer${index+1}">
+        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" class="answer${index+1}" ${index%4==3?'checked':''}>
         <label for="${item.name}-4">${item.options[3][0]}</label>       
       </div>
     </li>

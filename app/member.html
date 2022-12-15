@@ -9,34 +9,35 @@ current: member
 
   <h3 class="font-bold text-lg lg:text-xl px-6 py-2 rounded-t-2xl text-slate-700 bg-slate-400 inline-block">會員資料</h3>
   <div class="border-4 border-slate-400 p-6 mb-10">
-    <p class="mb-3">
-      <span class="mr-4 inline-block font-bold">帳　　號</span>
-      <span id="member_email" class="py-2 inline-block"></span>
-    </p>
-    <p class="mb-3">
-      <label>
-        <span class="mr-4 font-bold">修改密碼</span>
-        <input type="password" id="member_password" class=" rounded-md" style="width: 168px;">
-      </label> 
-      <input type="button" value="確認" onclick="changePassword()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
-    </p>
-    <p class="mr-4">
-      <label>
-        <span class="mr-4 font-bold">修改生日</span>
-        <input type="date" id="member_birthday" class=" rounded-md" style="width: 168px;">
-      </label>
-      <input type="button" value="確認" onclick="changeBirthday()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
-    </p>
+    <div class="md:flex items-center mb-3">
+      <div class="mr-4 inline-block font-bold">帳　　號</div>
+      <div id="member_email" class="py-2 "></div>
+    </div>
+    <div class="mb-3 md:flex items-center">
+      <label for="member_password" class="block mb-2 md:mb-0 mr-4 font-bold">修改密碼</label>
+      <div class="flex w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:w-1/4">
+        <input type="password" id="member_password" class="mr-2 rounded-md grow w-full" style="min-width: 168px;">
+        <input type="button" value="確認" onclick="changePassword()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
+      </div>
+    </div>
+    <div class="md:flex items-center">
+      <label for="member_birthday" class="block mb-2 md:mb-0 mr-4 font-bold">修改生日</label>
+      <div class="flex w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:w-1/4">
+        <input type="date" id="member_birthday" class="mr-2 rounded-md grow w-full" style="min-width: 168px;">
+        <input type="button" value="確認" onclick="changeBirthday()" class="bg-slate-700 text-white border-slate-700 rounded-md px-4 py-2 ">
+      </div>
+      
+    </div>
   </div>
 
 
   <h3 class="font-bold text-lg lg:text-xl px-6 py-2 rounded-t-2xl text-slate-700 bg-slate-400 inline-block">訂單紀錄</h3>
-  <div class="mb-10 border-4 border-slate-400">
+  <div class="mb-10 border-4 border-slate-400 border-b-0 text-neutral-900">
     <table id="orderTable" class="border-0 w-full hidden lg:table">
       <thead class=" border-0 bg-slate-400 text-white text-center">
         <tr class="border-b-4 ">
-          <td class="w-10 border border-slate-400">編號</td>
-          <td class="w-20 border border-slate-400">時間</td>
+          <td class="w-10 border border-slate-400 text-center">編號</td>
+          <td class="min-w-20 border border-slate-400">時間</td>
           <td class="min-w-40 border border-slate-400">收件資訊</td>
           <td class="border border-slate-400">訂購項目</td>
           <td class="w-20 border border-slate-400">
@@ -238,6 +239,7 @@ function renderOrdersData(data){
   data.forEach(function(item){
 
     let products="";
+    let price="";
     item.products.forEach(function(product){
 
       let beads = "";
@@ -246,34 +248,36 @@ function renderOrdersData(data){
       })
       beads = beads.slice(0,-1)
       products+=`
-        <li class="border border-slate-400 lg:flex items-center">
-          <div class="md:flex items-center border border-slate-400">
-            <div class="mx-auto w-[300px] h-[300px] relative border border-slate-400">
-              <ul class="absolute top-1/2 left-1/2">
+        <li class="xl:flex items-center border-0 border-b border-slate-400">
+          <div class="sm:flex lg:block xl:flex items-center">
+            <div class="mx-auto w-[300px] h-[300px] shrink-0 relative border-0">
+              <ul class="absolute top-1/2 left-1/2 list-none">
                 ${product.image}
               </ul>
             </div>
-            <div class="bg-red-200 mx-auto md:w-[300px] border border-slate-400">
+            <div class="mx-auto border-0 p-2">
+              <div class="font-bold mb-2">手圍：${product.size/10} cm</div>
               ${beads}
             </div>
           </div>
-
-          <div class="font-bold text-red-600">$${product.price}</div>              
+          <div class="w-20 shrink-0 p-2 font-bold">$ ${product.price}</div>        
+          
         </li>
       `
+
     })
 
     let time = new Date(item.order_time)
     str += `
-    <tr>
-        <td class="border-0" style="border-color: #94a3b8">
+    <tr class="border-b-4 border-slate-400">
+        <td class="border-0 text-center font-bold" style="border-color: #94a3b8">
           ${item.id}
         </td>
-        <td class="border-0" style="border-color: #94a3b8">
+        <td class="border-0 p-2 font-bold" style="border-color: #94a3b8">
           <div>${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')}</div>
           <div>${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}</div>
         </td>
-        <td class="border-0" style="border-color: #94a3b8">
+        <td class="border-0 p-2" style="border-color: #94a3b8">
           <p>${item.name}</p>
           <p>${item.phone}</p>
           <p>${item.address}</p>
@@ -284,39 +288,44 @@ function renderOrdersData(data){
             ${products}                        
           </ul>
         </td>
-        <td class="border-0" style="border-color: #94a3b8">      
+        <td class="border-0 text-center" style="border-color: #94a3b8">      
           <div class="font-bold text-red-600">$${item.final_price}</div>
-          <div class="${item.isPaid? "text-green-600":"text-red-600"}">${item.isPaid? "已付款":"未付款"}</div>
-          <button class="px-2 py-1 border-2 hover:bg-slate-400 ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
           </td>
-        <td class="border-0" style="border-color: #94a3b8">
-          <div class="${item.isShipped? "text-green-600":"text-red-600"}">${item.isShipped? "已出貨":"未出貨"}</div>
+        <td class="border-0 text-center" style="border-color: #94a3b8">
+          <div class="${item.isPaid? "text-green-600 mb-5":"text-red-600 mb-1"}">${item.isPaid? "已付款":"未付款"}</div>
+          <button class="px-2 py-1 mb-5 border-2 border-slate-700 text-slate-700 hover:bg-slate-700 hover:text-white rounded-md ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">去付款</button>
+          <div class="${item.isShipped? "text-green-600":"text-red-600"} ${item.isPaid ? '':'hidden'}">${item.isShipped? "已出貨":"未出貨"}</div>
         </td>
       </tr>
     `
     str_mobile += `
-      <li class="lg:flex items-center">
+      <li class="lg:flex items-center border-b-4 border-slate-400">
         <div class="lg:flex">
-          <div class="flex 2xl:block  p-1 border-b-2">
+          <div class="flex 2xl:block  p-2 border-b-2 font-bold">
             <div class="mr-auto">訂單編號：${item.id}</div>
             <div>
               ${time.getFullYear()}/${(time.getMonth()+1).toString().padStart(2,'0')}/${time.getDate().toString().padStart(2,'0')} ${time.getHours().toString().padStart(2,'0')}:${time.getMinutes().toString().padStart(2,'0')}:${time.getSeconds().toString().padStart(2,'0')}
             </div>
           </div>
-          <div class="p-1 border-b-2">
+          <div class="p-2 border-b-2">
             <p>${item.name}</p>
             <p>${item.phone}</p>
             <p>${item.address}</p>
             <p>${item.email}</p>
           </div>
         </div>
-        <ul class="p-2">${products}</ul>
-        <div class="flex">
+        <div>
+        
+          </div>
+        
+        <ul class="list-none">${products}</ul>
+        <div class="flex items-center p-2 border-t-2">
           <div class="font-bold mr-auto">總金額：<span class="text-red-600">$${item.final_price}</span></div>
           <div class="${item.isPaid? "text-green-600":"text-red-600"} mr-2">${item.isPaid? "已付款":"未付款"}</div>
-          <button class="px-2 py-1 border-2 hover:bg-slate-400 ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
-          <div class="${item.isShipped? "text-green-600":"text-red-600"}">${item.isShipped? "已出貨":"未出貨"}</div>
+          <button class="px-2 py-1 border-2 border-slate-700 text-slate-700 hover:bg-slate-700 hover:text-white rounded-md ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
+          <div class="${item.isShipped? "text-green-600":"text-red-600"} ${item.isPaid ? '':'hidden'}">${item.isShipped? "已出貨":"未出貨"}</div>
         </div>
+        
       </li>
     `
   })
@@ -330,6 +339,13 @@ function payOrder(id){
     "isPaid":true
   })
   .then((res)=>{
+    Swal.fire({
+        title: '已成功付款',
+        text:'敬請期待商品到達',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
     getOrdersData()
   })
   .catch((err)=>{
