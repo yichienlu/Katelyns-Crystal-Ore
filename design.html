@@ -11,13 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+  <script src="https://gist.githubusercontent.com/akovalyov/51d220c907bd7398bca9/raw/57f2c2beb61ef7a9812519b006382db6fdff704d/html2canvas.svg.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-
 
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -26,23 +28,28 @@
     #user_icon:hover #user_box{
       display: block;
     }
+    *{
+      /* outline: 1px solid #AAA; */
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
-  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
+<body class="relative" >
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2  ">
+        <h1 class="font-2">
           <div class="font-bold text-2xl ">Katelyn's</div>
           <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
-        <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li><a href="test.html" class=" hover:text-slate-400 mr-10">脈輪測驗</a></li>
+        <li><a href="design.html" class=" hover:text-slate-400 mr-10">找晶礦</a></li>
+        <li><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -60,10 +67,10 @@
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
-              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">後台</a></li>
             </ul>
           </div>
         </li>
@@ -84,7 +91,7 @@
         <div class="px-3 bg-slate-700">
       <div class="container mx-auto flex items-center py-[18px]">
           
-        <a href="#" class="block mr-auto">
+        <a href="index.html" class="block mr-auto">
           <div class="font-2 ">
             <div class="font-bold text-2xl text-white">Katelyn's</div>
             <div class="text-slate-400 text-center">Crystal & Ore</div>
@@ -103,7 +110,7 @@
           <div class="px-3">
             <ul class="my-6">
                       <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
-                      <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
+                      <li><a href="design.html" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
                  <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
@@ -112,12 +119,12 @@
 
   
             
-<section class="px-3 py-10 lg:py-20">
+<section class="px-3 py-3 lg:py-6">
   <div class="container mx-auto lg:flex p-4 bg-neutral-200">
     
 <!--     filter -->
-    <div class="bg-white p-3">
-      <select name="" id="category_select" class="lg:hidden w-full">
+    <div class=" p-3">
+      <select name="" id="category_select" class="lg:hidden w-full bg-white">
         <option value="">全部</option>
         <option value="頂輪">頂輪</option>
         <option value="眉心輪">眉心輪</option>
@@ -129,73 +136,90 @@
         <option value="隔珠">隔珠</option>
       </select>
       
-      <ul class="hidden lg:block">
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-700 hover:border-slate-700" onclick="getMaterialsData('')">全部</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-purple-700 hover:border-purple-700" onclick="getMaterialsData('頂輪')">頂輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-indigo-700 hover:border-indigo-700" onclick="getMaterialsData('眉心輪')">眉心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-sky-700 hover:border-sky-700" onclick="getMaterialsData('喉輪')">喉輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-lime-700 hover:border-lime-700" onclick="getMaterialsData('心輪')">心輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-yellow-700 hover:border-yellow-700" onclick="getMaterialsData('臍輪')">臍輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-orange-700 hover:border-orange-700" onclick="getMaterialsData('腹輪')">腹輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-red-700 hover:border-red-700" onclick="getMaterialsData('海底輪')">海底輪</btn></li>
-        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 hover:text-white hover:bg-slate-400 hover:border-slate-400" onclick="getMaterialsData('隔珠')">隔珠</btn></li>
+      <ul class="hidden lg:block" id="materialsCategories">
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-slate-700 hover:border-slate-700" data-category="全部">全部</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-purple-700 hover:border-purple-700" data-category="頂輪">頂輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-indigo-700 hover:border-indigo-700" data-category="眉心輪">眉心輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-sky-700 hover:border-sky-700" data-category="喉輪">喉輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-lime-700 hover:border-lime-700" data-category="心輪">心輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-yellow-700 hover:border-yellow-700" data-category="臍輪">臍輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-orange-700 hover:border-orange-700" data-category="腹輪">腹輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-red-700 hover:border-red-700" data-category="海底輪">海底輪</button></li>
+        <li><button class="block w-full p-2 text-center border-2 border-slate-700 rounded mb-2 bg-white hover:text-white hover:bg-slate-400 hover:border-slate-400" data-category="隔珠">隔珠</button></li>
       </ul>
       
     </div>
     
 <!--     buttons -->
-    <div class="ore-list bg-white w-full lg:w-1/3 mr-3 ">
+    <div class="ore-list bg-neutral-200 w-full lg:w-1/3 mr-3 ">
       <ul class="beads-list max-h-screen overflow-y-auto overflow-x-scroll lg:overflow-y-scroll lg:overflow-x-auto flex lg:block p-2"></ul>
     </div>
     
      <div class="relative grow ">
 <!--     canvas -->
-    <div class=" bg-neutral-50 relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
+    <div class=" bg-white relative workplace h-[400px] w-full"  ondragover="allowDrop(event)">
       <div class="totalLength absolute top-3 left-3 text-2xl"></div>  
       <button  id="trash" ondrop="allowDrop(event)" class="block h-14 p-0 absolute bottom-3 right-3 text-red-900 border-4 border-red-900 rounded-lg">
         <iconify-icon icon="bxs:trash" width="24" height="24" class="p-3"></iconify-icon>
       </button>
-      <button onclick="deleteBead(beeds.length-1)" id="back" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover border-4 border-slate-700 rounded-lg">
+      <button onclick="deleteBead(beeds.length-1)" id="deleteLast" class="block h-14 absolute bottom-3 left-3 text-slate-700 hover border-4 border-slate-700 rounded-lg disabled:border-neutral-400 disabled:text-neutral-400 disabled:hover:bg-white">
         <iconify-icon icon="ci:undo" width="24" height="24" class="p-3"></iconify-icon>
       </button>
-
       <ul class="list"></ul>
+      <div class="currentBead font-bold"></div>
       
-      <div class="currentBead"></div>
-      
-
-      
-
     </div>
     <div class="flex items-center mt-3">
-      <button onclick="deleteDesign()" class="font-medium lg:text-[20px] rounded-lg py-[10px] px-5 lg:py-3 lg:px-6 lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white">清除設計</button>
+      <button id="deleteDesignBtn" class="font-medium lg:text-[20px] rounded-lg py-[10px] px-5 lg:py-3 lg:px-6 lg:block border-2 border-red-700 text-red-700 hover:bg-red-700 bg-white hover:text-white disabled:border-neutral-400 disabled:text-neutral-400 disabled:hover:bg-white">清除設計</button>
       <p class="totalPrice ml-auto mr-2 lg:mr-8 text-lg lg:text-2xl"></p>
       <button onclick="addToCart()" class="btn-primary">送出設計</button>
     </div>
     </div>
   </div>
 </section>
-
+<div><img src="" id="screenshot"></div>
 <script>
 
-let materialsData=[];
+// 材料列表
+let materialsData =[];
+let materialsCategory = {
+  "全部":"#334155",
+  "頂輪":"#7e22ce",
+  "眉心輪":"#4338ca",
+  "喉輪":"#0369a1",
+  "心輪":"#4d7c0f",
+  "臍輪":"#a16207",
+  "腹輪":"#c2410c",
+  "海底輪":"#b91c1c",
+  "隔珠":"#94a3b8"
+};
+document.querySelector("#materialsCategories").addEventListener('click', function(e){
+  if(e.target.dataset.category){
+    getMaterialsData(e.target.dataset.category)
+  }
+})
+let currentCategory='全部'
 function getMaterialsData(category){
-  axios.get("https://json-server-vercel-beta.vercel.app/materials")
+  axios.get("https://katelyns-crystal-ore.onrender.com/materials")
   .then((res)=>{
-    // console.log(res.data)
     renderMaterialsData(res.data,category)
     materialsData = res.data
+    document.querySelector(`[data-category='${currentCategory}']`).style.borderColor = "#334155"
+    document.querySelector(`[data-category='${currentCategory}']`).style.backgroundColor = "#FFF"
+    document.querySelector(`[data-category='${currentCategory}']`).style.color = "#000"
+    currentCategory = category;
+    document.querySelector(`[data-category='${currentCategory}']`).style.borderColor = materialsCategory[currentCategory]
+    document.querySelector(`[data-category='${currentCategory}']`).style.backgroundColor = materialsCategory[currentCategory]
+    document.querySelector(`[data-category='${currentCategory}']`).style.color = "#FFF"
+    
   })
   .catch((err)=>{
     console.log(err)
   })
-
 }
-
 function renderMaterialsData(data,category){
-  // console.log("render", category)
   let filteredData=[];
-  if(category==""){
+  if(category=="全部"){
     filteredData = data;
   }
   else{
@@ -203,15 +227,10 @@ function renderMaterialsData(data,category){
     return item.chakra.includes(category)
   })
 }
-  // console.log(filteredData)
   let str = '';
   filteredData.forEach(function(item){
-
     let btns = '';
-
-    // console.log(item.bead)
     item.bead.forEach(function(i){
-      // console.log(item)
       btns+=`
       <button type="button" class="px-2 py-1 rounded bg-slate-700 mr-1 text-white hover:bg-slate-400 text-sm" data-size="${i[0]}" data-price="${i[1]}" data-bead="${item.id}">
       ${i[0]}mm
@@ -219,29 +238,26 @@ function renderMaterialsData(data,category){
       `
     })
     str+= `
-    <li class=" flex p-3 rounded  hover:shadow-lg bg-neutral-50 mr-2 lg:mr-0 lg:mb-2">
-          <div class="flex flex-col w-full">
-            <h3 class="font-bold text-md">${item.name}</h3>
-            <p class="text-xs">${item.description}</p>
-            <div class="flex mt-auto">
-              ${btns}
-            </div>            
-          </div>
-          <div class="w-40 ml-1 bg-cover bg-center" style="background-image:url('/assets/images/crystals/${item.image}')"></div>
-          
-        </li>
+    <li class=" flex p-3 rounded  hover:shadow-lg bg-neutral-50 mr-3 lg:mr-0 lg:mb-2">
+      <div class="w-40 mr-3 bg-cover bg-center" style="background-image:url('/assets/images/crystals/${item.image}')"></div>
+      <div class="flex flex-col w-full">
+        <h3 class="font-bold text-md">${item.name}</h3>
+        <p class="text-xs">${item.description}</p>
+        <div class="flex mt-auto">
+          ${btns}
+        </div>            
+      </div>
+    </li>
     `
   })
   document.querySelector(".beads-list").innerHTML = str
 }
-
 const category = document.querySelector("#category_select");
 category.addEventListener("change", function(){
   getMaterialsData(category.value)
 })
 
-
-
+// 新增珠子 
 document.querySelector(".beads-list").addEventListener("click",function(e){
   if(e.target.dataset.bead){
     let id = e.target.dataset.bead;
@@ -249,9 +265,9 @@ document.querySelector(".beads-list").addEventListener("click",function(e){
   }
 })
 
-getMaterialsData("")
+getMaterialsData("全部")
 
-// 串珠
+// render串珠
 let beeds = [];
 let perimeter = 130;
 const pi = 3.1416;
@@ -291,15 +307,26 @@ beeds.forEach(function(item, index){
     background-size: cover;
     background-position: center center;
     `;
-    document.querySelector(`li.beed:nth-of-type(${index+1})`).setAttribute('data-type', `${item.name}`)
+  document.querySelector(`li.beed:nth-of-type(${index+1})`).setAttribute('data-type', `${item.name}`)
   prevSize = item.size;
   totalLength += item.size;
   totalPrice += item.price
+
+
 })
 
 document.querySelector(".totalLength").innerHTML = `${totalLength /10 } cm`
 document.querySelector(".totalPrice").innerHTML = `$${totalPrice}`
 
+const deleteDesignBtn = document.querySelector("#deleteDesignBtn")
+const deleteLast = document.querySelector("#deleteLast")
+if(beeds.length==0){
+  deleteDesignBtn.disabled = true
+  deleteLast.disabled = true
+}else{
+  deleteDesignBtn.disabled = false
+  deleteLast.disabled = false
+}
 }
 
 function allowDrop(e) {
@@ -318,9 +345,18 @@ function addBeed(name, color, size, price){
     }
     init();
   } else {
-    alert('上限為20cm')
+    Swal.fire({
+      title: '噢不！！',
+      text: '尺寸上限為20cm',
+      allowOutsideClick:false,
+      icon: 'warning',
+      iconColor:'#94a3b8',
+      confirmButtonText: '知道了！',
+      confirmButtonColor: '#334155'
+    })
   }
 }
+
 
   function deleteBead(dragged){
     totalLength -= beeds[dragged].size
@@ -340,13 +376,12 @@ function addBeed(name, color, size, price){
 
 
 list.addEventListener('dragstart', dragStart);
-// list.addEventListener('touchmove', dragStart);
 
 function dragStart(e) { e.dataTransfer.setData('text/plain', e.target.id);
-       setTimeout(() => {
-        e.target.classList.add('hidden');
-         dragged = e.target.dataset.num
-    }, 0);
+  setTimeout(() => {
+    e.target.classList.add('hidden');
+    dragged = e.target.dataset.num
+  }, 0);
 }
 
 
@@ -386,42 +421,110 @@ document.querySelector("#trash").addEventListener("dragleave", function(e){
 
 init();
 
+deleteDesignBtn.addEventListener("click",deleteDesign)
 function deleteDesign(){
-  beeds = [];
-  perimeter = 130;
-  radius = `${perimeter/(2*pi)*4}px`
-  init()
-}
-
-function addToCart(){
-
-  if(beeds.length>0){
-    alert('設計已放入購物車');
-    let array=[];
+  let array=[];
     beeds.forEach(function(item){
       array.push([item.name,item.size])
     })
-
     let obj = {
       "price":totalPrice,
       "size":totalLength,
       "beads":array,
+      "image":document.querySelector(".list").innerHTML
     }
 
-    if(localStorage.getItem("cart")){
-      let cart = JSON.parse(localStorage.getItem("cart"))
-      cart.push(obj)
-      localStorage.setItem("cart",JSON.stringify(cart))
-    } else {
-      localStorage.setItem("cart",JSON.stringify([obj]))
+  Swal.fire({
+    html:'<div class="relative h-[320px]"><ul class="image absolute top-1/2 left-1/2"></ul></div>',
+    didOpen:()=>{
+      const image = Swal.getHtmlContainer().querySelector('ul.image')
+      image.innerHTML = obj["image"]
+    },
+    icon: 'warning',
+    title: '確定要刪除設計嗎?',
+    showCancelButton: true,
+    confirmButtonColor: '#94a3b8',
+    cancelButtonColor: '#334155',
+    confirmButtonText: '忍痛刪除',
+    cancelButtonText: '我再想想'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title:'設計已刪除',
+        icon:'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      beeds = [];
+      perimeter = 130;
+      radius = `${perimeter/(2*pi)*4}px`
+      init()
     }
-    beeds = [];
-    perimeter = 130;
-    radius = `${perimeter/(2*pi)*4}px`
-    init()
-    window.location.assign("cart.html")
+  })
+
+
+}
+
+function addToCart(){
+  if(beeds.length>0){
+    let array=[];
+    beeds.forEach(function(item){
+      array.push([item.name,item.size])
+    })
+    let obj = {
+      "price":totalPrice,
+      "size":totalLength,
+      "beads":array,
+      "image":document.querySelector(".list").innerHTML
+    }
+
+    Swal.fire({
+      html:'<div class="relative h-[320px]"><ul class="image absolute top-1/2 left-1/2"></ul></div>',
+      didOpen:()=>{
+        const image = Swal.getHtmlContainer().querySelector('ul.image')
+        image.innerHTML = obj["image"]
+      },
+      title: '設計放入購物車?',
+      showCancelButton: true,
+      cancelButtonColor: '#94a3b8',
+      confirmButtonColor: '#334155',
+      cancelButtonText: '繼續設計',
+      confirmButtonText: '確定'
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if(localStorage.getItem("cart")){
+          let cart = JSON.parse(localStorage.getItem("cart"))
+          cart.push(obj)
+          localStorage.setItem("cart",JSON.stringify(cart))
+        } else {
+          localStorage.setItem("cart",JSON.stringify([obj]))
+        }
+        beeds = [];
+        perimeter = 130;
+        radius = `${perimeter/(2*pi)*4}px`
+        init()
+
+        Swal.fire({
+          title:'設計已放入購物車',
+          icon:'success',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(()=>{
+          window.location.assign("cart.html")
+        })
+      }
+    })
   } else {
-    alert("還沒有設計喔!")
+
+    Swal.fire({
+      title: '噢不！！',
+      text: '還沒有設計耶',
+      icon: 'warning',
+      iconColor:'#94a3b8',
+      confirmButtonText: '去設計',
+      confirmButtonColor: '#334155',
+    })
   }
 
 }
@@ -440,10 +543,11 @@ if(isMobileDevice()){
 }
 </script>
 
+
   <footer class="px-3 py-8 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
-        <a href="#" class="block mb-6 font-2 lg:mb-0 ">
+        <a href="index.html" class="block mb-6 font-2 lg:mb-0 ">
           <div class="text-xl font-bold text-white">Katelyn's</div>
           <div class=" text-slate-400 text-xs">Crystal & Ore</div>
         </a>
@@ -469,6 +573,34 @@ if(isMobileDevice()){
       </div>
     </div>
   </footer>
+
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+    </div>
+  </div>
+
+  <!-- <script src="sweetalert2.all.min.js"></script> -->
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>

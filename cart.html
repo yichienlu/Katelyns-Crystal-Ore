@@ -11,13 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+  <script src="https://gist.githubusercontent.com/akovalyov/51d220c907bd7398bca9/raw/57f2c2beb61ef7a9812519b006382db6fdff704d/html2canvas.svg.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-
 
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -26,23 +28,28 @@
     #user_icon:hover #user_box{
       display: block;
     }
+    *{
+      /* outline: 1px solid #AAA; */
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
-  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
+<body class="relative" >
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2  ">
+        <h1 class="font-2">
           <div class="font-bold text-2xl ">Katelyn's</div>
           <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
-        <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li><a href="test.html" class=" hover:text-slate-400 mr-10">脈輪測驗</a></li>
+        <li><a href="design.html" class=" hover:text-slate-400 mr-10">找晶礦</a></li>
+        <li><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -60,10 +67,10 @@
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
-              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">後台</a></li>
             </ul>
           </div>
         </li>
@@ -84,7 +91,7 @@
         <div class="px-3 bg-slate-700">
       <div class="container mx-auto flex items-center py-[18px]">
           
-        <a href="#" class="block mr-auto">
+        <a href="index.html" class="block mr-auto">
           <div class="font-2 ">
             <div class="font-bold text-2xl text-white">Katelyn's</div>
             <div class="text-slate-400 text-center">Crystal & Ore</div>
@@ -103,7 +110,7 @@
           <div class="px-3">
             <ul class="my-6">
                       <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
-                      <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
+                      <li><a href="design.html" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
                  <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
@@ -112,43 +119,30 @@
 
   
 <section class=" px-3 py-10 lg:py-20">
-  <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
-    <h3 class="text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
-    <p id="cartEmpty">
+  <div class="container mx-auto">
+    <h3 class="lg:w-2/3 mx-auto text-2xl font-bold lg:text-3xl mb-5 text-slate-700">我的購物車</h3>
+    <p id="cartEmpty" class="lg:w-2/3 mx-auto">
       購物車沒有東西，<a href="design.html" class="underline">去訂製專屬飾品</a>
     </p>
-    <div id="cartTable" class="">
-      <table class="mx-auto mb-5 w-full">
-        <thead class="bg-slate-700 text-white">
-          <tr>
-            <th width="">品項</th>
-            <th width="">手圍</th>
-            <th width="">金額</th>
-            <th width="" style="width:60px"></th>
-          </tr>
-        </thead>
-        <tbody id="cartList">
-        </tbody>
-        <tfoot class="bg-slate-400">
-          <tr>
-            <td colspan="2">
-              <p>總金額</p>
-            </td>
-            <td id="cartTotalPrice"></td>
-            <td></td>
-        </tr>
-        </tfoot>
-          
-      </table>
-      <a href="#" class="py-2 px-3 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="clearCart()">刪除所有品項</a>
-  </div>
+    <div id="cartTable">
+      <ul id="cartList" class="lg:w-2/3 mx-auto"></ul>
+
+      <div class="lg:w-2/3 mx-auto bg-slate-700 text-white p-2 text-right text-xl font-bold flex justify-between">
+        <div>總金額</div>
+        <div id="cartTotalPrice"></div>
+      </div>
+   
+      <div class="lg:w-2/3 mx-auto">
+        <a href="#" class="inline-block py-2 px-3 mt-4 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="clearCart()">刪除所有品項</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="px-3 py-10 lg:py-20" id="orderInfo">
   <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
-    <h3 class=" text-2xl font-bold lg:text-3xl mb-5 text-slate-700">填寫預訂資料</h3>
-    <form action="" class=" mx-auto">
+    <h3 class=" text-2xl font-bold lg:text-3xl mb-5 text-slate-700">填寫訂購資料</h3>
+    <form action="" class=" mx-auto orderInfo-form">
       <div class="mb-3">
           <label for="customerName" class="mb-1">姓名</label>
           <div class="">
@@ -185,10 +179,10 @@
                   <option value="信用卡">信用卡</option>
                   <option value="超商付款">超商付款</option>
               </select>
-              <p class="text-red-500" data-message="交易方式"></p>
+              <!-- <p class="text-red-500" data-message="交易方式"></p> -->
           </div>
       </div>
-      <input type="button" value="送出預訂資料" class="btn-primary w-full disabled:bg-slate-400" id="createOrder">
+      <input type="button" value="送出預訂資料" class="btn-primary w-full disabled:bg-slate-400" id="createOrder" disabled>
   </form>
 
   </div>
@@ -201,6 +195,9 @@
   let cart;
   let cartTotalPrice;
   let obj={}
+  if(localStorage.getItem("email")){
+    document.querySelector("#customerEmail").value = localStorage.getItem("email").replaceAll('"', '')
+  }
   
   function renderCartData(){
     if(JSON.parse(localStorage.getItem("cart"))){   
@@ -211,22 +208,42 @@
       cart = JSON.parse(localStorage.getItem("cart"));
       let cartTotalPrice=0;
       let str="";
-      cart.forEach(function(item,index){      
+      cart.forEach(function(item,index){
+        let beads = ''
+        item.beads.forEach(function(bead){
+          beads += `${bead[0]}(${bead[1]}mm)、`
+        })
+        beads = beads.slice(0, -1)
+
         str += `
-          <tr>
-            <td>${item.beads}</td>
-            <td>${item.size/10}cm</td>
-            <td>$${item.price}</td>
-            <td class="py-2">
-                <a href="#" class="py-1 px-2 rounded border-2 border-red-900 text-red-900 hover:border-red-500 hover:text-red-500" onclick="deleteCartItem(${index})">刪除</a>
-            </td>
-          </tr>
+        <li class="border-2 border-slate-400 relative xl:flex items-center mb-3 bg-slate-400">
+          <div class="md:flex  border-b-2 xl:border-b-0 xl:border-r-2 border-slate-400 items-center bg-white">
+            <div class="p-2 w-[320px] h-[320px] mx-auto relative">
+              <ul class="list-unstyled absolute right-1/2 bottom-1/2" draggable="false">
+                ${item.image}
+              </ul>    
+              <div class="font-bold absolute bottom-0 right-0 m-2">手圍：${item.size/10} cm</div>
+            </div>
+            <div class="md:w-[320px] lg:w-[400px]  p-3 mx-auto">
+              ${beads}
+            </div>
+          </div>
+          <div class="flex justify-between xl:block p-2 grow text-center font-bold text-lg bg-slate-400 text-white">
+            <div></div>
+            <div>$ ${new Intl.NumberFormat().format(item.price)}</div>
+          </div>
+          <div class="absolute top-0 left-0">
+            <button class="block p-4 text-slate-700 hover:text-slate-400"  onclick="deleteCartItem(${index})">
+              <iconify-icon icon="carbon:close" width="24" height="24"></iconify-icon>
+            </button>
+          </div>
+        </li>
         `
         cartTotalPrice += item.price
       })
       document.querySelector("#cartList").innerHTML = str
 
-      document.querySelector("#cartTotalPrice").innerHTML = `$${cartTotalPrice}`
+      document.querySelector("#cartTotalPrice").innerHTML = `$ ${new Intl.NumberFormat().format(cartTotalPrice)}`
       obj.final_price = cartTotalPrice
     } else {
       document.querySelector("#cartTable").classList.add("hidden")
@@ -235,8 +252,9 @@
     }
   }
 
-
+// 刪除單筆
 function deleteCartItem(num){
+  console.log(num)
   let data = JSON.parse(localStorage.getItem("cart"))
   if(data.length==1){
     localStorage.removeItem("cart")
@@ -244,64 +262,123 @@ function deleteCartItem(num){
     data.splice(num,1);
     localStorage.setItem("cart", JSON.stringify(data))
   }
+  Swal.fire({
+    icon:"success",
+    iconColor:'#94a3b8',
+    title:"設計已刪除",
+    showConfirmButton: false,
+    timer: 1500
+  })
   renderCartData()
 }
 
+// 清除全部
 function clearCart(){
-  localStorage.removeItem("cart")
-  renderCartData()
+  Swal.fire({
+    title: '確定嗎? Q___Q',
+    text: "刪掉就要重新設計喔，真的要清空嗎?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#94a3b8',
+    cancelButtonColor: '#334155',
+    confirmButtonText: '忍痛清除',
+    cancelButtonText: '我再想想'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title:'購物車已清空',
+        icon:'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      localStorage.removeItem("cart")
+      renderCartData()
+    }
+  })
+
 }
-
-
 
 
 renderCartData()
 
 
-// 送出訂單
+// 表單即時驗證
+const form = document.querySelector(".orderInfo-form");
 const alertMsg = document.querySelectorAll("#orderInfo [data-message]");
-const inputs = document.querySelectorAll("#orderInfo input[id],#orderInfo select[id]");
-
-
-document.querySelector("#createOrder").addEventListener("pointerdown",function(){
-let empty_input = false
-
-  alertMsg.forEach(function(item,index){
-    if(inputs[index].value==""){
-      empty_input = true;
-      item.textContent = `${item.dataset.message}必填`
-    } else {
-      item.textContent = ""
-    }
+const inputs = document.querySelectorAll("#orderInfo input[name]");
+inputs.forEach(function(item,index){
+  item.addEventListener('focusout',function(){
+  if(item.value==''){
+    alertMsg[index].innerHTML = `${alertMsg[index].dataset.message}必填`
+  } else {
+    alertMsg[index].innerHTML = ''
+  }
   })
+})
+
+// 送出訂單
+document.querySelector("#createOrder").addEventListener("click",function(){
+    // validate.js  
+// constraints 驗證器
+let constraints = {
+  "姓名": {
+    presence: {message: "必填"}
+  },
+    "電話": {
+    presence: {message: "必填"},
+  },
+    "Email": {
+    presence: {message: "必填"},
+      email: {
+      message: "信箱格式有誤"
+    }
+  },
+  "寄送地址": {
+    presence: {message: "必填"}
+  },
+};
+const errors = validate(form, constraints);
 
 
-  if(!empty_input){
-    obj.order_time = Date.now();
+if(errors==undefined){
+  obj.order_time = Date.now();
   obj.userId = localStorage.getItem("userId");
   obj.name = inputs[0].value.trim();
   obj.phone =  inputs[1].value.trim();
   obj.email = inputs[2].value.trim();
   obj.address = inputs[3].value.trim();
-  obj.payMethod = inputs[4].value;
+  obj.payMethod = document.querySelector("#orderInfo select[id]").value;
   obj.products = JSON.parse(localStorage.getItem("cart"));
   obj.isPaid = false;
   obj.isShipped = false;
-  // console.log(obj)
 
-      axios.post("https://json-server-vercel-beta.vercel.app/orders", obj)
-  .then((res)=>{
-    // console.log(res.statusText)
-    alert("訂單已送出")
-    window.location.assign("index.html")
+  axios.post("https://katelyns-crystal-ore.onrender.com/orders", obj)
+    .then((res)=>{
+  // alert("訂單已送出")
+    Swal.fire({
+      title: '訂單已送出',
+      text: '感謝您的購買',
+      icon: 'success',
+      confirmButtonColor: '#334155',
+      confirmButtonText: '確定'
+    }).then(()=>{
+      localStorage.removeItem("cart")
+      window.location.assign("member.html")
+    })
   })
   .catch((err)=>{
     console.log(err)
   })
-
-  localStorage.removeItem("cart")
+} else {
+  // alert(Object.values(errors))
+  Swal.fire({
+    title: '喔不！',
+    text: Object.values(errors),
+    icon: 'warning',
+    confirmButtonColor: '#334155',
+    confirmButtonText: '確定'
+  })
   }
-
 
 })
 
@@ -316,7 +393,7 @@ let empty_input = false
   <footer class="px-3 py-8 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
-        <a href="#" class="block mb-6 font-2 lg:mb-0 ">
+        <a href="index.html" class="block mb-6 font-2 lg:mb-0 ">
           <div class="text-xl font-bold text-white">Katelyn's</div>
           <div class=" text-slate-400 text-xs">Crystal & Ore</div>
         </a>
@@ -342,6 +419,34 @@ let empty_input = false
       </div>
     </div>
   </footer>
+
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+    </div>
+  </div>
+
+  <!-- <script src="sweetalert2.all.min.js"></script> -->
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>

@@ -1,8 +1,16 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+// let base_URL = "https://json-server-vercel-beta.vercel.app/"
+// let base_URL = "http://localhost:3000"
+var base_URL = "https://katelyns-crystal-ore.onrender.com";
+window.addEventListener("load", function (event) {
+  var _this = this;
 
-// 畫面
+  this.setTimeout(function () {
+    _this.document.querySelector("#loader").classList.add("hidden");
+  }, 1000);
+}); // 畫面
+
 var menu = document.querySelector("#menu");
 
 function toggleMenu(state) {
@@ -24,16 +32,28 @@ if (loggedIn) {
   document.querySelector("#link_logout").classList.remove("hidden");
 
   if (isAdmin) {
-    console.log(_typeof(isAdmin));
     document.querySelector("#link_admin").classList.remove("hidden");
   }
 }
 
-document.querySelector("#link_logout").addEventListener("click", function () {
+document.querySelector("#link_logout").addEventListener("click", function (e) {
+  e.preventDefault();
   localStorage.removeItem("token");
   localStorage.removeItem("isAdmin");
   localStorage.removeItem("userId");
-  alert("登出成功");
-  window.location.assign("index.html");
+  localStorage.removeItem("email"); // alert("登出成功")
+
+  Swal.fire({
+    // icon: 'success',
+    title: '登出成功',
+    text: '期待您的下次蒞臨',
+    imageUrl: './assets/images/index/step_03.png',
+    imageWidth: 400,
+    imageHeight: 200,
+    showConfirmButton: false,
+    timer: 1500
+  }).then(function () {
+    window.location.assign("index.html");
+  });
 });
 //# sourceMappingURL=all.js.map

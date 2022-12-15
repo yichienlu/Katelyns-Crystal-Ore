@@ -11,13 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+  <script src="https://gist.githubusercontent.com/akovalyov/51d220c907bd7398bca9/raw/57f2c2beb61ef7a9812519b006382db6fdff704d/html2canvas.svg.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-
 
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -26,23 +28,28 @@
     #user_icon:hover #user_box{
       display: block;
     }
+    *{
+      /* outline: 1px solid #AAA; */
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
-  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
+<body class="relative" >
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2  ">
+        <h1 class="font-2">
           <div class="font-bold text-2xl ">Katelyn's</div>
           <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
-        <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li><a href="test.html" class=" hover:text-slate-400 mr-10">脈輪測驗</a></li>
+        <li><a href="design.html" class=" hover:text-slate-400 mr-10">找晶礦</a></li>
+        <li><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -60,10 +67,10 @@
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
-              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">後台</a></li>
             </ul>
           </div>
         </li>
@@ -84,7 +91,7 @@
         <div class="px-3 bg-slate-700">
       <div class="container mx-auto flex items-center py-[18px]">
           
-        <a href="#" class="block mr-auto">
+        <a href="index.html" class="block mr-auto">
           <div class="font-2 ">
             <div class="font-bold text-2xl text-white">Katelyn's</div>
             <div class="text-slate-400 text-center">Crystal & Ore</div>
@@ -103,7 +110,7 @@
           <div class="px-3">
             <ul class="my-6">
                       <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
-                      <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
+                      <li><a href="design.html" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
                  <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
@@ -140,7 +147,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 
 document.querySelector("#register").addEventListener("click",function(){
-  axios.post("https://json-server-vercel-beta.vercel.app/register",{
+  axios.post("https://katelyns-crystal-ore.onrender.com/register",{
     "email": email.value.trim(),
     "password": password.value,
     "birthday":"",
@@ -148,38 +155,76 @@ document.querySelector("#register").addEventListener("click",function(){
     "isAdmin": false
   })
   .then((res)=>{
-    console.log(res.data)
-    alert("註冊成功！")
+    // console.log(res.data)
+    // alert("註冊成功！")
+    Swal.fire({
+      // icon: 'success',
+      title: '註冊成功',
+      text: '為自己訂製專屬飾品',
+      imageUrl: './assets/images/index/step_03.png',
+      imageWidth: 400,
+      imageHeight: 200,
+      showConfirmButton: false,
+      timer: 1500
+    })
     localStorage.setItem("token",res.data.accessToken)
     localStorage.setItem("isAdmin",res.data.user.isAdmin)
     localStorage.setItem("userId",res.data.user.id)
     localStorage.setItem("email",res.data.user.email)
     email.value = '';
     password.value = '';
-    window.location.assign("index.html");
-
+    setTimeout(()=>{
+      window.location.assign("index.html");
+    },1500)
   })
   .catch((err)=>{
-    alert(err.response.data)
+    // alert(err.response.data)
+    Swal.fire({
+      icon: 'error',
+      title: '註冊失敗',
+      text: err.response.data,
+      showConfirmButton: false,
+      timer: 1500
+    })
   })
 })
 
 document.querySelector("#login").addEventListener("click",function(){
-    axios.post("https://json-server-vercel-beta.vercel.app/login",{
+    axios.post("https://katelyns-crystal-ore.onrender.com/login",{
       "email": email.value.trim(),
       "password": password.value,
     })
     .then((res)=>{
-      alert("登入成功")
+      // alert("登入成功")
+      Swal.fire({
+        // icon: 'success',
+        title: '登入成功',
+        text: '為自己訂製專屬飾品',
+        imageUrl: './assets/images/index/step_03.png',
+        imageWidth: 400,
+        imageHeight: 200,
+        showConfirmButton: false,
+        timer: 1500
+      })
       localStorage.setItem("token",JSON.stringify(res.data.accessToken))
       localStorage.setItem("isAdmin",JSON.stringify(res.data.user.isAdmin))
       localStorage.setItem("userId",JSON.stringify(res.data.user.id))
+      localStorage.setItem("email",JSON.stringify(res.data.user.email))
       email.value = '';
       password.value = '';
-      window.location.assign("index.html");
+      setTimeout(()=>{
+        window.location.assign("index.html");
+      },1500)
     })
     .catch((err)=>{
-      alert(err.response.data)
+      // alert(err.response.data)
+      Swal.fire({
+        icon: 'error',
+        title: '登入失敗',
+        text: err.response.data,
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   })
 
@@ -190,7 +235,7 @@ document.querySelector("#login").addEventListener("click",function(){
   <footer class="px-3 py-8 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
-        <a href="#" class="block mb-6 font-2 lg:mb-0 ">
+        <a href="index.html" class="block mb-6 font-2 lg:mb-0 ">
           <div class="text-xl font-bold text-white">Katelyn's</div>
           <div class=" text-slate-400 text-xs">Crystal & Ore</div>
         </a>
@@ -216,6 +261,34 @@ document.querySelector("#login").addEventListener("click",function(){
       </div>
     </div>
   </footer>
+
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+    </div>
+  </div>
+
+  <!-- <script src="sweetalert2.all.min.js"></script> -->
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>

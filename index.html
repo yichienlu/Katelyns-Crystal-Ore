@@ -11,13 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+  <script src="https://gist.githubusercontent.com/akovalyov/51d220c907bd7398bca9/raw/57f2c2beb61ef7a9812519b006382db6fdff704d/html2canvas.svg.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-
 
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -26,23 +28,28 @@
     #user_icon:hover #user_box{
       display: block;
     }
+    *{
+      /* outline: 1px solid #AAA; */
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
-  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
+<body class="relative" >
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2  ">
+        <h1 class="font-2">
           <div class="font-bold text-2xl ">Katelyn's</div>
           <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
-        <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li><a href="test.html" class=" hover:text-slate-400 mr-10">脈輪測驗</a></li>
+        <li><a href="design.html" class=" hover:text-slate-400 mr-10">找晶礦</a></li>
+        <li><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -60,10 +67,10 @@
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
-              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">後台</a></li>
             </ul>
           </div>
         </li>
@@ -84,7 +91,7 @@
         <div class="px-3 bg-slate-700">
       <div class="container mx-auto flex items-center py-[18px]">
           
-        <a href="#" class="block mr-auto">
+        <a href="index.html" class="block mr-auto">
           <div class="font-2 ">
             <div class="font-bold text-2xl text-white">Katelyn's</div>
             <div class="text-slate-400 text-center">Crystal & Ore</div>
@@ -103,7 +110,7 @@
           <div class="px-3">
             <ul class="my-6">
                       <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
-                      <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
+                      <li><a href="design.html" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
                  <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
@@ -150,9 +157,9 @@
   <!--   https://tgomilar.github.io/paroller.js -->
   <!--   https://studiochevojon.com/ -->
   <section>
-    <div class="sticky-container">
-      <main>
-        <section class="relative v">
+    <div class="scrollBox-container overflow-hidden">
+      <div class="scrollBox flex w-[300%]">
+        <section class="scrollBox-step relative grow">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
             <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_01.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
@@ -163,7 +170,7 @@
             <div class="container h-full mx-auto md:grid md:grid-cols-2 ">
               <div class="h-3/5 md:h-full"></div>
               <div class="flex items-center h-2/5 md:h-auto md:justify-end">
-                <div class="w-full md:text-right">
+                <div class=" md:text-right">
                   <h3 class="text-2xl md:text-[40px] font-bold text-neutral-900">完成脈輪測驗</h3>
                   <p class="text-neutral-500 mt-2 mb-6 md:text-[32px]">了解您的脈輪能量分布</p>
                   <a href="test.html" class="block btn-primary md:inline-block md:px-14 ">脈輪測驗</a>
@@ -172,7 +179,7 @@
             </div>
           </div>
         </section>
-        <section class="relative v">
+        <section class="relative grow">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
             <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_02.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
@@ -192,7 +199,7 @@
             </div>
           </div>
         </section>
-        <section class="relative v">
+        <section class="relative grow">
           <div class="absolute inset-0 md:grid md:grid-cols-2">
             <div class="h-3/5 md:h-full bg-cover bg-center bg-[url('../images/index/step_03.png')] relative">
               <div class="absolute inset-0 hidden md:block" style="background: linear-gradient(to right, rgba(251,251,253,0), rgb(251,251,253));"></div>
@@ -212,7 +219,7 @@
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   </section>
 
@@ -272,45 +279,45 @@
         <div class="hidden lg:block w-[220px] shrink-0  bg-[url('/assets/images/index/illustration.png')] bg-contain bg-no-repeat"></div>
         <div class="shrink-0 md:mr-12 lg:mr-[104px]">   
           <ul id="chakra_menu" class="flex flex-wrap items-center justify-center pb-6 lg:flex-col lg:items-start lg:text-xl">
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="1" onclick="chooseChakra(7)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="7" onclick="chooseChakra(7)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-purple-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-purple-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">頂輪</div>
               </button>
             </li>
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="2" onclick="chooseChakra(6)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="6" onclick="chooseChakra(6)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-indigo-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-indigo-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">眉心輪</div>
               </button>
             </li>
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="3" onclick="chooseChakra(5)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="5" onclick="chooseChakra(5)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-sky-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-sky-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">喉輪</div>
               </button>
             </li> 
             <li class="mx-2 mb-3 lg:mb-6" data-chakra="4" onclick="chooseChakra(4)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-lime-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-lime-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">心輪</div>
               </button>
             </li> 
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="5" onclick="chooseChakra(3)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="3" onclick="chooseChakra(3)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-yellow-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-yellow-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">臍輪</div>
               </button>
             </li> 
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="6" onclick="chooseChakra(2)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="2" onclick="chooseChakra(2)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-orange-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white  rounded-full bg-orange-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">腹輪</div>
               </button>
             </li> 
-            <li class="mx-2 mb-3 lg:mb-6" data-chakra="7" onclick="chooseChakra(1)">
+            <li class="mx-2 mb-3 lg:mb-6" data-chakra="1" onclick="chooseChakra(1)">
               <button class="flex items-center text-neutral-400 hover:text-neutral-900 active:text-neutral-900">
-                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8  rounded-full bg-red-200 mr-2"></div>
+                <div class="chakraDot w-7 h-7 lg:w-10 lg:h-10 border-[6px] lg:border-8 border-white rounded-full bg-red-200 mr-2"></div>
                 <div class="font-medium lg:font-bold">海底輪</div>
               </button>
             </li> 
@@ -319,10 +326,10 @@
         
         <div id="chakra_selected" class="px-10 py-4 lg:py-8 rounded-3xl text-neutral-900">
           <img src="" alt="" class="block mx-auto w-[60px] h-[60px]  mb-2 lg:mb-3">
-          <h3 class="text-center text-lg lg:text-2xl font-bold mb-3 lg:mb-4">心輪 Heart</h3>
+          <h3 class="text-center text-lg lg:text-2xl font-bold mb-3 lg:mb-4"> Heart</h3>
           <p id="chakra_content" class="lg:text-lg"></p>
           <p id="chakra_color" class="my-2 lg:text-lg lg:my-3"></p>
-          <p id="chakra_crystal" class="lg:text-lg">對應晶礦：綠幽靈、綠髮晶、葡萄石、捷克隕石、孔雀石、粉晶、紅紋石、西瓜碧璽</p>
+          <p id="chakra_crystal" class="lg:text-lg"></p>
         </div>  
          
         <div class="lg:hidden">
@@ -454,54 +461,34 @@
     
   </section>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
   <script>
     
 // 水平滾動
-(function(){
-    init();
-    var g_containerInViewport;
-    function init(){
-        setStickyContainersSize();
-        bindEvents();
-    }
-    function bindEvents(){
-        window.addEventListener("wheel", wheelHandler);        
-    }
-    function setStickyContainersSize(){
-        document.querySelectorAll('.sticky-container').forEach(function(container){
-            const stikyContainerHeight = container.querySelector('main').scrollWidth;
-            const stikyContainerHeight2 = container.querySelector('section.v').scrollHeight;
-            container.setAttribute('style', `height:${stikyContainerHeight}px`); //高度還要再試過
-        });
-    }
-    function isElementInViewport (el) {
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom > document.documentElement.clientHeight;
-    }
-    function wheelHandler(evt){
-        const containerInViewPort = Array.from(document.querySelectorAll('.sticky-container')).filter(function(container){
-            return isElementInViewport(container);
-        })[0];
-        if(!containerInViewPort){
-            return;
-        }
-        var isPlaceHolderBelowTop = containerInViewPort.offsetTop < document.documentElement.scrollTop;
-        var isPlaceHolderBelowBottom = containerInViewPort.offsetTop + containerInViewPort.offsetHeight > document.documentElement.scrollTop;
-        let g_canScrollHorizontally = isPlaceHolderBelowTop && isPlaceHolderBelowBottom;
 
-        if(g_canScrollHorizontally){
-            containerInViewPort.querySelector('main').scrollLeft += evt.deltaY;
-        }
-    }
-})();
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+const srollTL = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".scrollBox-container",
+    start: "top top+=92px",
+    pin: true,
+    // markers: true,
+    scrub: true,
+  },
+});
+
+srollTL.to(".scrollBox", {
+  xPercent: "-66.66" 
+})
 
 //designs
 const swiper = new Swiper('.design-swiper', {
   slidesPerView: 1,
   spaceBetween: 16,
-  loop: true,
-  // rewind:true,
+  // loop: true,
+  rewind:true,
   grabCursor:true,
   speed:2000,
   autoplay: {
@@ -523,16 +510,16 @@ const swiper = new Swiper('.design-swiper', {
 });
 
 
-axios.get('https://json-server-vercel-beta.vercel.app/designs')
+axios.get('https://katelyns-crystal-ore.onrender.com/designs')
 .then((res)=>{
   renderDesignData(res.data)
 })
 
 function renderDesignData(data){
   let str="";
-  data.forEach(function(item){
+  data.forEach(function(item, index){
     str+=`
-    <div class="swiper-slide relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400" style="background-image:url('./assets/images/designs/${item.image}')">
+    <div class="swiper-slide design-slide-${index+1} relative h-60 lg:h-72 rounded-lg bg-cover bg-center hover:border-8 bg-origin-border hover:border-slate-400">
       <p class="absolute bottom-0 w-full px-4 py-3 text-center text-white border-8 rounded-b-lg lg:py-4 lg:text-xl" style="background-color: rgba(44, 65, 86, 0.6);">${item.content}</p>
     </div>
     `
@@ -543,26 +530,27 @@ function renderDesignData(data){
 }
 
 let chakraData = [];
-current_chakra = 1;
-axios.get('https://json-server-vercel-beta.vercel.app/chakras')
+current_chakra = 7;
+axios.get('https://katelyns-crystal-ore.onrender.com/chakras')
 .then((res)=>{
   chakraData = res.data
   chooseChakra(current_chakra)
 })
 
 function chooseChakra(num){
-  document.querySelector(`[data-chakra='${current_chakra}']`).style.borderColor = "#fafafa"
+  document.querySelector(`[data-chakra='${current_chakra}'] .chakraDot`).style.borderColor = "#FFF"
+  document.querySelector(`[data-chakra='${current_chakra}'] button:last-child`).style.color = "#a3a3a3"
   // console.log(chakraData[num-1])
   let chakra = chakraData[num-1];
+  current_chakra = num;
   document.querySelector("#chakra_selected").style.backgroundColor = chakra.bg_color[1]
   document.querySelector("#chakra_selected img").src = `./assets/images/index/${num}.svg`
   document.querySelector("#chakra_selected h3").textContent = `${chakra.chinese} ${chakra.location}`;
   document.querySelector("#chakra_selected #chakra_content").innerHTML = chakra.content;
   document.querySelector("#chakra_selected #chakra_color").textContent = `代表色：${chakra.color}色`;
   document.querySelector("#chakra_selected #chakra_crystal").textContent = `對應晶礦：${chakra.crystal}`;
-  document.querySelector("#chakra_selected").classList.add(`bg-${chakra.bg_color}-100`)
-  document.querySelector(`[data-chakra='${num}']`).style.borderColor = chakra.bg_color[0]
-  
+  document.querySelector(`[data-chakra='${num}'] .chakraDot`).style.borderColor = chakra.bg_color[0]
+  document.querySelector(`[data-chakra='${num}'] button:last-child`).style.color = '#171717'
 }
 
   </script>
@@ -570,7 +558,7 @@ function chooseChakra(num){
   <footer class="px-3 py-8 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
-        <a href="#" class="block mb-6 font-2 lg:mb-0 ">
+        <a href="index.html" class="block mb-6 font-2 lg:mb-0 ">
           <div class="text-xl font-bold text-white">Katelyn's</div>
           <div class=" text-slate-400 text-xs">Crystal & Ore</div>
         </a>
@@ -596,6 +584,34 @@ function chooseChakra(num){
       </div>
     </div>
   </footer>
+
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+    </div>
+  </div>
+
+  <!-- <script src="sweetalert2.all.min.js"></script> -->
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>

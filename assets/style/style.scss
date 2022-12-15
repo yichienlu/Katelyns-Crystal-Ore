@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+$brand01: #94a3b8;
+$brand02: #334155;
+
+
 header{
   top: 0;
 }
@@ -90,20 +94,10 @@ font-family: 'Merienda', cursive;
   }
 }
 
-
-// 水平滾動
-
-main {
-  overflow-x: hidden;
-  display: flex;
-  position: sticky;
-  top:92px;
+// ScrollBox
+.scrollBox-step{
+  height: calc(100vh - 92px);
 }
-section.v {
-  min-width: 100%;
-  min-height: calc(100vh - 92px);
-}
-
 
 
 //swiper
@@ -118,9 +112,98 @@ section.v {
   border: none;
 }
 }
+.design-slide-1 {
+  background-image: url('../images/designs/design01.jpg');
+  &:hover {
+    background-image: url('../images/designs/design01-1.jpg');
+  }
+}
+.design-slide-2 {
+  background-image: url('../images/designs/design02.jpg');
+  &:hover {
+    background-image: url('../images/designs/design02-1.jpg');
+  }
+}
+.design-slide-3 {
+  background-image: url('../images/designs/design03.jpg');
+  &:hover {
+    background-image: url('../images/designs/design03-1.jpg');
+  }
+}
+.design-slide-4 {
+  background-image: url('../images/designs/design04.jpg');
+  &:hover {
+    background-image: url('../images/designs/design04-1.jpg');
+  }
+}
+.design-slide-5 {
+  background-image: url('../images/designs/design05.jpg');
+  &:hover {
+    background-image: url('../images/designs/design05-1.jpg');
+  }
+}
+.design-slide-6 {
+  background-image: url('../images/designs/design06.jpg');
+  &:hover {
+    background-image: url('../images/designs/design06-1.jpg');
+  }
+}
+.design-slide-7 {
+  background-image: url('../images/designs/design07.jpg');
+  &:hover {
+    background-image: url('../images/designs/design07-1.jpg');
+  }
+}
+.design-slide-8 {
+  background-image: url('../images/designs/design08.jpg');
+  &:hover {
+    background-image: url('../images/designs/design08-1.jpg');
+  }
+}
 
-$brand01: #94a3b8;
-$brand02: #334155;
+// loader
+#loader-beads {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  	width: 200px;
+	height: 200px;
+	animation: rotate-circle .5s ease-in-out infinite;
+	
+	& .loader-circles {
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		transform: rotate(0deg);
+		transform-origin: 5px 100px;
+		background-color: #FFF;
+		position: absolute;
+		top: 0;
+		left: 95px;
+	
+    &::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FFF5, #0005);
+}
+  }
+
+	
+	@keyframes rotate-circle {
+		0% { transform:translate(-50%, -50%) rotate(0deg); }
+		100% { transform:translate(-50%, -50%) rotate(20deg); }
+	}
+
+}
+
+
 
 
 // radio style
@@ -177,58 +260,58 @@ $brand02: #334155;
 ul.list {
   position: absolute;
   right: 50%;
-bottom: 50%;
+  bottom: 50%;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 .beed {
-    position: absolute;
+  position: absolute;
   box-shadow: 2px 2px 5px 0px #0005;
-border-radius: 50%;
-translate: -50% -50%;
-cursor: grab;
+  border-radius: 50%;
+  translate: -50% -50%;
+  cursor: grab;
 }
 .beed::before {
-content: '';
-display: block;
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #FFF5, #0005);
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FFF5, #0005);
 }
 .beed:hover{
-    box-shadow: 2px 2px 10px 1px #0009;
+  box-shadow: 2px 2px 10px 1px #0009;
 }
 .beed:active {
-cursor: none;
+  cursor: none;
 }
 .beed .box {
-display: none;
-position: absolute;
-content:'';
-padding: 5px;
-background-color: #AA0;
-translate: 50px ;
-text-align: center;
-z-index: 1000;
+  display: none;
+  position: absolute;
+  content:'';
+  padding: 5px;
+  background-color: #AA0;
+  translate: 50px ;
+  text-align: center;
+  z-index: 1000;
 }
 .beed:hover .box{
 display: block;
 }
 .beed:active .box{
-display: none;
+  display: none;
 }
 
 .currentBead {
-    position: absolute;
+  position: absolute;
   left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 

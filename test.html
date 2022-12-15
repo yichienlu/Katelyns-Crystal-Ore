@@ -11,13 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+  <script src="https://gist.githubusercontent.com/akovalyov/51d220c907bd7398bca9/raw/57f2c2beb61ef7a9812519b006382db6fdff704d/html2canvas.svg.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Merienda:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-
 
   <link rel="stylesheet" href="./assets/style/all.css">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -26,23 +28,28 @@
     #user_icon:hover #user_box{
       display: block;
     }
+    *{
+      /* outline: 1px solid #AAA; */
+      box-sizing: border-box;
+    }
+
   </style>
 </head>
 <!-- https://hackmd.io/UFgAadfSTf6L0sqXJvCV8g -->
-<body>
-  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:1000">
+<body class="relative" >
+  <header class="bg-slate-700 text-white py-[18px] px-3 sticky w-full" style="z-index:900">
     <nav class="container flex items-center mx-auto">
       <a href="index.html" class="block mr-auto">
-        <h1 class="font-2  ">
+        <h1 class="font-2">
           <div class="font-bold text-2xl ">Katelyn's</div>
           <div class="text-slate-400 text-center">Crystal & Ore</div>
         </h1>
       </a>
   
       <ul class="items-center hidden text-xl lg:flex">
-        <li onclick="changePage('test')"><a href="test.html" class=" hover:text-slate-400">脈輪測驗</a></li>
-        <li class="mx-10"><a href="#" class=" hover:text-slate-400">找晶礦</a></li>
-        <li onclick="changePage('design')"><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
+        <li><a href="test.html" class=" hover:text-slate-400 mr-10">脈輪測驗</a></li>
+        <li><a href="design.html" class=" hover:text-slate-400 mr-10">找晶礦</a></li>
+        <li><a href="design.html" class="btn-outline outline-2 outline-neutral-50">客製化設計手串</a></li>
       </ul>
   
       <ul class="flex items-center ml-16 ">
@@ -60,10 +67,10 @@
           <div id="user_box" class="hidden absolute w-[100px] bg-white border right-0 top-full text-neutral-900">
             <ul>
               <li id="loggedin_greeting" class=""></li>
-              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">會員中心</a></li>
-              <li id="link_login"><a href="login.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登入</a></li>
-              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-3 py-2 text-center hover:bg-slate-400">登出</a></li>
-              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-3 py-2 text-center hover:bg-slate-400">後台</a></li>
+              <li id="link_member" class="hidden"><a href="member.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">會員中心</a></li>
+              <li id="link_login"><a href="login.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登入</a></li>
+              <li id="link_logout" class="hidden"><a href="#" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">登出</a></li>
+              <li id="link_admin" class="hidden"><a href="admin_orders.html" class="block w-full px-4 py-3 text-center hover:bg-neutral-200">後台</a></li>
             </ul>
           </div>
         </li>
@@ -84,7 +91,7 @@
         <div class="px-3 bg-slate-700">
       <div class="container mx-auto flex items-center py-[18px]">
           
-        <a href="#" class="block mr-auto">
+        <a href="index.html" class="block mr-auto">
           <div class="font-2 ">
             <div class="font-bold text-2xl text-white">Katelyn's</div>
             <div class="text-slate-400 text-center">Crystal & Ore</div>
@@ -103,7 +110,7 @@
           <div class="px-3">
             <ul class="my-6">
                       <li><a href="test.html" class="block p-4 hover:text-neutral-500">脈輪測驗</a></li>
-                      <li><a href="#" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
+                      <li><a href="design.html" class="block p-4 hover:text-neutral-500 ">找晶礦</a></li>
                     </ul>
                  <a href="design.html" class="block w-full text-center btn-primary">客製化設計手串</a> 
           </div>
@@ -115,7 +122,7 @@
     <div class="lg:w-1/2 mx-auto py-6 lg:py-12 bg-[#FFFA]">
         <h2 class="text-xl lg:text-2xl font-bold mb-3 text-center">脈輪測驗</h2>
         <p class="text-lg lg:text-xl mb-5 text-center " >完成49題測驗，了解您的脈輪能量分布</p>
-        <form class="py-5 px-8 " novalidate>
+        <form class="p-4 lg:p-8 " novalidate>
         <ul class="tests-list "></ul>
           <p class="text-center flex justify-between mt-5">
             <button id="testReset" class="btn-primary" >清除</button>
@@ -130,6 +137,8 @@
     </section>
         
     <section id="results" class="px-3 py-10 lg:py-20 hidden">
+
+      <h3 class="text-xl lg:text-2xl font-bold mb-3 text-center">測驗結果</h3>
       <div class="container mx-auto ">
         
         <ul class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center mb-8 lg:mb-12">
@@ -247,13 +256,13 @@
 
 
 let chakraData;
-axios.get("https://json-server-vercel-beta.vercel.app/chakras")
+axios.get("https://katelyns-crystal-ore.onrender.com/chakras")
 .then((res)=>{
   chakraData = res.data
 })
 
 let inputs;
-axios.get("https://json-server-vercel-beta.vercel.app/tests")
+axios.get("https://katelyns-crystal-ore.onrender.com/tests")
 .then((res)=>{
   renderTestsData(res.data)
   inputs = document.querySelectorAll("input");
@@ -261,47 +270,44 @@ axios.get("https://json-server-vercel-beta.vercel.app/tests")
 })
 
 function renderTestsData(data){
+
   let str = '';
   data.forEach(function(item,index){
     str+=`
     <li class="mb-4">
-      <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question}</h3>
+      <h3 class="mb-3 text-lg lg:text-xl font-bold">Q${item.id}：${item.question} <span id="question${index+1}" class="text-red-500 hidden">未填！</span></h3>
       <div class="lg:pl-12">
-        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" ${index%4==1 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-1" name="${item.name}" value="${item.options[0][1]}" class="answer${index+1}" ${index%4==0?'checked':''}>
         <label for="${item.name}-1">${item.options[0][0]}</label>
-        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" ${index%4==3 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-2" name="${item.name}" value="${item.options[1][1]}" class="answer${index+1}" ${index%4==1?'checked':''}>
         <label for="${item.name}-2">${item.options[1][0]}</label>
-        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" ${index%4==2 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-3" name="${item.name}" value="${item.options[2][1]}" class="answer${index+1}" ${index%4==2?'checked':''}>
         <label for="${item.name}-3">${item.options[2][0]}</label>
-        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" ${index%4==0 ? "checked" : ""}>
+        <input type="radio" id="${item.name}-4" name="${item.name}" value="${item.options[3][1]}" class="answer${index+1}" ${index%4==3?'checked':''}>
         <label for="${item.name}-4">${item.options[3][0]}</label>       
       </div>
     </li>
-    
-    
     `
   })
 
   document.querySelector(".tests-list").innerHTML = str
+
+  for(let i=1; i<=49;i++){
+    document.querySelectorAll(`.answer${i}`).forEach(function(item){
+      item.addEventListener('click',function(){
+        document.querySelector(`#question${i}`).classList.add("hidden")
+      })
+    })
+  }
 }
 
-// 計算結果
 
-// 驗證
-// (function () {
-// 'use strict'
-// const forms = document.querySelectorAll('.needs-validation')
-// Array.from(forms)
-//   .forEach(function (form) {
-//     form.addEventListener('testSubmit', function (event) {
-//       if (!form.checkValidity()) {
-//         event.preventDefault()
-//         event.stopPropagation()
-//       }
-//       form.classList.add('was-validated')
-//     }, false)
-//   })
-// })()
+
+
+
+
+
+// 計算結果
 
 let crown = 0;
 let eye = 0;
@@ -312,6 +318,21 @@ let sacral = 0;
 let root = 0;
 
 function getScores() {
+
+  // 驗證
+  let answered = 0
+  for(let i=1; i<=49;i++){
+    answered = 0
+    document.querySelectorAll(`.answer${i}`).forEach(function(item){
+      item.checked ? answered++ : answered
+    })
+
+    if(answered==0){
+      document.querySelector(`#question${i}`).classList.remove("hidden")
+    }
+  }
+
+// 計算結果
     let count=0;
     inputs.forEach(function(item){
       if(item.checked){
@@ -328,13 +349,28 @@ function getScores() {
       }
     })
     if(count<49){
-        alert("有漏填的題目喔！")
+        // alert("有漏填的題目喔！")
+        Swal.fire({
+          icon: 'error',
+          title: '喔歐~',
+          text: '有漏填的題目喔！',
+          confirmButtonColor: '#334155',
+        })
+      crown = eye = throat = heart = plexus = sacral = root = 0;
     } else {
       showScores();
       createCharts();
+      Swal.fire({
+        icon: 'success',
+        title: '已儲存資料',
+        text: '請參考下方測驗結果說明',
+        showConfirmButton: false,
+        timer: 1500
+      })
       userTestResult(root,sacral,plexus, heart, throat, eye, crown)
       crown = eye = throat = heart = plexus = sacral = root = 0;
     }
+
 }
 
 function showScores() {
@@ -410,11 +446,11 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
   let obj = {
     "test_result": [root, sacral, plexus, heart, throat, eye, crown]
   }
-  axios.patch(`https://json-server-vercel-beta.vercel.app/users/${localStorage.getItem("userId")}`,obj)
+
+  axios.patch(`https://katelyns-crystal-ore.onrender.com/users/${localStorage.getItem("userId")}`,obj)
   .then((res)=>{
     // console.log(res.data)
-    alert("已儲存資料")
-
+    // alert("已儲存資料")
   })
   .catch((err)=>{
     console.log(err)
@@ -427,7 +463,7 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
   <footer class="px-3 py-8 bg-slate-700 lg:py-8">
     <div class="container mx-auto">
       <div class="items-center justify-between lg:flex">
-        <a href="#" class="block mb-6 font-2 lg:mb-0 ">
+        <a href="index.html" class="block mb-6 font-2 lg:mb-0 ">
           <div class="text-xl font-bold text-white">Katelyn's</div>
           <div class=" text-slate-400 text-xs">Crystal & Ore</div>
         </a>
@@ -453,6 +489,34 @@ function userTestResult(root, sacral, plexus, heart, throat, eye, crown){
       </div>
     </div>
   </footer>
+
+  <div id="loader" class="fixed top-0 bottom-0 left-0 right-0 bg-[#94a3b8DD] " style="z-index:1000">
+    <div class="absolute top-0 bottom-0 left-0 right-0 ">
+      <div id="loader-beads" class="absolute top-1/2 left-1/2 ">
+        <div class="loader-circles" style="transform: rotate(20deg)"></div>
+        <div class="loader-circles" style="transform: rotate(40deg)"></div>
+        <div class="loader-circles" style="transform: rotate(60deg)"></div>
+        <div class="loader-circles" style="transform: rotate(80deg)"></div>
+        <div class="loader-circles" style="transform: rotate(100deg)"></div>
+        <div class="loader-circles" style="transform: rotate(120deg)"></div>
+        <div class="loader-circles" style="transform: rotate(140deg)"></div>
+        <div class="loader-circles" style="transform: rotate(160deg)"></div>
+        <div class="loader-circles" style="transform: rotate(180deg)"></div>
+        <div class="loader-circles" style="transform: rotate(200deg)"></div>
+        <div class="loader-circles" style="transform: rotate(220deg)"></div>
+        <div class="loader-circles" style="transform: rotate(240deg)"></div>
+        <div class="loader-circles" style="transform: rotate(260deg)"></div>
+        <div class="loader-circles" style="transform: rotate(280deg)"></div>
+        <div class="loader-circles" style="transform: rotate(300deg)"></div>
+        <div class="loader-circles" style="transform: rotate(320deg)"></div>
+        <div class="loader-circles" style="transform: rotate(340deg)"></div>
+        <div class="loader-circles" style="transform: rotate(360deg)"></div>
+    </div>
+      <img src="./assets/images/index/loader.png" alt="" class="block mx-auto relative w-[180px] top-[50vh] -translate-y-[50%]">
+    </div>
+  </div>
+
+  <!-- <script src="sweetalert2.all.min.js"></script> -->
   <script src="./assets/js/vendors.js"></script>
   <script src="./assets/js/all.js"></script>
 </body>
