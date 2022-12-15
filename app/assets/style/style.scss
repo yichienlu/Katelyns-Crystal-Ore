@@ -162,15 +162,14 @@ font-family: 'Merienda', cursive;
 }
 
 // loader
-@keyframes typing {
+@keyframes load {
   0% {color:#94a3b8}
   50% {color:#FFF}
   100% {color:#94a3b8}
 }
 
 #loader p {
-
-  animation: typing 1s infinite
+  animation: load 1s infinite
 }
 
 

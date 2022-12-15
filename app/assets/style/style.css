@@ -167,7 +167,7 @@ header {
   background-image: url("../images/designs/design08-1.jpg");
 }
 
-@-webkit-keyframes typing {
+@-webkit-keyframes load {
   0% {
     color: #94a3b8;
   }
@@ -179,7 +179,7 @@ header {
   }
 }
 
-@keyframes typing {
+@keyframes load {
   0% {
     color: #94a3b8;
   }
@@ -191,8 +191,8 @@ header {
   }
 }
 #loader p {
-  -webkit-animation: typing 1s infinite;
-          animation: typing 1s infinite;
+  -webkit-animation: load 1s infinite;
+          animation: load 1s infinite;
 }
 
 .tests-list input[type=radio] {
