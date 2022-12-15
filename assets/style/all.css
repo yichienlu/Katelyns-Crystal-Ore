@@ -1693,6 +1693,14 @@ select {
     margin-right: 3rem;
   }
 
+  .md\:ml-4 {
+    margin-left: 1rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
