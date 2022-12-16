@@ -203,7 +203,7 @@ beeds.forEach(function(item, index){
 })
 
 document.querySelector(".totalLength").innerHTML = `${totalLength /10 } cm`
-document.querySelector(".totalPrice").innerHTML = `$${totalPrice}`
+document.querySelector(".totalPrice").innerHTML = `$${new Intl.NumberFormat().format(totalPrice)}`
 
 const deleteDesignBtn = document.querySelector("#deleteDesignBtn")
 const deleteLast = document.querySelector("#deleteLast")
