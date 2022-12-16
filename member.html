@@ -373,7 +373,7 @@ function renderOrdersData(data){
               ${beads}
             </div>
           </div>
-          <div class="w-20 shrink-0 p-2 font-bold">$ ${product.price}</div>        
+          <div class="w-20 shrink-0 p-2 font-bold">$ ${new Intl.NumberFormat().format(product.price)}</div>        
           
         </li>
       `
@@ -402,7 +402,7 @@ function renderOrdersData(data){
           </ul>
         </td>
         <td class="border-0 text-center" style="border-color: #94a3b8">      
-          <div class="font-bold text-red-600">$${item.final_price}</div>
+          <div class="font-bold text-red-600">$${new Intl.NumberFormat().format(item.final_price)}</div>
           </td>
         <td class="border-0 text-center" style="border-color: #94a3b8">
           <div class="${item.isPaid? "text-green-600 mb-5":"text-red-600 mb-1"}">${item.isPaid? "已付款":"未付款"}</div>
@@ -433,7 +433,7 @@ function renderOrdersData(data){
         
         <ul class="list-none">${products}</ul>
         <div class="flex items-center p-2 border-t-2">
-          <div class="font-bold mr-auto">總金額：<span class="text-red-600">$${item.final_price}</span></div>
+          <div class="font-bold mr-auto">總金額：<span class="text-red-600">$${new Intl.NumberFormat().format(item.final_price)}</span></div>
           <div class="${item.isPaid? "text-green-600":"text-red-600"} mr-2">${item.isPaid? "已付款":"未付款"}</div>
           <button class="px-2 py-1 border-2 border-slate-700 text-slate-700 hover:bg-slate-700 hover:text-white rounded-md ${item.isPaid ? 'hidden':''}" onclick="payOrder(${item.id})">付款</button>
           <div class="${item.isShipped? "text-green-600":"text-red-600"} ${item.isPaid ? '':'hidden'}">${item.isShipped? "已出貨":"未出貨"}</div>

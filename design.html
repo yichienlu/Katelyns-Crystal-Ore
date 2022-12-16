@@ -316,7 +316,7 @@ beeds.forEach(function(item, index){
 })
 
 document.querySelector(".totalLength").innerHTML = `${totalLength /10 } cm`
-document.querySelector(".totalPrice").innerHTML = `$${totalPrice}`
+document.querySelector(".totalPrice").innerHTML = `$${new Intl.NumberFormat().format(totalPrice)}`
 
 const deleteDesignBtn = document.querySelector("#deleteDesignBtn")
 const deleteLast = document.querySelector("#deleteLast")
@@ -440,7 +440,6 @@ function deleteDesign(){
       const image = Swal.getHtmlContainer().querySelector('ul.image')
       image.innerHTML = obj["image"]
     },
-    icon: 'warning',
     title: '確定要刪除設計嗎?',
     showCancelButton: true,
     confirmButtonColor: '#94a3b8',

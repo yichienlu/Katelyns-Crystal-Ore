@@ -197,9 +197,42 @@ header {
     color: #94a3b8;
   }
 }
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
 #loader p {
   -webkit-animation: load 1s infinite;
           animation: load 1s infinite;
+}
+
+#loader img {
+  -webkit-animation: shake 1s infinite;
+          animation: shake 1s infinite;
 }
 
 .tests-list input[type=radio] {
