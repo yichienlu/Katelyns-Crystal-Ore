@@ -34,14 +34,15 @@
 
 ### Function Map 頁面功能架構
 - 使用 Whimsical 繪製
-![image](https://user-images.githubusercontent.com/89630579/232792193-c00d3ad9-e6fc-477b-9e26-7b2fca9af3ab.png)
+<img src="https://user-images.githubusercontent.com/89630579/232792193-c00d3ad9-e6fc-477b-9e26-7b2fca9af3ab.png" width=50% height=50%>
 
 ### Wireframe 線稿圖
-![image](https://user-images.githubusercontent.com/89630579/232792373-4ec2fbd4-638a-4f30-9349-949d99589a65.png)
+<img src="https://user-images.githubusercontent.com/89630579/232792373-4ec2fbd4-638a-4f30-9349-949d99589a65.png" width=50% height=50%>
 
 
 ### Mockup 視覺設計稿
-![image](https://user-images.githubusercontent.com/89630579/232792663-5c4488e8-ccba-49d4-a0e9-59804411594c.png)
+![image]()
+<img src="https://user-images.githubusercontent.com/89630579/232792663-5c4488e8-ccba-49d4-a0e9-59804411594c.png" width=50% height=50%>
 
 
 <hr />
