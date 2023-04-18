@@ -44,8 +44,8 @@
 
 
 ### Mockup 視覺設計稿
-<img src="https://user-images.githubusercontent.com/89630579/232792663-5c4488e8-ccba-49d4-a0e9-59804411594c.png" width=50% height=50%>
-
+- 由 F Selina 設計
+<a href="https://www.figma.com/file/aa9QJudM0lVMNV9dY1cajg/Crystal-%26-Ore-%E6%99%B6%E7%A4%A6%E8%A8%AD%E8%A8%88%E6%89%8B%E4%B8%B2%E8%A8%82%E8%A3%BD?node-id=115-1417"> 連結</a>
 
 <hr />
 
@@ -56,7 +56,6 @@
 
 
 ## 聲明
-
 本作品所有內容、圖片皆為個人前端開發練習使用，不做任何商業用途。
 
 
