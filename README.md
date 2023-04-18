@@ -7,8 +7,11 @@
 - CSS / Tailwind
 - JavaScript
 
-
 ### 套件
+- GSAP
+- Swiper
+- C3.js
+- Validate.js
 - SweetAlert
 
 ### 資料庫
@@ -41,7 +44,6 @@
 
 
 ### Mockup 視覺設計稿
-![image]()
 <img src="https://user-images.githubusercontent.com/89630579/232792663-5c4488e8-ccba-49d4-a0e9-59804411594c.png" width=50% height=50%>
 
 
@@ -51,8 +53,6 @@
 
 
 <hr />
-
-## 心得
 
 
 ## 聲明
