@@ -21,12 +21,28 @@
 
 ### User Story 使用者需求
 
+#### 顧客
+- 做脈輪測驗，了解自身脈輪能量
+- 了解晶礦知識
+- 自行設計礦石手串
+- 編輯會員資料
+
+#### 店家
+- 查看訂單商品設計、製作晶礦手串
+- 管理訂單狀態
+- 查看客戶資料
+
 ### Function Map 頁面功能架構
+- 使用 Whimsical 繪製
+![image](https://user-images.githubusercontent.com/89630579/232792193-c00d3ad9-e6fc-477b-9e26-7b2fca9af3ab.png)
 
 ### Wireframe 線稿圖
+![image](https://user-images.githubusercontent.com/89630579/232792373-4ec2fbd4-638a-4f30-9349-949d99589a65.png)
+
 
 ### Mockup 視覺設計稿
-​
+![image](https://user-images.githubusercontent.com/89630579/232792663-5c4488e8-ccba-49d4-a0e9-59804411594c.png)
+
 
 <hr />
 
