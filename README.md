@@ -49,9 +49,9 @@
 
 <hr />
 
-## 頁面/功能展示
-
-
+## DEMO 帳密
+帳號：katelyn@crystal.com
+密碼：test1234
 <hr />
 
 
